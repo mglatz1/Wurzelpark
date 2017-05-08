@@ -15,18 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('about', function () {
-    $about_info = DB::table('quizweg_info')->where('id', '2')->get()[0];
-    return view('about', compact('about_info'));
-});
 
-Route::get('info/{id}', function ($id) {
-    $info = App\QuizwegInfos::getByQrCode($id);
+Route::get('info', 'InfoController@index');
 
-    if (count($info) == 0) {
-        $error_message = 'Kein Element gefunden.';
-        return view('error', compact('error_message'));
-    }
-    $info_item = $info[0];
-    return view('info.show', compact('info_item'));
-});
+Route::get('info/{id}', 'InfoController@show');
+
+
+
