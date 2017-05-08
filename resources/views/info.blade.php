@@ -2,10 +2,10 @@
 
 @section('content')
     <div class="blog-post">
-        <h3>Ein Fehler ist aufgetreten.</h3>
+        <h3>{{ $about_info->information }}</h3>
     </div>
 
     <div class="blog-post">
-        <p>{!!  $error_message !!}</p>
+        <p>{!! $about_info->infotext !!}</p>
     </div>
 @endsection

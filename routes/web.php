@@ -18,7 +18,7 @@ Route::get('/', function () {
 
 Route::get('info', 'InfoController@index');
 
-Route::get('info/{id}', 'InfoController@show');
+Route::get('info/{qrcode}', 'InfoController@show');
 
 
 
