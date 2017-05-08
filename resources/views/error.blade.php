@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Wurzelpark Arrach - Error</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -16,9 +16,14 @@
     </head>
     <body>
     <div class = "container">
-        <div class = "content">
-            <div class = "title">Willkommen beim Wurzelpark Arriach</div>
+        <div class="row">
+            <div class = "col-md-3"><h3>Ein Fehler ist aufgetreten.</h3> </div>
         </div>
+
+        <div class="row">
+            <div class = "col-md-3">{!!  $error_message !!}</div>
+        </div>
+
     </div>
     </body>
 </html>
