@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.app')
 
 @section('content')
     <div class="blog-post">
@@ -6,7 +6,7 @@
     </div>
 
     <div class="blog-post">
-        <div>{!! $info_item->infotext !!}</div>
+        <div><p>{!! $info_item->infotext !!}</p></div>
     </div>
 
     <div class="blog-post">
@@ -34,7 +34,7 @@
     @endif
     </div>
 
-    <div class="blog-post">
+    <div class="mblog-post">
     @if($info_item->guidevideopfad != null)
         <video controls>
             <source src="{{$info_item->guidevideopfad}}" type="video/mp4">Audio not available on your device</video>

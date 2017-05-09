@@ -22,3 +22,7 @@ Route::get('info/{qrcode}', 'InfoController@show');
 
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
