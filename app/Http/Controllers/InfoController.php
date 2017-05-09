@@ -9,7 +9,7 @@ class InfoController extends Controller
     public function index()
     {
         $about_info = QuizwegInfos::getInfo();
-        return view('info', compact('about_info'));
+        return view('info.info', compact('about_info'));
     }
 
     public function show($qrcode)
