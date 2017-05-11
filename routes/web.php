@@ -17,8 +17,10 @@ Route::get('/', function () {
 
 
 Route::get('info', 'InfoController@index');
-
 Route::get('info/{qrcode}', 'InfoController@show');
+
+Route::get('quiz', 'QuizController@index');
+Route::get('quiz/{qrcode}', 'QuizController@show');
 
 
 
