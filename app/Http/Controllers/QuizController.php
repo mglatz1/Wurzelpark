@@ -6,12 +6,6 @@ use App\QuizwegFrage;
 
 class QuizController extends Controller
 {
-    public function index()
-    {
-        $about_frage = QuizwegFrage::getFrage();
-        return view('quiz.show', compact('about_frage'));
-    }
-
     public function show($qrcode)
     {
         $frage = QuizwegFrage::getByQrCode($qrcode);
@@ -22,5 +16,10 @@ class QuizController extends Controller
         }
         $frage_item = $frage[0];
         return view('quiz.show', compact('frage_item'));
+    }
+
+    public function checkAnswer()
+    {
+
     }
 }

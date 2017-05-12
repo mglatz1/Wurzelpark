@@ -16,7 +16,8 @@
     </div>
 
     <div class="form-group">
-        <form>
+        <form action="/quiz/checkAnswer" method="post">
+            {{ csrf_field() }}
             <fieldset>
                 <input type="radio" id="a1" name="antwort">
                 <label for="mc"> {{$frage_item->Antwort1}} </label>
