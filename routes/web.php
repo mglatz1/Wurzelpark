@@ -21,7 +21,7 @@ Route::get('info/{qrcode}', 'InfoController@show');
 
 Route::get('quiz', 'QuizController@index');
 Route::get('quiz/{qrcode}', 'QuizController@show');
-Route::post('quiz/checkAnswer', 'QuizController@checkAnswer');
+Route::post('quiz/store', 'QuizController@store');
 
 
 Auth::routes();

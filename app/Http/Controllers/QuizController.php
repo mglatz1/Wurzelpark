@@ -18,8 +18,8 @@ class QuizController extends Controller
         return view('quiz.show', compact('frage_item'));
     }
 
-    public function checkAnswer()
+    public function store()
     {
-
+        dd(request()->all());
     }
 }
