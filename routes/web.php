@@ -11,19 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-
 Route::get('info', 'InfoController@index');
-Route::get('info/{qrcode}', 'InfoController@show');
+Route::get('info/{qrcode}', 'QuizController@show');
 
-Route::get('quiz', 'QuizController@index');
 Route::get('quiz/{qrcode}', 'QuizController@show');
 Route::post('quiz/store', 'QuizController@store');
-
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+Route::get('/', 'HomeController@index');
