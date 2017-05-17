@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="blog-post">
-        <h3>{{ $about_info->information }}</h3>
+    <div classe="col-md-5">
+        <h1>{{ $about_info->title }}</h1>
     </div>
 
-    <div class="blog-post">
-        <p>{!! $about_info->infotext !!}</p>
+    <div classe="col-md-5">
+        <p>{!! $about_info->text !!}</p>
     </div>
 @endsection
