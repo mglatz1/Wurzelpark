@@ -13,17 +13,19 @@
 
 Route::get('/', function () {
     return view('welcome');
+})->name('home');
+
+Route::get('/home', function () {
+    return view('welcome');
 });
 
+Route::get('login', 'SessionsController@create');
+Route::post('login', 'SessionsController@store');
 
-Route::get('info', 'InfoController@index');
-Route::get('info/{qrcode}', 'InfoController@show');
+Route::post('logout', 'SessionsController@destroy');
 
-Route::get('quiz', 'QuizController@index');
-Route::get('quiz/{qrcode}', 'QuizController@show');
-Route::post('quiz/checkAnswer', 'QuizController@checkAnswer');
+Route::get('register', 'RegistrationController@create');
+Route::post('register', 'RegistrationController@store');
 
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index');
+Route::get('info', 'InformationController@index');
+Route::get('info/{name}', 'InformationController@show');

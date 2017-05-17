@@ -1,44 +1,44 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="blog-post">
-        <div><h3>{{ $info_item->information }}</h3> </div>
+    <div classe="col-md-5">
+        <div><h1>{{ $info_item->title }}</h1></div>
     </div>
 
-    <div class="blog-post">
-        <div><p>{!! $info_item->infotext !!}</p></div>
+    <div classe="col-md-5">
+        <div><p>{!! $info_item->text !!}</p></div>
     </div>
 
-    <div class="blog-post">
-    @if($info_item->guidebildpfad != null)
-        <div><img src="{{$info_item->guidebildpfad}}" alt="Bild" /></div>
-    @endif
+    <div classe="col-md-5">
+        @if($info_item->url_to_image != null)
+            <div><img src="{{$info_item->url_to_image}}" alt="Bild" /></div>
+        @endif
     </div>
 
-    <div class="blog-post">
-    @if($info_item->guidepdfpfad != null)
-        <div><a href="{{$info_item->guidepdfpfad}}">PDF</a></div>
-    @endif
+    <div classe="col-md-5">
+        @if($info_item->url_to_pdf != null)
+            <div><a href="{{$info_item->url_to_pdf}}">PDF</a></div>
+        @endif
     </div>
 
-    <div class="blog-post">
-    @if($info_item->guidebildpfad2 != null)
-        <div><img src="{{$info_item->guidebildpfad2}}" alt="Bild2" /></div>
-    @endif
+    <div classe="col-md-5">
+        @if($info_item->url_to_image2 != null)
+            <div><img src="{{$info_item->url_to_image2}}" alt="Bild2" /></div>
+        @endif
     </div>
 
-    <div class="blog-post">
-    @if($info_item->guideaudiopfad != null)
-        <audio controls>
-            <source src="{{$info_item->guideaudiopfad}}" type="audio/mp3">Audio not available on your device</audio>
-    @endif
+    <div classe="col-md-5">
+        @if($info_item->url_to_audio != null)
+            <audio controls>
+                <source src="{{$info_item->url_to_audio}}" type="audio/mp3">Audio wird auf deinem Gerät nicht unterstützt.</audio>
+        @endif
     </div>
 
-    <div class="mblog-post">
-    @if($info_item->guidevideopfad != null)
-        <video controls>
-            <source src="{{$info_item->guidevideopfad}}" type="video/mp4">Audio not available on your device</video>
-    @endif
+    <div classe="col-md-5">
+        @if($info_item->url_to_video != null)
+            <video controls>
+                <source src="{{$info_item->url_to_video}}" type="video/mp4">Video wird auf deinem Gerät nicht unterstützt.</video>
+        @endif
     </div>
 
 @endsection
