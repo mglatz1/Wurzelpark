@@ -11,13 +11,21 @@
 |
 */
 
-Route::get('info', 'InfoController@index');
-Route::get('info/{qrcode}', 'QuizController@show');
+Route::get('/', function () {
+    return view('welcome');
+})->name('home');
 
-Route::get('quiz/{qrcode}', 'QuizController@show');
-Route::post('quiz/store', 'QuizController@store');
+Route::get('/home', function () {
+    return view('welcome');
+});
 
-Auth::routes();
+Route::get('login', 'SessionsController@create');
+Route::post('login', 'SessionsController@store');
 
-Route::get('/home', 'HomeController@index');
-Route::get('/', 'HomeController@index');
+Route::post('logout', 'SessionsController@destroy');
+
+Route::get('register', 'RegistrationController@create');
+Route::post('register', 'RegistrationController@store');
+
+Route::get('info', 'InformationController@index');
+Route::get('info/{name}', 'InformationController@show');
