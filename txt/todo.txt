@@ -1,0 +1,14 @@
+Info: Wenn to-do erledigt wurde danach in Klammern anmerken: erledigt am .... von ....
+
+Wichtig:
+* Einfügen eines Youtube Links bei Information (Guide) in DB
+* Quiz
+* Urkunde
+* Mail Versand der Urkunde
+* Fotoalbum
+* Fortsetzbarkeit für Quiz
+
+Eher unwichtig:
+* Live Check (AJAX), ob Benutzername schon vergeben ist
+* Seeding für Datenbank
+* Mehrsprachigkeit der gesamten Webseite
