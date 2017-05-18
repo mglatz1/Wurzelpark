@@ -4,14 +4,10 @@
 
     <div classe="col-md-5">
         <h1>Login</h1>
+        <hr>
 
         <form method="POST" action="/login">
             {{ csrf_field() }}
-
-            <div id="form-group">
-                <p>Dein <b>Benutzername</b> ist deine E-Mail Adresse und dein Geburtsjahr zusammengeschrieben. Zum Beispiel <b>max@mustermann.at1990</b>.</p>
-            </div>
-            <hr>
             <div class="form-group">
                 <label for="username">Benutzername:</label>
                 <input type="text" class="form-control" id="username" name="username" value="{{ old('username') }}" required>
@@ -25,6 +21,7 @@
                 <button type="submit" class="btn btn-primary">Login</button>
             </div>
         </form>
+        <hr>
     </div>
     @include('layouts.errors')
 @endsection

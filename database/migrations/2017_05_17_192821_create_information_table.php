@@ -24,6 +24,7 @@ class CreateInformationTable extends Migration
             $table->text('url_to_audio');
             $table->text('url_to_video');
             $table->text('url_to_pdf');
+            $table->text('url_to_youtube');
             $table->timestamps();
         });
     }
