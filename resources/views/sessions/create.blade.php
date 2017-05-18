@@ -21,7 +21,7 @@
                 <button type="submit" class="btn btn-primary">Login</button>
             </div>
         </form>
-        <hr>
+
     </div>
     @include('layouts.errors')
 @endsection
