@@ -1,7 +1,7 @@
 Info: Wenn to-do erledigt wurde danach in Klammern anmerken: erledigt am .... von ....
 
 Wichtig:
-* Einfügen eines Youtube Links bei Information (Guide) in DB
+* (erledigt am 18.05.2017 von Mathias) Einfügen eines Youtube Links bei Information (Guide) in DB
 * Quiz
 * Urkunde
 * Mail Versand der Urkunde
@@ -10,5 +10,5 @@ Wichtig:
 
 Eher unwichtig:
 * Live Check (AJAX), ob Benutzername schon vergeben ist
-* Seeding für Datenbank
+* (erledigt am 18.05.2017 von Mathias) Seeding für Datenbank für User und Information
 * Mehrsprachigkeit der gesamten Webseite
