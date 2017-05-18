@@ -4,6 +4,7 @@
 
     <div classe="col-md-5">
         <h1>Registrieren</h1>
+        <hr>
 
         <form method="POST" action="/register">
             {{ csrf_field() }}
@@ -46,11 +47,11 @@
                     <option value="it" {{ old('language')  == "it" ? "selected": "" }}>Italienisch</option>
                 </select>
             </div>
-            <hr>
             <div class="form-group">
                 <button type="submit" class="btn btn-primary">Registrieren</button>
             </div>
         </form>
+        <hr>
     </div>
     @include('layouts.errors')
 @endsection
