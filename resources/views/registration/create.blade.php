@@ -14,6 +14,11 @@
             </div>
 
             <div class="form-group">
+                <label for="username">Benutzername:</label>
+                <input type="text" class="form-control" id="username" name="username" value="{{ old('username') }}" required>
+            </div>
+
+            <div class="form-group">
                 <label for="email">E-Mail-Adresse:</label>
                 <input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}" required>
             </div>
@@ -40,10 +45,6 @@
                     <option value="en" {{ old('language')  == "en" ? "selected": "" }}>Englisch</option>
                     <option value="it" {{ old('language')  == "it" ? "selected": "" }}>Italienisch</option>
                 </select>
-            </div>
-            <hr>
-            <div id="form-group">
-                <p>Dein <b>Benutzername</b> ist deine E-Mail Adresse und dein Geburtsjahr zusammengeschrieben. Zum Beispiel <b>max@mustermann.at1990</b>.</p>
             </div>
             <hr>
             <div class="form-group">
