@@ -35,7 +35,8 @@ class QuizController extends Controller
                 "Gehe nun weiter zur nächsten Station.");
         }
         $question = $station->questions->where('number', 1)->where('level', 1)->first(); // todo: find correct question not the first
-        return view('quiz.show', compact('question'));
+        $wrong_answers = [];
+        return view('quiz.show', compact(['question', 'wrong_answers']));
     }
 
     public function store()
@@ -90,13 +91,15 @@ class QuizController extends Controller
                     "Gehe nun weiter zur nächsten Station.");
                 }
             }
-            return view('quiz.show', compact('question'))
+            $wrong_answers = [];
+            return view('quiz.show', compact('question', 'wrong_answers'))
                 ->with('success', "Diese Antwort ist richtig. Weiter geht es mit der nächsten Frage.");
         }
 
         // repeat quiz with same question
         $question = $current_question;
-        return view('quiz.show', compact('question'))
+        $wrong_answers = array_merge(unserialize(request('encoded_wrong_answers')), [request('answer')]);
+        return view('quiz.show', compact(['question', 'wrong_answers']))
             ->with('error', 'Diese Antwort ist leider falsch, versuche es noch einmal.');
     }
 }
