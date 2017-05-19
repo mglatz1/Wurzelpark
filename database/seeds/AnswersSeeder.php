@@ -34,5 +34,77 @@ class AnswersSeeder extends Seeder
             'correct' => false,
             'question_id' => 1
         ]);
+
+        DB::table('answers')->insert([
+            'text' => 'Insekten',
+            'correct' => true,
+            'question_id' => 2
+        ]);
+
+        DB::table('answers')->insert([
+            'text' => 'Füchse',
+            'correct' => false,
+            'question_id' => 2
+        ]);
+
+        DB::table('answers')->insert([
+            'text' => 'Menschen',
+            'correct' => false,
+            'question_id' => 2
+        ]);
+
+        DB::table('answers')->insert([
+            'text' => 'Beeren',
+            'correct' => false,
+            'question_id' => 2
+        ]);
+
+        DB::table('answers')->insert([
+            'text' => 'mit den Ohren',
+            'correct' => false,
+            'question_id' => 3
+        ]);
+
+        DB::table('answers')->insert([
+            'text' => 'mit dem Schwanz',
+            'correct' => true,
+            'question_id' => 3
+        ]);
+
+        DB::table('answers')->insert([
+            'text' => 'mit den Pfoten',
+            'correct' => false,
+            'question_id' => 3
+        ]);
+
+        DB::table('answers')->insert([
+            'text' => 'mit der Nase',
+            'correct' => false,
+            'question_id' => 3
+        ]);
+
+        DB::table('answers')->insert([
+            'text' => 'zwei Hörner',
+            'correct' => false,
+            'question_id' => 4
+        ]);
+
+        DB::table('answers')->insert([
+            'text' => 'zwei Fühler',
+            'correct' => true,
+            'question_id' => 4
+        ]);
+
+        DB::table('answers')->insert([
+            'text' => 'zwei Ohren',
+            'correct' => false,
+            'question_id' => 4
+        ]);
+
+        DB::table('answers')->insert([
+            'text' => 'einen Schnurrbart',
+            'correct' => false,
+            'question_id' => 4
+        ]);
     }
 }

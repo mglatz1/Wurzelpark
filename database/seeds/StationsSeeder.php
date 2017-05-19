@@ -13,7 +13,20 @@ class StationsSeeder extends Seeder
     {
         DB::table('stations')->insert([
             'url' => 'Station01',
-            'name' => 'Station01'
+            'name' => 'Station01',
+            'display_name' => 'Station 1'
+        ]);
+
+        DB::table('stations')->insert([
+            'url' => 'Station02',
+            'name' => 'Station02',
+            'display_name' => 'Station 2'
+        ]);
+
+        DB::table('stations')->insert([
+            'url' => 'Station03',
+            'name' => 'Station03',
+            'display_name' => 'Station 3'
         ]);
     }
 }
