@@ -17,7 +17,7 @@ class CreateUsersQuestionsTable extends Migration
             $table->increments('id');
             $table->integer('question_id');
             $table->integer('user_id');
-            $table->integer('number_of_tries')->default(0);
+            $table->integer('number_of_tries')->default(1);
             $table->timestamps();
         });
     }
