@@ -36,10 +36,16 @@
             <input type="hidden" name="level" id="level" value="{{ $question->level }}">
             <input type="hidden" name="station" id="station" value="{{ $question->station->id }}">
 
+            <?php $data=serialize($wrong_answers);
+                $encoded_wrong_answers=htmlentities($data);
+                echo '<input type="hidden" name="encoded_wrong_answers" value="'.$encoded_wrong_answers.'">';
+            ?>
+
             <fieldset>
                 @foreach($question->answers as $answer)
-                    <input class="form-group" type="radio" id="{{ $answer->id }}" name="answer" value="{{ $answer->id }}">
-                    <label class="form-check-label" for="{{ $answer->id }}">{{ $answer->text }}</label>
+                    <input class="form-group" type="radio" id="{{ $answer->id }}" name="answer" value="{{ $answer->id }}"
+                           @if(in_array($answer->id, $wrong_answers)) disabled @endif>
+                    <span @if(in_array($answer->id, $wrong_answers)) style="color:#cccccc" @endif><label class="form-check-label" for="{{ $answer->id }}">{{ $answer->text }}</label></span>
                     <br/>
                 @endforeach
             </fieldset>
