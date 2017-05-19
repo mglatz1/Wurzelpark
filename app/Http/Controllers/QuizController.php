@@ -31,7 +31,7 @@ class QuizController extends Controller
         if (sizeof($finished) != 0)
         {
             // todo: show questions but do not provide possibility to answer
-            return redirect()->home()->with('status', "Du hast bereits alle Fragen richtig beantwortet. ".
+            return redirect()->home()->with('success', "Du hast bereits alle Fragen richtig beantwortet. ".
                 "Gehe nun weiter zur nächsten Station.");
         }
         $question = $station->questions->where('number', 1)->where('level', 1)->first(); // todo: find correct question not the first
