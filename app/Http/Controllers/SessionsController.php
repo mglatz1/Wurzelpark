@@ -17,15 +17,13 @@ class SessionsController extends Controller
     public function destroy()
     {
         auth()->logout();
-        return redirect('/login')->with('status', "Du wurdest erfolgreich ausgeloggt.");
+        return redirect('/login')->with('success', "Du wurdest erfolgreich ausgeloggt.");
     }
 
     public function store()
     {
         if (!auth()->attempt(request(['username', 'password']))) {
-            return back()->withErrors([
-                'messege' => 'Bitte überprüfe deine Login-Daten.'
-            ]);
+            return back()->with('error', 'Bitte überprüfe deine Login-Daten.');
         }
         return redirect()->intended('/');
     }

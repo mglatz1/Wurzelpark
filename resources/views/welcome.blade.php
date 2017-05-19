@@ -4,5 +4,6 @@
     <div class = "title">Willkommen beim Wurzelpark Arriach</div>
     <hr>
     @include('layouts.errors')
-    @include('layouts.status')
+    @include('layouts.error')
+    @include('layouts.success')
 @endsection

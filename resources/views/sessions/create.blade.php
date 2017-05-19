@@ -2,7 +2,7 @@
 
 @section('content')
 
-    @include('layouts.status')
+    @include('layouts.success')
 
     <div classe="col-md-5">
         <h1>Login</h1>
@@ -19,11 +19,12 @@
                 <label for="password">Passwort:</label>
                 <input type="password" class="form-control" id="password" name="password" required>
             </div>
+            @include('layouts.error')
+
             <div class="form-group">
                 <button type="submit" class="btn btn-primary">Login</button>
             </div>
         </form>
 
     </div>
-    @include('layouts.errors')
 @endsection

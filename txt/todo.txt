@@ -2,7 +2,7 @@ Info: Wenn to-do erledigt wurde danach in Klammern anmerken: erledigt am .... vo
 
 Wichtig:
 * (erledigt am 18.05.2017 von Mathias) Einfügen eines Youtube Links bei Information (Guide) in DB
-* Login/Registrierung wird auf mobiler Ansicht nicht angezeigt
+* (erledigt am 19.05.2017 von Mathias) Login/Registrierung wird auf mobiler Ansicht nicht angezeigt
 * Quiz
 * Urkunde
 * Mail Versand der Urkunde

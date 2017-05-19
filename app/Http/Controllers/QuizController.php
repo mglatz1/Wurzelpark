@@ -19,6 +19,10 @@ class QuizController extends Controller
     {
         $station = Station::where('name', $station_name)->first();
 
+        if(sizeof($station) == 0)
+        {
+            return redirect()->home()->with('error', "Diese Station existiert nicht.");
+        }
         // check if user already finished station
         $finished = UsersStations::where('user_id', auth()->id())
             ->where('station_id', $station->id)->get();
@@ -50,8 +54,7 @@ class QuizController extends Controller
         {
             UsersQuestions::create([
                 'question_id' => $question_id,
-                'user_id' => auth()->id(),
-                'number_of_tries' => 1
+                'user_id' => auth()->id()
             ]);
         }
         else
@@ -83,15 +86,17 @@ class QuizController extends Controller
                         'station_id' => $station_id
                     ]);
 
-                    return redirect()->home()->with('status', "Du hast alle Fragen richtig beantwortet. ".
+                    return redirect()->home()->with('success', "Gratuliere! Du hast alle Fragen richtig beantwortet. ".
                     "Gehe nun weiter zur nächsten Station.");
                 }
             }
-            return view('quiz.show', compact('question'));
+            return view('quiz.show', compact('question'))
+                ->with('success', "Diese Antwort ist richtig. Weiter geht es mit der nächsten Frage.");
         }
 
         // repeat quiz with same question
-        dd("falsche antwort");
-        return back()->with('error', "Diese Antwort ist leider falsch, probiere es noch einmal.");
+        $question = $current_question;
+        return view('quiz.show', compact('question'))
+            ->with('error', 'Diese Antwort ist leider falsch, versuche es noch einmal.');
     }
 }

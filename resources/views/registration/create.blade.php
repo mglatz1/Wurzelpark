@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div classe="col-md-5">
+    <div class="form-group">
         <h1>Registrieren</h1>
         <hr>
 
