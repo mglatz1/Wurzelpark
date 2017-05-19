@@ -2,6 +2,8 @@
 
 @section('content')
 
+    @include('layouts.status')
+
     <div classe="col-md-5">
         <h1>Login</h1>
         <hr>

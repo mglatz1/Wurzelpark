@@ -17,7 +17,7 @@ class SessionsController extends Controller
     public function destroy()
     {
         auth()->logout();
-        return redirect('/login'); // todo: feedback zurückgeben ->withNews('Du wurdest erfolgreich ausgeloggt.');
+        return redirect('/login')->with('status', "Du wurdest erfolgreich ausgeloggt.");
     }
 
     public function store()
@@ -27,6 +27,6 @@ class SessionsController extends Controller
                 'messege' => 'Bitte überprüfe deine Login-Daten.'
             ]);
         }
-        return redirect()->home();
+        return redirect()->intended('/');
     }
 }
