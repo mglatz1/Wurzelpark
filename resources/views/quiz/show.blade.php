@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="blog-post">
-        <div><h3>Frage {{ $question->number }}, Level {{ $question->level }}</h3></div>
+        <div><h3>{{ $question->station->display_name }} (Frage {{ $question->number }}, Level {{ $question->level }})</h3></div>
         <hr>
     </div>
     <div class="blog-post">
@@ -30,6 +30,9 @@
             {{ csrf_field() }}
             <fieldset>
                 @foreach($question->answers as $answer)
+                    <input type="hidden" name="question_number" id="question_number" value="{{ $question->number }}">
+                    <input type="hidden" name="level" id="level" value="{{ $question->level }}">
+                    <input type="hidden" name="station" id="station" value="{{ $question->station->id }}">
                     <input class="form-group" type="radio" id="{{ $answer->id }}" name="answer" value="{{ $answer->id }}">
                     <label class="form-check-label" for="{{ $answer->id }}">{{ $answer->text }}</label>
                     <br/>

@@ -17,6 +17,7 @@ class CreateStationsTable extends Migration
             $table->increments('id');
             $table->text('url');
             $table->string('name');
+            $table->string('display_name');
             $table->timestamps();
         });
     }

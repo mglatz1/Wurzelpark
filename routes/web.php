@@ -11,15 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 
-Route::get('/home', function () {
-    return view('welcome');
-});
-
-Route::get('login', 'SessionsController@create');
+Route::get('login', 'SessionsController@create')->name('login');
 Route::post('login', 'SessionsController@store');
 
 Route::post('logout', 'SessionsController@destroy');
