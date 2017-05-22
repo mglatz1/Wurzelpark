@@ -3,11 +3,11 @@ Info: Wenn to-do erledigt wurde danach in Klammern anmerken: erledigt am .... vo
 Wichtig:
 * (erledigt am 18.05.2017 von Mathias) Einfügen eines Youtube Links bei Information (Guide) in DB
 * (erledigt am 19.05.2017 von Mathias) Login/Registrierung wird auf mobiler Ansicht nicht angezeigt
-* Quiz
+* Quiz - bereits beantwortete Fragen anzeigen
 * Urkunde
 * Mail Versand der Urkunde
 * Fotoalbum
-* Fortsetzbarkeit für Quiz
+* (erledigt am 22.05.2017 von Mathias) Fortsetzbarkeit für Quiz
 
 Eher unwichtig:
 * Live Check (AJAX), ob Benutzername schon vergeben ist
