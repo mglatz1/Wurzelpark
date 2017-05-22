@@ -3,8 +3,9 @@
 @section('content')
 
     @include('layouts.success')
+    @include('layouts.error')
 
-    <div classe="col-md-5">
+    <div class="form-group">
         <h1>Login</h1>
         <hr>
 
@@ -19,12 +20,11 @@
                 <label for="password">Passwort:</label>
                 <input type="password" class="form-control" id="password" name="password" required>
             </div>
-            @include('layouts.error')
 
             <div class="form-group">
                 <button type="submit" class="btn btn-primary">Login</button>
+                <a class="btn btn-primary" href="register">Registrieren</a>
             </div>
         </form>
-
     </div>
 @endsection
