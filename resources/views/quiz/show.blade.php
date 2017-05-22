@@ -1,13 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
+
+    @include('layouts.error')
+    @include('layouts.success')
+
+
     <div class="blog-post">
         <div><h3>{{ $question->station->display_name }} (Frage {{ $question->number }}, Level {{ $question->level }})</h3></div>
         <hr>
     </div>
-
-    @include('layouts.error')
-    @include('layouts.success')
 
     <div class="blog-post">
         <div><h4>{{ $question->text }}</h4></div>

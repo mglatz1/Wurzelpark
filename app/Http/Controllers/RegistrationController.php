@@ -50,6 +50,6 @@ class RegistrationController extends Controller
         // login user
         auth()->login($user);
 
-        return redirect()->home()->with('success', 'Du wurdest erfolgreich registriert.');
+        return redirect()->intended('/')->with('success', 'Du wurdest erfolgreich registriert.');
     }
 }
