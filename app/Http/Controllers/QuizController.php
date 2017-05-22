@@ -30,13 +30,40 @@ class QuizController extends Controller
         // station has already finished station
         if (sizeof($finished) != 0)
         {
-            // todo: show questions but do not provide possibility to answer
+            // all questions of this station already answered
+            $wrong_answers = [];
             return redirect()->home()->with('success', "Du hast bereits alle Fragen richtig beantwortet. ".
-                "Gehe nun weiter zur nächsten Station.");
+                    "Gehe nun weiter zur nächsten Station.");
         }
-        $question = $station->questions->where('number', 1)->where('level', 1)->first(); // todo: find correct question not the first
+
         $wrong_answers = [];
-        return view('quiz.show', compact(['question', 'wrong_answers']));
+        $users_questions = UsersQuestions::where('user_id', auth()->id())->first();
+
+        if (sizeof($users_questions) == 0) {
+            $question = $station->questions->where('number', 1)->where('level', 1)->first(); // todo: find correct question not the first
+            $wrong_answers = [];
+            return view('quiz.show', compact(['question', 'wrong_answers']));
+        }
+
+        $max_level_count = $station->questions->max('level');
+
+        // go through all levels
+        for ($level = 1; $level <= $max_level_count; $level++)
+        {
+            $questions_of_levels = $station->questions->where('level', $level);
+            $max_number_count_of_level = $questions_of_levels->max('number');
+
+            // go through all questions of a level
+            for ($number = 1; $number <= $max_number_count_of_level; $number++) {
+                $question = $questions_of_levels->where('number', $number)->first();
+
+                // check all questions if they are answered. if no ==> show the question
+                if ($users_questions->where('id', $question->id)->count() == 0)
+                {
+                    return view('quiz.show', compact(['question', 'wrong_answers']));
+                }
+            }
+        }
     }
 
     public function store()
@@ -51,18 +78,6 @@ class QuizController extends Controller
         $answer_id = Answer::where('question_id', $question_id)->where('correct', true)->first()->id;
         $users_questions = UsersQuestions::where('question_id', $question_id)->where('user_id', auth()->id())->first();
 
-        if (sizeof($users_questions) == 0)
-        {
-            UsersQuestions::create([
-                'question_id' => $question_id,
-                'user_id' => auth()->id()
-            ]);
-        }
-        else
-        {
-            $users_questions->number_of_tries++;
-            $users_questions->save();
-        }
 
         // redirect
         if (request('answer') == $answer_id)
@@ -87,11 +102,24 @@ class QuizController extends Controller
                         'station_id' => $station_id
                     ]);
 
+                    UsersQuestions::create([
+                        'question_id' => $question_id,
+                        'user_id' => auth()->id(),
+                        'number_of_tries' => sizeof(array_merge(unserialize(request('encoded_wrong_answers')))) + 1
+                    ]);
+
                     return redirect()->home()->with('success', "Gratuliere! Du hast alle Fragen richtig beantwortet. ".
                     "Gehe nun weiter zur nächsten Station.");
                 }
             }
             $wrong_answers = [];
+
+            UsersQuestions::create([
+                'question_id' => $question_id,
+                'user_id' => auth()->id(),
+                'number_of_tries' => sizeof(array_merge(unserialize(request('encoded_wrong_answers')))) + 1
+            ]);
+
             return view('quiz.show', compact('question', 'wrong_answers'))
                 ->with('success', "Diese Antwort ist richtig. Weiter geht es mit der nächsten Frage.");
         }
