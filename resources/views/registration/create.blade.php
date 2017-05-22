@@ -8,12 +8,12 @@
         <h1>Registrieren</h1>
         <hr>
 
-        <div class="form-gropu">
+        <div class="form-group">
             <p>Falls du schon einen Account hast, kannst du dich hier einloggen:</p>
             <a class="btn btn-primary" href="login">Login</a>
         </div>
         <hr>
-        <div class="form-gropu">
+        <div class="form-group">
 
             <form method="POST" action="/register">
                 {{ csrf_field() }}
@@ -50,7 +50,7 @@
 
                 <div class="form-group">
                     <label for="language">Sprache:</label>
-                    <select id="language" class="form-control" name="language" required autofocus>
+                    <select id="language" class="form-control" name="language" required>
                         <option value="de" {{ old('language')  == "de" ? "selected": "" }}>Deutsch</option>
                         <option value="en" {{ old('language')  == "en" ? "selected": "" }}>Englisch</option>
                         <option value="it" {{ old('language')  == "it" ? "selected": "" }}>Italienisch</option>
