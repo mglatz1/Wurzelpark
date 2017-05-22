@@ -56,6 +56,12 @@
                         <option value="it" {{ old('language')  == "it" ? "selected": "" }}>Italienisch</option>
                     </select>
                 </div>
+
+                <div class="form-group">
+                    <p>Alle von dir eingegebenen Daten werden ausschließlich für die interne Verarbeitung des Quizweges
+                        verwendet. Die Daten werden nicht an Dritte weiter gegeben.</p>
+                    <p>Nach der Registrierung kannst das Quiz jederzeit unterbrechen und zu einem späteren Zeitpunkt fortsetzen.</p>
+                </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary">Registrieren</button>
                 </div>
