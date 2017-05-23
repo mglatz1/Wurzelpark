@@ -21,7 +21,7 @@ class QuizController extends Controller
 
         if(sizeof($station) == 0)
         {
-            return redirect()->home()->with('error', "Diese Station existiert nicht.");
+            return redirect()->home()->with('error', config("constants.".auth()->user()->language.".no_station"));
         }
 
         // check if user has already finished this station
@@ -103,7 +103,7 @@ class QuizController extends Controller
             $question = $current_question;
             $wrong_answers = array_merge(unserialize(request('encoded_wrong_answers')), [request('answer')]);
             return view('quiz.show', compact(['question', 'wrong_answers']))
-                ->with('error', 'Diese Antwort ist leider falsch, versuche es noch einmal.');
+                ->with('error', 'Diese Antwort ist leider falsch. Versuche es noch einmal.');
         }
         // fetch new question
         $question = Question::where('station_id', $station_id)->get()
