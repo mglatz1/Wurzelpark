@@ -53,7 +53,7 @@
                 <input type="hidden" name="level" id="level" value="{{ $question->level }}">
                 <input type="hidden" name="station" id="station" value="{{ $question->station->id }}">
                 <div class="btn navbar-btn @if ($hide_previous_button) disabled @endif">
-                    <input type="submit" value="Zurück" @if ($hide_previous_button) disabled @endif>
+                    <input type="submit" value="Vorige Frage" @if ($hide_previous_button) disabled @endif>
                 </div>
             </form>
 
@@ -63,7 +63,7 @@
                 <input type="hidden" name="level" id="level" value="{{ $question->level }}">
                 <input type="hidden" name="station" id="station" value="{{ $question->station->id }}">
                 <div class="btn navbar-btn @if ($hide_next_button) disabled @endif">
-                    <input type="submit" value="Weiter" @if ($hide_next_button) disabled @endif>
+                    <input type="submit" value="Nächste Frage" @if ($hide_next_button) disabled @endif>
                 </div>
             </form>
         </div>
