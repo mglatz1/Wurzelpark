@@ -39,8 +39,19 @@ class QuizController extends Controller
             {
                 $hide_next_button = true;
             }
-            return view('quiz.show-finalized', compact(['question'], ['hide_previous_button'], ['hide_next_button'] ))
-                ->with('success', "Du hast bereits alle Fragen dieser Station richtig beantwortet.");
+            $number_stations = Station::count();
+            $number_stations_finished = UsersStations::where('user_id', auth()->id())->count();
+
+            if ($number_stations_finished < $number_stations)
+            {
+                return view('quiz.show-finalized', compact(['question'], ['hide_previous_button'], ['hide_next_button'] ))
+                    ->with('success', "Gratuliere! Du hast alle Fragen richtig beantwortet.".
+                        " Insgesamt hast du ".$number_stations_finished." von ". $number_stations.
+                        " Stationen geschafft.");
+            }
+            return view('quiz.show-finalized', compact(['question'], ['hide_previous_button'], ['hide_next_button']))
+                ->with('success', "Gratuliere! Du hast alle Fragen richtig beantwortet und alle ".
+                "Stationen geschafft.");
         }
 
         $users_questions = UsersQuestions::where('user_id', auth()->id())->first();
@@ -120,8 +131,32 @@ class QuizController extends Controller
                     'number_of_tries' => sizeof(array_merge(unserialize(request('encoded_wrong_answers')))) + 1
                 ]);
 
-                return redirect()->home()->with('success', "Gratuliere! Du hast alle Fragen richtig beantwortet. ".
-                "Gehe nun weiter zur nächsten Station.");
+                $number_stations = Station::count();
+                $number_stations_finished = UsersStations::where('user_id', auth()->id())->count();
+                $question = $current_question;
+
+                $hide_next_button = false;
+                $hide_previous_button = false;
+                if (sizeof($this->getPreviousQuestion($question->station_id, $question->level, $question->number)) == 0)
+                {
+                    $hide_previous_button = true;
+                }
+
+                if (sizeof($this->getNextQuestion($station_id, $question->level, $question->number)) == 0)
+                {
+                    $hide_next_button = true;
+                }
+
+                if ($number_stations_finished < $number_stations)
+                {
+                    return view('quiz.show-finalized', compact(['question'], ['hide_previous_button'], ['hide_next_button']))
+                        ->with('success', "Gratuliere! Du hast alle Fragen richtig beantwortet.".
+                        " Insgesamt hast du bereits ".$number_stations_finished." von ". $number_stations.
+                        " Stationen geschafft.");
+                }
+                return view('quiz.show-finalized', compact(['question'], ['hide_previous_button'], ['hide_next_button']))
+                    ->with('success', "Gratuliere! Du hast alle Fragen richtig beantwortet und ".
+                    "alle Stationen geschafft.");
             }
         }
         $wrong_answers = [];
@@ -150,8 +185,18 @@ class QuizController extends Controller
         {
             $hide_next_button = true;
         }
-        return view('quiz.show-finalized', compact(['question'], ['hide_previous_button'], ['hide_next_button'] ))
-            ->with('success', "Du hast bereits alle Fragen dieser Station richtig beantwortet.");
+
+        $number_stations = Station::count();
+        $number_stations_finished = UsersStations::where('user_id', auth()->id())->count();
+
+        if ($number_stations_finished < $number_stations)
+        {
+            return view('quiz.show-finalized', compact(['question'], ['hide_previous_button'], ['hide_next_button']))
+                ->with('success', "Du hast bereits alle Fragen dieser Station richtig beantwortet. Insgesamt hast du bereits " .
+                    $number_stations_finished . " von " . $number_stations . " Stationen geschafft.");
+        }
+        return view('quiz.show-finalized', compact(['question'], ['hide_previous_button'], ['hide_next_button']))
+            ->with('success', "Gratuliere! Du hast alle Fragen richtig beantwortet und alle Stationen geschafft.");
     }
 
     public function show_previous_finalized()
@@ -168,8 +213,18 @@ class QuizController extends Controller
         {
             $hide_previous_button = true;
         }
-        return view('quiz.show-finalized', compact(['question'], ['hide_previous_button'], ['hide_next_button'] ))
-            ->with('success', "Du hast bereits alle Fragen dieser Station richtig beantwortet.");
+
+        $number_stations = Station::count();
+        $number_stations_finished = UsersStations::where('user_id', auth()->id())->count();
+
+        if ($number_stations_finished < $number_stations)
+        {
+            return view('quiz.show-finalized', compact(['question'], ['hide_previous_button'], ['hide_next_button']))
+                ->with('success', "Du hast bereits alle Fragen dieser Station richtig beantwortet. Insgesamt hast du bereits " .
+                    $number_stations_finished . " von " . $number_stations . " Stationen geschafft.");
+        }
+        return view('quiz.show-finalized', compact(['question'], ['hide_previous_button'], ['hide_next_button']))
+            ->with('success', "Gratuliere! Du hast alle Fragen richtig beantwortet und alle Stationen geschafft.");
     }
 
     private function getNextQuestion($station_id, $level, $number)

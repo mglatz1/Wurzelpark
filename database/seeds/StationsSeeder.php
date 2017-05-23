@@ -22,11 +22,5 @@ class StationsSeeder extends Seeder
             'name' => 'Station02',
             'display_name' => 'Station 2'
         ]);
-
-        DB::table('stations')->insert([
-            'url' => 'Station03',
-            'name' => 'Station03',
-            'display_name' => 'Station 3'
-        ]);
     }
 }
