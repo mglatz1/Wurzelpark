@@ -31,9 +31,16 @@ class QuizController extends Controller
         // user already finished this station
         if (sizeof($finished) != 0)
         {
-            // all questions of this station already answered
-            return redirect()->home()->with('success', "Du hast bereits alle Fragen richtig beantwortet. ".
-                    "Gehe nun weiter zur nächsten Station.");
+            $question = $station->questions->where('number', 1)->where('level', 1)->first();
+            $hide_next_button = false;
+            $hide_previous_button = true;
+
+            if (sizeof($this->getNextQuestion($station->id, 1, 1)) == 0)
+            {
+                $hide_next_button = true;
+            }
+            return view('quiz.show-finalized', compact(['question'], ['hide_previous_button'], ['hide_next_button'] ))
+                ->with('success', "Du hast bereits alle Fragen dieser Station richtig beantwortet.");
         }
 
         $users_questions = UsersQuestions::where('user_id', auth()->id())->first();
@@ -70,7 +77,7 @@ class QuizController extends Controller
     public function store()
     {
         // check correctness of answer
-        $station_id = Station::find(request('station'))->id;
+        $station_id = request('station');
         $current_question = Question::where('station_id', $station_id)->
             where('number', request('question_number'))->
             where('level', request('level'))->first();
@@ -127,5 +134,89 @@ class QuizController extends Controller
 
         return view('quiz.show', compact('question', 'wrong_answers'))
             ->with('success', "Diese Antwort ist richtig. Weiter geht es mit der nächsten Frage.");
+    }
+
+    public function show_next_finalized()
+    {
+        $hide_next_button = false;
+        $hide_previous_button = false;
+        $station_id = request('station');
+        $current_level = request('level');
+        $current_number = request('question_number');
+
+        $question = $this->getNextQuestion($station_id, $current_level, $current_number);
+
+        if (sizeof($this->getNextQuestion($station_id, $question->level, $question->number)) == 0)
+        {
+            $hide_next_button = true;
+        }
+        return view('quiz.show-finalized', compact(['question'], ['hide_previous_button'], ['hide_next_button'] ))
+            ->with('success', "Du hast bereits alle Fragen dieser Station richtig beantwortet.");
+    }
+
+    public function show_previous_finalized()
+    {
+        $hide_next_button = false;
+        $hide_previous_button = false;
+        $station_id = request('station');
+        $current_level = request('level');
+        $current_number = request('question_number');
+
+        $question = $this->getPreviousQuestion($station_id, $current_level, $current_number);
+
+        if (sizeof($this->getPreviousQuestion($station_id, $question->level, $question->number)) == 0)
+        {
+            $hide_previous_button = true;
+        }
+        return view('quiz.show-finalized', compact(['question'], ['hide_previous_button'], ['hide_next_button'] ))
+            ->with('success', "Du hast bereits alle Fragen dieser Station richtig beantwortet.");
+    }
+
+    private function getNextQuestion($station_id, $level, $number)
+    {
+        $station = Station::find($station_id);
+
+        $next_possible_question = $station->questions()
+            ->where('level', $level)
+            ->where('number', $number + 1)->first();
+
+        if (sizeof($next_possible_question) == 0)
+        {
+            $next_possible_question = $station->questions()
+                ->where('level', $level + 1)
+                ->where('number', 1)->first();
+
+            if (sizeof($next_possible_question) == 0)
+            {
+                return null;
+            }
+        }
+        return $next_possible_question;
+    }
+
+    private function getPreviousQuestion($station_id, $level, $number)
+    {
+        $station = Station::find($station_id);
+
+        $previous_possible_question = $station->questions
+            ->where('level', $level)
+            ->where('number', $number - 1)->first();
+
+        if (sizeof($previous_possible_question) == 0)
+        {
+            $previous_possible_questions = $station->questions
+                ->where('level', $level - 1);
+
+            $size = sizeof($previous_possible_questions);
+
+            if ($size == 0)
+            {
+                return null;
+            }
+
+            $max_number_count = $previous_possible_questions->max('number');
+            return $previous_possible_questions->where('number', $max_number_count)->first();
+        }
+        return $previous_possible_question;
     }
 }

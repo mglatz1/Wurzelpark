@@ -18,3 +18,7 @@
     /*100% { opacity: 0; }*/
     /*0% { opacity: 1; }*/
 /*}*/
+
+.non-selectable-answer {
+    color: #cccccc;
+}
