@@ -5,7 +5,6 @@
     @include('layouts.error')
     @include('layouts.success')
 
-
     <div class="container">
         <div><h3>{{ $question->station->display_name }} (Frage {{ $question->number }}, Level {{ $question->level }})</h3></div>
         <hr>

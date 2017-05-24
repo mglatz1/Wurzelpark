@@ -17,11 +17,12 @@ class QuizController extends Controller
 
     public function show($station_name)
     {
+        $constants = "constants.".auth()->user()->language;
         $station = Station::where('name', $station_name)->first();
 
         if(sizeof($station) == 0)
         {
-            return redirect()->home()->with('error', config("constants.".auth()->user()->language.".no_station"));
+            return redirect()->home()->with('error', config($constants.".error_no_station"));
         }
 
         // check if user has already finished this station
@@ -45,20 +46,20 @@ class QuizController extends Controller
             if ($number_stations_finished < $number_stations)
             {
                 return view('quiz.show-finalized', compact(['question'], ['hide_previous_button'], ['hide_next_button'] ))
-                    ->with('success', "Gratuliere! Du hast alle Fragen richtig beantwortet.".
-                        " Insgesamt hast du ".$number_stations_finished." von ". $number_stations.
-                        " Stationen geschafft.");
+                    ->with('success', sprintf(config($constants.".status_all_questions_finished_but_stations_left"), $number_stations_finished, $number_stations));
             }
             return view('quiz.show-finalized', compact(['question'], ['hide_previous_button'], ['hide_next_button']))
-                ->with('success', "Gratuliere! Du hast alle Fragen richtig beantwortet und alle ".
-                "Stationen geschafft.");
+                ->with('success', config($constants.".status_all_questions_all_stations_finished"));
         }
 
-        $users_questions = UsersQuestions::where('user_id', auth()->id())->first();
+        // check for answers at this station and user - if nothing found: start station from scratch
+        $users_questions = UsersQuestions::where('user_id', auth()->id())
+            ->join('questions', 'questions.id', '=', 'users_questions.question_id')
+            ->join('stations', 'stations.id', '=', 'questions.station_id')
+            ->where('station_id', $station->id)->count();
         $wrong_answers = [];
 
-        // no answers for this station and user found - start quiz from scratch
-        if (sizeof($users_questions) == 0)
+        if ($users_questions == 0)
         {
             $question = $station->questions->where('number', 1)->where('level', 1)->first();
             return view('quiz.show', compact(['question', 'wrong_answers']));
@@ -83,10 +84,14 @@ class QuizController extends Controller
                 }
             }
         }
+
+        // should never be reached
     }
 
     public function store()
     {
+        $constants = "constants.".auth()->user()->language;
+
         // check correctness of answer
         $station_id = request('station');
         $current_question = Question::where('station_id', $station_id)->
@@ -103,7 +108,7 @@ class QuizController extends Controller
             $question = $current_question;
             $wrong_answers = array_merge(unserialize(request('encoded_wrong_answers')), [request('answer')]);
             return view('quiz.show', compact(['question', 'wrong_answers']))
-                ->with('error', 'Diese Antwort ist leider falsch. Versuche es noch einmal.');
+                ->with('error', config($constants.".error_wrong_answer"));
         }
         // fetch new question
         $question = Question::where('station_id', $station_id)->get()
@@ -150,13 +155,10 @@ class QuizController extends Controller
                 if ($number_stations_finished < $number_stations)
                 {
                     return view('quiz.show-finalized', compact(['question'], ['hide_previous_button'], ['hide_next_button']))
-                        ->with('success', "Gratuliere! Du hast alle Fragen richtig beantwortet.".
-                        " Insgesamt hast du bereits ".$number_stations_finished." von ". $number_stations.
-                        " Stationen geschafft.");
+                        ->with('success', sprintf(config($constants.".status_all_questions_finished_but_stations_left"), $number_stations_finished, $number_stations));
                 }
                 return view('quiz.show-finalized', compact(['question'], ['hide_previous_button'], ['hide_next_button']))
-                    ->with('success', "Gratuliere! Du hast alle Fragen richtig beantwortet und ".
-                    "alle Stationen geschafft.");
+                    ->with('success', config($constants.".status_all_questions_all_stations_finished"));
             }
         }
         $wrong_answers = [];
@@ -168,11 +170,13 @@ class QuizController extends Controller
         ]);
 
         return view('quiz.show', compact('question', 'wrong_answers'))
-            ->with('success', "Diese Antwort ist richtig. Weiter geht es mit der nächsten Frage.");
+            ->with('success', config($constants.".success_correct_answer"));
     }
 
     public function show_next_finalized()
     {
+        $constants = "constants.".auth()->user()->language;
+
         $hide_next_button = false;
         $hide_previous_button = false;
         $station_id = request('station');
@@ -192,15 +196,16 @@ class QuizController extends Controller
         if ($number_stations_finished < $number_stations)
         {
             return view('quiz.show-finalized', compact(['question'], ['hide_previous_button'], ['hide_next_button']))
-                ->with('success', "Du hast bereits alle Fragen dieser Station richtig beantwortet. Insgesamt hast du bereits " .
-                    $number_stations_finished . " von " . $number_stations . " Stationen geschafft.");
+                ->with('success', sprintf(config($constants.".status_all_questions_finished_but_stations_left"), $number_stations_finished, $number_stations));
         }
         return view('quiz.show-finalized', compact(['question'], ['hide_previous_button'], ['hide_next_button']))
-            ->with('success', "Gratuliere! Du hast alle Fragen richtig beantwortet und alle Stationen geschafft.");
+            ->with('success', config($constants.".status_all_questions_all_stations_finished"));
     }
 
     public function show_previous_finalized()
     {
+        $constants = "constants.".auth()->user()->language;
+
         $hide_next_button = false;
         $hide_previous_button = false;
         $station_id = request('station');
@@ -220,11 +225,10 @@ class QuizController extends Controller
         if ($number_stations_finished < $number_stations)
         {
             return view('quiz.show-finalized', compact(['question'], ['hide_previous_button'], ['hide_next_button']))
-                ->with('success', "Du hast bereits alle Fragen dieser Station richtig beantwortet. Insgesamt hast du bereits " .
-                    $number_stations_finished . " von " . $number_stations . " Stationen geschafft.");
+                ->with('success', sprintf(config($constants.".status_all_questions_finished_but_stations_left"), $number_stations_finished, $number_stations));
         }
         return view('quiz.show-finalized', compact(['question'], ['hide_previous_button'], ['hide_next_button']))
-            ->with('success', "Gratuliere! Du hast alle Fragen richtig beantwortet und alle Stationen geschafft.");
+            ->with('success', config($constants.".status_all_questions_all_stations_finished"));
     }
 
     private function getNextQuestion($station_id, $level, $number)

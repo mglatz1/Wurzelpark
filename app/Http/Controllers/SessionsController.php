@@ -16,15 +16,18 @@ class SessionsController extends Controller
 
     public function destroy()
     {
+        $constants = "constants.".auth()->user()->language;
         auth()->logout();
-        return redirect('/login')->with('success', "Du wurdest erfolgreich ausgeloggt.");
+        return redirect('/login')->with('success', config($constants.".success_logout"));
     }
 
     public function store()
     {
+        $constants = "constants.".auth()->user()->language;
+
         if (!auth()->attempt(request(['username', 'password']))) {
-            return back()->with('error', 'Bitte überprüfe deine Login-Daten.');
+            return back()->with('error', config($constants.".error_login"));
         }
-        return redirect()->intended('/')->with('success', "Login erfolgreich.");
+        return redirect()->intended('/')->with('success', config($constants.".success_login"));
     }
 }
