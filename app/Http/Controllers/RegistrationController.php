@@ -19,6 +19,8 @@ class RegistrationController extends Controller
 
     public function store()
     {
+        $constants = "constants.".auth()->user()->language;
+
         // validate input
         $this->validate(request(), [
             'name' => 'required|string|max:255',
@@ -33,7 +35,7 @@ class RegistrationController extends Controller
         if($username_validation->fails())
         {
             return redirect('/register')
-                ->withErrors("Registrierung fehlgeschlagen. Dieser Benutzername wird bereits verwendet, bitte wähle einen anderen.")
+                ->withErrors(config($constants.".error_registration"))
                 ->withInput();
         }
 
@@ -50,6 +52,6 @@ class RegistrationController extends Controller
         // login user
         auth()->login($user);
 
-        return redirect()->intended('/')->with('success', 'Du wurdest erfolgreich registriert.');
+        return redirect()->intended('/')->with('success', config($constants.".success_registration"));
     }
 }
