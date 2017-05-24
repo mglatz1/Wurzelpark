@@ -50,6 +50,26 @@ class QuestionsSeeder extends Seeder
             'language' => "de",
             'station_id' => "2",
         ]);
+
+        DB::table('questions')->insert([
+            'text' => 'Welche Farbe hat die Rinde der Fichte?',
+            'url_to_image' => 'http://www.wurzelpark.at/App/Bilder/Station03/Rinde Fichte.jpg',
+            'url_to_audio' => 'http://www.wurzelpark.at/App/Audio/Station03/Welche Farbe hat die Rinde der Fichte.mp3',
+            'number' => 1,
+            'level' => 1,
+            'language' => "de",
+            'station_id' => "3",
+        ]);
+
+        DB::table('questions')->insert([
+            'text' => 'Findet man Moose auf Steinen?',
+            'url_to_image' => 'http://www.wurzelpark.at/App/Bilder/Station03/Moos.jpg',
+            'url_to_audio' => 'http://www.wurzelpark.at/App/Audio/Station03/Findet man Moose auf Steinen.mp3',
+            'number' => 2,
+            'level' => 1,
+            'language' => "de",
+            'station_id' => "3",
+        ]);
     }
 }
 

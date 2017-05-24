@@ -106,5 +106,53 @@ class AnswersSeeder extends Seeder
             'correct' => false,
             'question_id' => 4
         ]);
+
+        DB::table('answers')->insert([
+            'text' => 'Braun',
+            'correct' => true,
+            'question_id' => 5
+        ]);
+
+        DB::table('answers')->insert([
+            'text' => 'Rot',
+            'correct' => false,
+            'question_id' => 5
+        ]);
+
+        DB::table('answers')->insert([
+            'text' => 'Grün',
+            'correct' => false,
+            'question_id' => 5
+        ]);
+
+        DB::table('answers')->insert([
+            'text' => 'Grau',
+            'correct' => false,
+            'question_id' => 5
+        ]);
+
+        DB::table('answers')->insert([
+            'text' => 'Nein',
+            'correct' => false,
+            'question_id' => 6
+        ]);
+
+        DB::table('answers')->insert([
+            'text' => 'Wenn es regnet',
+            'correct' => false,
+            'question_id' => 6
+        ]);
+
+        DB::table('answers')->insert([
+            'text' => 'Ja',
+            'correct' => true,
+            'question_id' => 6
+        ]);
+
+        DB::table('answers')->insert([
+            'text' => 'Wenn es friert',
+            'correct' => false,
+            'question_id' => 6
+        ]);
     }
 }
