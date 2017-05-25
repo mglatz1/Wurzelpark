@@ -42,4 +42,13 @@ return [
     "message_info_registration2" => "Nach der Registrierung kannst das Quiz jederzeit unterbrechen und zu einem".
         " späteren Zeitpunkt fortsetzen.",
     "message_welcome" => "Willkommen beim Wurzelpark Arriach!",
+    "message_finish_quiz" => "Quizweg beenden",
+    "success_quiz_already_finished" => "Du hast das Quiz bereits erfolgreich beendet. Um den Quizweg erneut zu".
+        " absolvieren, musst du dich neu registrieren.",
+    "success_quiz_finished" => "Du hast den Quizweg erfolgreich beendet und erhälst in Kürze deine Quiz-Urkunde ".
+        "per E-Mail.",
+    "message_quiz_finish_info1" => "Hier kannst du den Quizweg beenden. Nach dem Beenden bekommst du deine Urkunde".
+        " für das Quiz an die von dir angegebene E-Mail-Adresse zugestellt.",
+    "message_quiz_finish_info2" => "Beachte, dass es nach dem Beenden NICHT mehr möglich ist, weitere Fragen zu ".
+        "beantworten. Du kannst dich aber neu registrieren und dann den Quizweg von vorne starten.",
 ];

@@ -39,6 +39,7 @@
                         <li><a href="/login">{{ __("messages.message_login") }}</a></li>
                         <li><a href="/register">{{ __("messages.message_register") }}</a></li>
                     @else
+                        <li><a href="/finish-quiz">{{ __("messages.message_finish_quiz") }}</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 {{ Auth::user()->name }} <span class="caret"></span>
