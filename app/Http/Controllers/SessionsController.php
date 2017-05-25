@@ -16,18 +16,16 @@ class SessionsController extends Controller
 
     public function destroy()
     {
-        $constants = "constants.".auth()->user()->language;
+        config(['app.locale' => auth()->user()->language]);
         auth()->logout();
-        return redirect('/login')->with('success', config($constants.".success_logout"));
+        return redirect('/login')->with('success', __("messages.success_logout"));
     }
 
     public function store()
     {
-        $constants = "constants.".auth()->user()->language;
-
         if (!auth()->attempt(request(['username', 'password']))) {
-            return back()->with('error', config($constants.".error_login"));
+            return back()->with('error', __("messages.error_login"));
         }
-        return redirect()->intended('/')->with('success', config($constants.".success_login"));
+        return redirect()->intended('/')->with('success', __("messages.success_login"));
     }
 }
