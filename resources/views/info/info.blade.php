@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-    <div classe="col-md-5">
+    <div class="container">
         <h1>{{ $about_info->title }}</h1>
     </div>
     <hr>
 
-    <div classe="col-md-5">
+    <div class="container">
         <p>{!! $about_info->text !!}</p>
     </div>
 @endsection
