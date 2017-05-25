@@ -286,6 +286,7 @@ class QuizController extends Controller
         // give opportunity to send certificate to more than one person
         // https://bootsnipp.com/snippets/featured/dynamic-form-fields-add-amp-remove
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
+        $phpWord = new \PhpOffice\PhpWord\PhpWord();
 
         // edit certificate
 
