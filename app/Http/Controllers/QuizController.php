@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Question;
+use App\User;
 use App\UsersQuestions;
 use App\UsersStations;
 use App\Station;
@@ -273,5 +274,26 @@ class QuizController extends Controller
             return $previous_possible_questions->where('number', $max_number_count)->first();
         }
         return $previous_possible_question;
+    }
+
+    public function finish()
+    {
+        // set user as finished
+        $user = User::find(auth()->id());
+        $user->finished = true;
+        $user->save();
+
+        // give opportunity to send certificate to more than one person
+        // https://bootsnipp.com/snippets/featured/dynamic-form-fields-add-amp-remove
+
+
+        // edit certificate
+
+        // send email with certificate
+
+        // logout the user
+        config(['app.locale' => auth()->user()->language]);
+        auth()->logout();
+        return redirect()->route('register')->with('success', __('messages.success_quiz_finished'));
     }
 }

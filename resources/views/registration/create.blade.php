@@ -2,6 +2,9 @@
 
 @section('content')
 
+    @include('layouts.success')
+    @include('layouts.error')
+
     @include('layouts.errors')
 
     <div class="form-group">

@@ -5,7 +5,7 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('login', 'SessionsController@create')->name('login');
 Route::post('login', 'SessionsController@store');
 
-Route::post('logout', 'SessionsController@destroy');
+Route::post('logout', 'SessionsController@destroy')->name('logout');
 
 Route::get('register', 'RegistrationController@create')->name('register');
 Route::post('register', 'RegistrationController@store');
@@ -18,3 +18,9 @@ Route::post('quiz/{name}', 'QuizController@store');
 
 Route::post('quiz/{name}/previous', 'QuizController@show_previous_finalized');
 Route::post('quiz/{name}/next', 'QuizController@show_next_finalized');
+
+Route::get('finish-quiz', function() {
+    return view('quiz.finish');
+});
+Route::post('finish-quiz', 'QuizController@finish');
+
