@@ -36,8 +36,8 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     @if (Auth::guest())
-                        <li><a href="/login">Einloggen</a></li>
-                        <li><a href="/register">Registrieren</a></li>
+                        <li><a href="/login">{{ __("messages.message_login") }}</a></li>
+                        <li><a href="/register">{{ __("messages.message_register") }}</a></li>
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -47,7 +47,7 @@
                             <ul class="dropdown-menu" role="menu">
                                 <li>
                                     <a href="/logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                        Logout
+                                        {{ __("messages.message_logout") }}
                                     </a>
 
                                     <form id="logout-form" action="/logout" method="POST" style="display: none;">
@@ -68,7 +68,7 @@
 
 <div class="container">
     <p>
-        <a href="#">Nach oben</a>
+        <a href="#">{{ __("messages.message_top") }}</a>
     </p>
 </div>
 

@@ -14,7 +14,7 @@
     <div class="container">
         @if($info_item->url_to_image != null)
             <hr>
-            <div><img src="{{$info_item->url_to_image}}" alt="Bild" /></div>
+            <div><img src="{{$info_item->url_to_image}}" alt="{{$info_item->url_to_image}}" /></div>
         @endif
     </div>
 
@@ -27,7 +27,7 @@
 
     <div class="container">
         @if($info_item->url_to_image2 != null)
-            <div><img src="{{$info_item->url_to_image2}}" alt="Bild2" /></div>
+            <div><img src="{{$info_item->url_to_image2}}" alt="{{$info_item->url_to_image2}}" /></div>
         @endif
     </div>
 
@@ -35,7 +35,7 @@
         @if($info_item->url_to_audio != null)
             <hr>
             <audio controls>
-                <source src="{{$info_item->url_to_audio}}" type="audio/mp3">Audio wird auf deinem Gerät nicht unterstützt.</audio>
+                <source src="{{$info_item->url_to_audio}}" type="audio/mp3">{{ __("messages.error_audio_not_supported") }}</audio>
         @endif
     </div>
 
@@ -43,7 +43,7 @@
         @if($info_item->url_to_video != null)
             <hr>
             <video controls>
-                <source src="{{$info_item->url_to_video}}" type="video/mp4">Video wird auf deinem Gerät nicht unterstützt.</video>
+                <source src="{{$info_item->url_to_video}}" type="video/mp4">{{ __("messages.error_video_not_supported") }}</video>
         @endif
     </div>
 
@@ -53,6 +53,5 @@
             <div><a href="{{$info_item->url_to_youtube}}">Youtube</a></div>
         @endif
     </div>
-
     <hr>
 @endsection

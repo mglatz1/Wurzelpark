@@ -6,7 +6,7 @@
     @include('layouts.success')
 
     <div class="container">
-        <div><h3>{{ $question->station->display_name }} (Frage {{ $question->number }}, Level {{ $question->level }})</h3></div>
+        <div><h3>{{ $question->station->display_name }} ({{ __("messages.message_question") }} {{ $question->number }}, {{ __("messages.message_level") }} {{ $question->level }})</h3></div>
         <hr>
     </div>
 
@@ -18,14 +18,14 @@
     <div class="container">
         @if($question->url_to_audio != null)
             <audio controls>
-                <source src="{{$question->url_to_audio}}" type="audio/mp3">Audio wird auf deinem Gerät nicht unterstützt.</audio>
+                <source src="{{$question->url_to_audio}}" type="audio/mp3">("messages.error_audio_not_supported") }}</audio>
             <hr>
         @endif
     </div>
 
     <div class="container">
         @if($question->url_to_image != null)
-            <div><img src="{{$question->url_to_image}}" alt="Bild" /></div>
+            <div><img src="{{$question->url_to_image}}" alt="{{$question->url_to_image}}" /></div>
             <hr>
         @endif
     </div>
@@ -52,7 +52,7 @@
                 <input type="hidden" name="level" id="level" value="{{ $question->level }}">
                 <input type="hidden" name="station" id="station" value="{{ $question->station->id }}">
                 <div class="btn navbar-btn @if ($hide_previous_button) disabled @endif">
-                    <input type="submit" value="Vorige Frage" @if ($hide_previous_button) disabled @endif>
+                    <input type="submit" value="{{ __("messages.message_previous_question") }}" @if ($hide_previous_button) disabled @endif>
                 </div>
             </form>
 
@@ -62,7 +62,7 @@
                 <input type="hidden" name="level" id="level" value="{{ $question->level }}">
                 <input type="hidden" name="station" id="station" value="{{ $question->station->id }}">
                 <div class="btn navbar-btn @if ($hide_next_button) disabled @endif">
-                    <input type="submit" value="Nächste Frage" @if ($hide_next_button) disabled @endif>
+                    <input type="submit" value="{{ __("messages.message_next_question") }}" @if ($hide_next_button) disabled @endif>
                 </div>
             </form>
         </div>

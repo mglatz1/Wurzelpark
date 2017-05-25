@@ -7,7 +7,7 @@
 
 
     <div class="container">
-        <div><h3>{{ $question->station->display_name }} (Frage {{ $question->number }}, Level {{ $question->level }})</h3></div>
+        <div><h3>{{ $question->station->display_name }} ({{ __("messages.message_question") }} {{ $question->number }}, {{ __("messages.message_level") }} {{ $question->level }})</h3></div>
         <hr>
     </div>
 
@@ -19,14 +19,14 @@
     <div class="container">
         @if($question->url_to_audio != null)
             <audio controls>
-                <source src="{{$question->url_to_audio}}" type="audio/mp3">Audio wird auf deinem Gerät nicht unterstützt.</audio>
+                <source src="{{$question->url_to_audio}}" type="audio/mp3">__("messages.error_audio_not_supported") }}</audio>
             <hr>
         @endif
     </div>
 
     <div class="container">
         @if($question->url_to_image != null)
-            <div><img src="{{$question->url_to_image}}" alt="Bild" /></div>
+            <div><img src="{{$question->url_to_image}}" alt="{{$question->url_to_image}}" /></div>
             <hr>
         @endif
     </div>
@@ -57,7 +57,7 @@
                 <hr>
 
                 <div class="btn navbar-btn">
-                    <input type="submit" value="Antworten">
+                    <input type="submit" value="{{ __("messages.message_to_answer") }}">
                 </div>
             </form>
         </div>
