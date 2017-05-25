@@ -19,7 +19,8 @@ class RegistrationController extends Controller
 
     public function store()
     {
-        $constants = "constants.".auth()->user()->language;
+        $locale = config('app.locale');
+        $constants = "constants.".$locale;
 
         // validate input
         $this->validate(request(), [
@@ -49,9 +50,11 @@ class RegistrationController extends Controller
             'username' => request('username')
         ]);
 
+        config(['app.locale' => $user->language]);
+
         // login user
         auth()->login($user);
 
-        return redirect()->intended('/')->with('success', config($constants.".success_registration"));
+        return redirect()->intended('/')->with('success', __("messages.success_registration"));
     }
 }

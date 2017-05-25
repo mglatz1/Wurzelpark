@@ -13,20 +13,20 @@ return [
     |
     */
 
-    'confirmed'            => 'Passwords do not match.',
-    'digits_between'       => 'The year of birth must contain exactly :min digits.',
-    'email'                => 'The format of the email address must be valid.',
-    'integer'              => 'The year of birth must be a number.',
+    'confirmed'            => 'Die Passwörter stimmen nicht überein.',
+    'digits_between'       => 'Das Geburtsjahr muss genau :min Ziffern haben.',
+    'email'                => 'Das Format der E-Mail-Adresse muss gültig sein.',
+    'integer'              => 'Das Geburtsjahr muss eine Zahl sein.',
     'max'                  => [
-        'numeric' => 'The year of birth must not exceed :max.',
-        'string' => 'The input must be less than :max characters.'
+        'numeric' => 'Das Geburtsjahr darf nicht höher als :max sein.',
+        'string' => 'Die Eingabe darf nicht mehr als :max Zeichen lang sein.'
     ],
     'min'                  => [
-        'numeric' => 'The year of birth must be at least :min.',
-        'string' => 'The length of the password must be at least :min characters.'
+        'numeric' => 'Das Geburtsjahr muss mindestens :min sein.',
+        'string' => 'Das Passwort muss mindestens :min Zeichen lang sein.'
     ],
-    'required'             => 'The input of :attribute is required.',
-    'string'               => 'The input of :attribute must be a string.',
+    'required'             => 'Die Eingabe von :attribute ist verpflichtend.',
+    'string'               => 'Die Eingabe von :attribute muss eine Zeichenkette sein.',
 
     /*
     |--------------------------------------------------------------------------

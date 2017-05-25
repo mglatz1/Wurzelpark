@@ -17,12 +17,12 @@ class QuizController extends Controller
 
     public function show($station_name)
     {
-        $constants = "constants.".auth()->user()->language;
+        config(['app.locale' => auth()->user()->language]);
         $station = Station::where('name', $station_name)->first();
 
         if(sizeof($station) == 0)
         {
-            return redirect()->home()->with('error', config($constants.".error_no_station"));
+            return redirect()->home()->with('error', __("messages.error_no_station"));
         }
 
         // check if user has already finished this station
@@ -46,10 +46,10 @@ class QuizController extends Controller
             if ($number_stations_finished < $number_stations)
             {
                 return view('quiz.show-finalized', compact(['question'], ['hide_previous_button'], ['hide_next_button'] ))
-                    ->with('success', sprintf(config($constants.".status_all_questions_finished_but_stations_left"), $number_stations_finished, $number_stations));
+                    ->with('success', sprintf(__("messages.status_all_questions_finished_but_stations_left"), $number_stations_finished, $number_stations));
             }
             return view('quiz.show-finalized', compact(['question'], ['hide_previous_button'], ['hide_next_button']))
-                ->with('success', config($constants.".status_all_questions_all_stations_finished"));
+                ->with('success', __("messages.status_all_questions_all_stations_finished"));
         }
 
         // check for answers at this station and user - if nothing found: start station from scratch
@@ -90,7 +90,7 @@ class QuizController extends Controller
 
     public function store()
     {
-        $constants = "constants.".auth()->user()->language;
+        config(['app.locale' => auth()->user()->language]);
 
         // check correctness of answer
         $station_id = request('station');
@@ -108,7 +108,7 @@ class QuizController extends Controller
             $question = $current_question;
             $wrong_answers = array_merge(unserialize(request('encoded_wrong_answers')), [request('answer')]);
             return view('quiz.show', compact(['question', 'wrong_answers']))
-                ->with('error', config($constants.".error_wrong_answer"));
+                ->with('error', __("messages.error_wrong_answer"));
         }
         // fetch new question
         $question = Question::where('station_id', $station_id)->get()
@@ -155,10 +155,10 @@ class QuizController extends Controller
                 if ($number_stations_finished < $number_stations)
                 {
                     return view('quiz.show-finalized', compact(['question'], ['hide_previous_button'], ['hide_next_button']))
-                        ->with('success', sprintf(config($constants.".status_all_questions_finished_but_stations_left"), $number_stations_finished, $number_stations));
+                        ->with('success', sprintf(__("messages.status_all_questions_finished_but_stations_left"), $number_stations_finished, $number_stations));
                 }
                 return view('quiz.show-finalized', compact(['question'], ['hide_previous_button'], ['hide_next_button']))
-                    ->with('success', config($constants.".status_all_questions_all_stations_finished"));
+                    ->with('success', __("messages.status_all_questions_all_stations_finished"));
             }
         }
         $wrong_answers = [];
@@ -170,13 +170,12 @@ class QuizController extends Controller
         ]);
 
         return view('quiz.show', compact('question', 'wrong_answers'))
-            ->with('success', config($constants.".success_correct_answer"));
+            ->with('success', __("messages.success_correct_answer"));
     }
 
     public function show_next_finalized()
     {
-        $constants = "constants.".auth()->user()->language;
-
+        config(['app.locale' => auth()->user()->language]);
         $hide_next_button = false;
         $hide_previous_button = false;
         $station_id = request('station');
@@ -196,16 +195,15 @@ class QuizController extends Controller
         if ($number_stations_finished < $number_stations)
         {
             return view('quiz.show-finalized', compact(['question'], ['hide_previous_button'], ['hide_next_button']))
-                ->with('success', sprintf(config($constants.".status_all_questions_finished_but_stations_left"), $number_stations_finished, $number_stations));
+                ->with('success', sprintf(__("messages.status_all_questions_finished_but_stations_left"), $number_stations_finished, $number_stations));
         }
         return view('quiz.show-finalized', compact(['question'], ['hide_previous_button'], ['hide_next_button']))
-            ->with('success', config($constants.".status_all_questions_all_stations_finished"));
+            ->with('success', __("messages.status_all_questions_all_stations_finished"));
     }
 
     public function show_previous_finalized()
     {
-        $constants = "constants.".auth()->user()->language;
-
+        config(['app.locale' => auth()->user()->language]);
         $hide_next_button = false;
         $hide_previous_button = false;
         $station_id = request('station');
@@ -225,10 +223,10 @@ class QuizController extends Controller
         if ($number_stations_finished < $number_stations)
         {
             return view('quiz.show-finalized', compact(['question'], ['hide_previous_button'], ['hide_next_button']))
-                ->with('success', sprintf(config($constants.".status_all_questions_finished_but_stations_left"), $number_stations_finished, $number_stations));
+                ->with('success', sprintf(__("messages.status_all_questions_finished_but_stations_left"), $number_stations_finished, $number_stations));
         }
         return view('quiz.show-finalized', compact(['question'], ['hide_previous_button'], ['hide_next_button']))
-            ->with('success', config($constants.".status_all_questions_all_stations_finished"));
+            ->with('success', __("messages.status_all_questions_all_stations_finished"));
     }
 
     private function getNextQuestion($station_id, $level, $number)
@@ -265,14 +263,12 @@ class QuizController extends Controller
         {
             $previous_possible_questions = $station->questions
                 ->where('level', $level - 1);
-
             $size = sizeof($previous_possible_questions);
 
             if ($size == 0)
             {
                 return null;
             }
-
             $max_number_count = $previous_possible_questions->max('number');
             return $previous_possible_questions->where('number', $max_number_count)->first();
         }

@@ -14,12 +14,10 @@ class InformationController extends Controller
 
     public function show($name)
     {
-        $constants = "constants.".auth()->user()->language;
-
         $info_item = Information::getByName($name)->first();
 
         if (count($info_item) == null) {
-            return redirect()->home()->with('error', config($constants.".error_no_element_found"));
+            return redirect()->home()->with('error', __("messages.error_no_element_found"));
         }
         return view('info.show', compact('info_item'));
     }
