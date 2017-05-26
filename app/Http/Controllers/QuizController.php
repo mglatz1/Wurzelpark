@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\FinishQuiz;
 use App\Question;
 use App\User;
 use App\UsersQuestions;
@@ -13,7 +14,7 @@ class QuizController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except('send');
     }
 
     public function show($station_name)
@@ -297,7 +298,7 @@ class QuizController extends Controller
         //shell_exec('soffice --headless --convert-to pdf "'.$docx_filename.'"');
 
         // send email with certificate
-
+        \Mail::to($user)->send(new FinishQuiz);
 
         // delete certificate
         unlink($docx_filename);
@@ -306,5 +307,11 @@ class QuizController extends Controller
         config(['app.locale' => auth()->user()->language]);
         auth()->logout();
         return redirect()->route('register')->with('success', __('messages.success_quiz_finished'));
+    }
+
+    public function send()
+    {
+        $user = User::first();
+        \Mail::to($user)->send(new FinishQuiz);
     }
 }
