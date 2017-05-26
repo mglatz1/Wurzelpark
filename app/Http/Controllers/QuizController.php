@@ -285,11 +285,22 @@ class QuizController extends Controller
 
         // give opportunity to send certificate to more than one person
         // https://bootsnipp.com/snippets/featured/dynamic-form-fields-add-amp-remove
-        $phpWord = new \PhpOffice\PhpWord\PhpWord();
 
         // edit certificate
+        $fileName = app_path().'/../files/Certificate.docx';
+        $template = new \PhpOffice\PhpWord\TemplateProcessor($fileName);
+        $template->setValue('name', $user->name);
+        $docx_filename = '/'.$user->name.'.docx';
+        $template->saveAs($docx_filename);
+
+        // save as pdf todo: fix because this doesn't work (in command line it works)
+        //shell_exec('soffice --headless --convert-to pdf "'.$docx_filename.'"');
 
         // send email with certificate
+
+
+        // delete certificate
+        unlink($docx_filename);
 
         // logout the user
         config(['app.locale' => auth()->user()->language]);
