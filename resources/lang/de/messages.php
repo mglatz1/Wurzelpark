@@ -51,4 +51,9 @@ return [
         " für das Quiz an die von dir angegebene E-Mail-Adresse zugestellt.",
     "message_quiz_finish_info2" => "Beachte, dass es nach dem Beenden NICHT mehr möglich ist, weitere Fragen zu ".
         "beantworten. Du kannst dich aber neu registrieren und dann den Quizweg von vorne starten.",
+    "message_email1" => "Liebe Urlaubsgrüße vom Wurzelpark Arriach-Gerlitze!",
+    "message_email2" => "Wir waren dort und haben ein paar schöne Stunden verbracht.",
+    "message_email3" => "Bis bald!",
+    "message_email_subject" => "Grüße vom Wurzelpark Arriach",
+    "message_certificate" => "Urkunde",
 ];

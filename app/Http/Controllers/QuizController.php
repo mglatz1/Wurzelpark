@@ -298,7 +298,7 @@ class QuizController extends Controller
         //shell_exec('soffice --headless --convert-to pdf "'.$docx_filename.'"');
 
         // send email with certificate
-        \Mail::to($user)->send(new FinishQuiz);
+        \Mail::to($user)->queue(new FinishQuiz($docx_filename));
 
         // delete certificate
         unlink($docx_filename);
@@ -307,11 +307,5 @@ class QuizController extends Controller
         config(['app.locale' => auth()->user()->language]);
         auth()->logout();
         return redirect()->route('register')->with('success', __('messages.success_quiz_finished'));
-    }
-
-    public function send()
-    {
-        $user = User::first();
-        \Mail::to($user)->send(new FinishQuiz);
     }
 }

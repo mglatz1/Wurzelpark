@@ -1,9 +1,9 @@
 @component('mail::message')
 
-Liebe Urlaubsgrüße vom Wurzelpark Arriach-Gerlitze!
+{{ __('messages.message_email1') }}
 
-Wir waren dort und haben ein paar schöne Stunden verbracht.
+{{ __('messages.message_email2') }}
 
-Bis bald!
+{{ __('messages.message_email3') }}
 
 @endcomponent
