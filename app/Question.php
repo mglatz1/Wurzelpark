@@ -15,4 +15,9 @@ class Question extends Model
     {
         return $this->belongsTo(Station::class);
     }
+
+    public function level()
+    {
+        return $this->belongsTo(Level::class);
+    }
 }

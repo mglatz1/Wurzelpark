@@ -14,7 +14,7 @@
     <div class="container">
         @if($info_item->url_to_image != null)
             <hr>
-            <div><img src="{{$info_item->url_to_image}}" alt="{{$info_item->url_to_image}}" /></div>
+            <div><img src="{{$info_item->url_to_image}}" class="img-responsive" alt="{{$info_item->url_to_image}}" /></div>
         @endif
     </div>
 
@@ -27,7 +27,7 @@
 
     <div class="container">
         @if($info_item->url_to_image2 != null)
-            <div><img src="{{$info_item->url_to_image2}}" alt="{{$info_item->url_to_image2}}" /></div>
+            <div><img src="{{$info_item->url_to_image2}}" class="img-responsive" alt="{{$info_item->url_to_image2}}" /></div>
         @endif
     </div>
 

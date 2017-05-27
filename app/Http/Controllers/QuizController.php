@@ -35,7 +35,7 @@ class QuizController extends Controller
         // user already finished this station
         if (sizeof($finished) != 0)
         {
-            $question = $station->questions->where('number', 1)->where('level', 1)->first();
+            $question = $station->questions->where('number', 1)->where('level_id', 1)->first();
             $hide_next_button = false;
             $hide_previous_button = true;
 
@@ -59,21 +59,21 @@ class QuizController extends Controller
         $users_questions = UsersQuestions::where('user_id', auth()->id())
             ->join('questions', 'questions.id', '=', 'users_questions.question_id')
             ->join('stations', 'stations.id', '=', 'questions.station_id')
-            ->where('station_id', $station->id)->count();
+            ->where('station_id', $station->id);
         $wrong_answers = [];
 
-        if ($users_questions == 0)
+        if ($users_questions->count() == 0)
         {
-            $question = $station->questions->where('number', 1)->where('level', 1)->first();
+            $question = $station->questions->where('number', 1)->where('level_id', 1)->first();
             return view('quiz.show', compact(['question', 'wrong_answers']));
         }
 
-        $max_level_count = $station->questions->max('level');
+        $max_level_count = $station->questions->max('level_id');
 
         // go through all levels
         for ($level = 1; $level <= $max_level_count; $level++)
         {
-            $questions_of_levels = $station->questions->where('level', $level);
+            $questions_of_levels = $station->questions->where('level_id', $level);
             $number_of_questions_of_level = $questions_of_levels->count();
 
             // go through all questions of a level
@@ -99,7 +99,7 @@ class QuizController extends Controller
         $station_id = request('station');
         $current_question = Question::where('station_id', $station_id)->
             where('number', request('question_number'))->
-            where('level', request('level'))->first();
+            where('level_id', request('level'))->first();
         $question_id = $current_question->id;
 
         $answer_id = Answer::where('question_id', $question_id)->where('correct', true)->first()->id;
@@ -116,14 +116,14 @@ class QuizController extends Controller
         // fetch new question
         $question = Question::where('station_id', $station_id)->get()
             ->where('number', ($current_question->number + 1))
-            ->where('level', ($current_question->level))->first();
+            ->where('level_id', ($current_question->level->id))->first();
 
         // all questions of this level completed
         if (sizeof($question) == 0)
         {
             $question = Question::where('station_id', $station_id)->get()
                 ->where('number', 1)
-                ->where('level', ($current_question->level + 1))->first();
+                ->where('level_id', ($current_question->level->id + 1))->first();
 
             // all questions of all levels completed - no more questions at this station
             if (sizeof($question) == 0)
@@ -145,12 +145,12 @@ class QuizController extends Controller
 
                 $hide_next_button = false;
                 $hide_previous_button = false;
-                if (sizeof($this->getPreviousQuestion($question->station_id, $question->level, $question->number)) == 0)
+                if (sizeof($this->getPreviousQuestion($question->station_id, $question->level->id, $question->number)) == 0)
                 {
                     $hide_previous_button = true;
                 }
 
-                if (sizeof($this->getNextQuestion($station_id, $question->level, $question->number)) == 0)
+                if (sizeof($this->getNextQuestion($station_id, $question->level->id, $question->number)) == 0)
                 {
                     $hide_next_button = true;
                 }
@@ -182,12 +182,12 @@ class QuizController extends Controller
         $hide_next_button = false;
         $hide_previous_button = false;
         $station_id = request('station');
-        $current_level = request('level');
+        $current_level = request('level_id');
         $current_number = request('question_number');
 
         $question = $this->getNextQuestion($station_id, $current_level, $current_number);
 
-        if (sizeof($this->getNextQuestion($station_id, $question->level, $question->number)) == 0)
+        if (sizeof($this->getNextQuestion($station_id, $question->level->id, $question->number)) == 0)
         {
             $hide_next_button = true;
         }
@@ -210,12 +210,12 @@ class QuizController extends Controller
         $hide_next_button = false;
         $hide_previous_button = false;
         $station_id = request('station');
-        $current_level = request('level');
+        $current_level = request('level_id');
         $current_number = request('question_number');
 
         $question = $this->getPreviousQuestion($station_id, $current_level, $current_number);
 
-        if (sizeof($this->getPreviousQuestion($station_id, $question->level, $question->number)) == 0)
+        if (sizeof($this->getPreviousQuestion($station_id, $question->level->id, $question->number)) == 0)
         {
             $hide_previous_button = true;
         }
@@ -237,13 +237,13 @@ class QuizController extends Controller
         $station = Station::find($station_id);
 
         $next_possible_question = $station->questions()
-            ->where('level', $level)
+            ->where('level_id', $level)
             ->where('number', $number + 1)->first();
 
         if (sizeof($next_possible_question) == 0)
         {
             $next_possible_question = $station->questions()
-                ->where('level', $level + 1)
+                ->where('level_id', $level + 1)
                 ->where('number', 1)->first();
 
             if (sizeof($next_possible_question) == 0)
@@ -259,13 +259,13 @@ class QuizController extends Controller
         $station = Station::find($station_id);
 
         $previous_possible_question = $station->questions
-            ->where('level', $level)
+            ->where('level_id', $level)
             ->where('number', $number - 1)->first();
 
         if (sizeof($previous_possible_question) == 0)
         {
             $previous_possible_questions = $station->questions
-                ->where('level', $level - 1);
+                ->where('level_id', $level - 1);
             $size = sizeof($previous_possible_questions);
 
             if ($size == 0)

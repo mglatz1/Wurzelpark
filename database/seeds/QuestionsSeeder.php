@@ -16,7 +16,7 @@ class QuestionsSeeder extends Seeder
             'url_to_image' => 'http://www.wurzelpark.at/App/Bilder/Station01/Bild01.jpg',
             'url_to_audio' => 'http://www.wurzelpark.at/App/Audio/Station01/Was frisst das Eichhoernchen.mp3',
             'number' => 1,
-            'level' => 1,
+            'level_id' => 1,
             'language' => "de",
             'station_id' => "1",
         ]);
@@ -26,7 +26,7 @@ class QuestionsSeeder extends Seeder
             'url_to_image' => 'http://www.wurzelpark.at/App/Bilder/Station01/Bild10.jpg',
             'url_to_audio' => 'http://www.wurzelpark.at/App/Audio/Station01/Was frisst der Frosch.mp3',
             'number' => 2,
-            'level' => 1,
+            'level_id' => 1,
             'language' => "de",
             'station_id' => "1",
         ]);
@@ -36,7 +36,7 @@ class QuestionsSeeder extends Seeder
             'url_to_image' => 'http://www.wurzelpark.at/App/Bilder/Station01/Bild01.jpg',
             'url_to_audio' => 'http://www.wurzelpark.at/App/Audio/Station01/Wenn das Eichhoernchen von Ast zu Ast.mp3',
             'number' => 1,
-            'level' => 2,
+            'level_id' => 2,
             'language' => "de",
             'station_id' => "1",
         ]);
@@ -46,7 +46,7 @@ class QuestionsSeeder extends Seeder
             'url_to_image' => 'http://www.wurzelpark.at/App/Bilder/Station02/Bild10.jpg',
             'url_to_audio' => 'http://www.wurzelpark.at/App/Audio/Station02/Was hat die Schnecke am Kopf.mp3',
             'number' => 1,
-            'level' => 1,
+            'level_id' => 1,
             'language' => "de",
             'station_id' => "2",
         ]);
@@ -56,7 +56,7 @@ class QuestionsSeeder extends Seeder
             'url_to_image' => 'http://www.wurzelpark.at/App/Bilder/Station03/Rinde Fichte.jpg',
             'url_to_audio' => 'http://www.wurzelpark.at/App/Audio/Station03/Welche Farbe hat die Rinde der Fichte.mp3',
             'number' => 1,
-            'level' => 1,
+            'level_id' => 1,
             'language' => "de",
             'station_id' => "3",
         ]);
@@ -66,7 +66,7 @@ class QuestionsSeeder extends Seeder
             'url_to_image' => 'http://www.wurzelpark.at/App/Bilder/Station03/Moos.jpg',
             'url_to_audio' => 'http://www.wurzelpark.at/App/Audio/Station03/Findet man Moose auf Steinen.mp3',
             'number' => 2,
-            'level' => 1,
+            'level_id' => 1,
             'language' => "de",
             'station_id' => "3",
         ]);

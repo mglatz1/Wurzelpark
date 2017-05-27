@@ -67,12 +67,6 @@
     </div>
 </div>
 
-<div class="container">
-    <p>
-        <a href="#">{{ __("messages.message_top") }}</a>
-    </p>
-</div>
-
 <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

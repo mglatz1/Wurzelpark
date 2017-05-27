@@ -21,9 +21,8 @@ return [
     "message_login" => "Einloggen",
     "message_register" => "Registrieren",
     "message_logout" => "Logout",
-    "message_top" => "Nach oben",
     "message_question" => "Frage",
-    "message_level" => "Level",
+    "message_level" => "Schwierigkeit",
     "message_to_answer" => "Antworten",
     "message_previous_question" => "Vorige Frage",
     "message_next_question" => "Nächste Frage",
@@ -57,4 +56,6 @@ return [
     "message_email3" => "Bis bald!",
     "message_email_subject" => "Grüße vom Wurzelpark Arriach",
     "message_certificate_for" => "Urkunde ",
+    "message_station_questions" => "Diese Station enthält insgesamt %s Fragen",
+    "message_of_level" => "vom Level"
 ];
