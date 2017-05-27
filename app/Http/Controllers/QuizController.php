@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\FinishQuiz;
+use Carbon\Carbon;
 use App\Question;
 use App\User;
 use App\UsersQuestions;
 use App\UsersStations;
 use App\Station;
 use App\Answer;
+use App\Jobs\FinishQuiz;
 
 class QuizController extends Controller
 {
@@ -287,23 +288,7 @@ class QuizController extends Controller
         // give opportunity to send certificate to more than one person
         // https://bootsnipp.com/snippets/featured/dynamic-form-fields-add-amp-remove
 
-        // todo: this part should be in a laravel queue in order to have a lower response time
-
-        // edit certificate
-        $fileName = app_path().'/../files/Certificate.docx';
-        $template = new \PhpOffice\PhpWord\TemplateProcessor($fileName);
-        $template->setValue('name', $user->name);
-        $doc_filename = sys_get_temp_dir().__('messages.message_certificate_for').$user->name.'.docx';
-        $template->saveAs($doc_filename);
-
-        // save as pdf todo: fix because this doesn't work (in command line it works)
-        //shell_exec('soffice --headless --convert-to pdf "'.$docx_filename.'"');
-
-        // send email with certificate
-        \Mail::to($user)->queue(new FinishQuiz($doc_filename));
-
-        // delete certificate
-        unlink($doc_filename);
+        dispatch(new FinishQuiz($user));
 
         // logout the user
         config(['app.locale' => auth()->user()->language]);
