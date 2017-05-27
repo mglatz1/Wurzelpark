@@ -37,6 +37,6 @@ class SessionsController extends Controller
             return redirect()->route('register')->with('success', __('messages.success_quiz_already_finished'));
         }
 
-        return redirect()->intended('/')->with('success', __("messages.success_login"));
+        return redirect()->intended()->with('success', __("messages.success_login"));
     }
 }

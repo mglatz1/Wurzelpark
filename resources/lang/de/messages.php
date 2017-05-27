@@ -5,7 +5,8 @@ return [
     "status_all_questions_finished_but_stations_left" => "Gratuliere! Du hast alle Fragen richtig beantwortet.".
         " Insgesamt hast du %s von %s Stationen geschafft.",
     "status_all_questions_all_stations_finished" => "Gratuliere! Du hast alle Fragen richtig beantwortet und alle ".
-        "Stationen geschafft.",
+        "Stationen geschafft. Du kannst den Quizweg jetzt beenden, indem du rechts oben im Menü \"Quizweg beenden\"".
+        " auswählst.",
     "error_wrong_answer" => "Diese Antwort ist leider falsch. Versuche es noch einmal.",
     "success_correct_answer" => "Diese Antwort ist richtig. Weiter geht es mit der nächsten Frage.",
     "error_no_element_found" => "Kein Element gefunden.",
@@ -45,9 +46,9 @@ return [
     "message_finish_quiz" => "Quizweg beenden",
     "success_quiz_already_finished" => "Du hast das Quiz bereits erfolgreich beendet. Um den Quizweg erneut zu".
         " absolvieren, musst du dich neu registrieren.",
-    "success_quiz_finished" => "Du hast den Quizweg erfolgreich beendet und erhälst in Kürze deine Quiz-Urkunde ".
-        "per E-Mail.",
-    "message_quiz_finish_info1" => "Hier kannst du den Quizweg beenden. Nach dem Beenden bekommst du deine Urkunde".
+    "success_quiz_finished" => "Du hast den Quizweg erfolgreich beendet und erhälst in Kürze deine persönliche Quiz-Urkunde ".
+        "per E-Mail zugestellt.",
+    "message_quiz_finish_info1" => "Hier kannst du den Quizweg beenden. Nach dem Beenden bekommst du eine persönliche Urkunde".
         " für das Quiz an die von dir angegebene E-Mail-Adresse zugestellt.",
     "message_quiz_finish_info2" => "Beachte, dass es nach dem Beenden NICHT mehr möglich ist, weitere Fragen zu ".
         "beantworten. Du kannst dich aber neu registrieren und dann den Quizweg von vorne starten.",
@@ -55,5 +56,5 @@ return [
     "message_email2" => "Wir waren dort und haben ein paar schöne Stunden verbracht.",
     "message_email3" => "Bis bald!",
     "message_email_subject" => "Grüße vom Wurzelpark Arriach",
-    "message_certificate" => "Urkunde",
+    "message_certificate_for" => "Urkunde ",
 ];

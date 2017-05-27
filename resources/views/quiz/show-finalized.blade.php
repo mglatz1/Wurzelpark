@@ -46,7 +46,7 @@
     <div class="container">
         <div class="tpbutton btn-toolbar">
 
-            <form action="/quiz/{{ $question->station->name }}/previous" method="POST">
+            <form action="{{ url('quiz/'.$question->station->name.'/previous') }}" method="POST">
                 {{ csrf_field() }}
                 <input type="hidden" name="question_number" id="question_number" value="{{ $question->number }}">
                 <input type="hidden" name="level" id="level" value="{{ $question->level }}">
@@ -56,7 +56,7 @@
                 </div>
             </form>
 
-            <form action="/quiz/{{ $question->station->name }}/next" method="POST">
+            <form action="{{ url('quiz/'.$question->station->name.'/next') }}" method="POST">
                 {{ csrf_field() }}
                 <input type="hidden" name="question_number" id="question_number" value="{{ $question->number }}">
                 <input type="hidden" name="level" id="level" value="{{ $question->level }}">

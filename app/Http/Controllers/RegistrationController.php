@@ -55,6 +55,6 @@ class RegistrationController extends Controller
         // login user
         auth()->login($user);
 
-        return redirect()->intended('/')->with('success', __("messages.success_registration"));
+        return redirect()->intended()->with('success', __("messages.success_registration"));
     }
 }

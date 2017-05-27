@@ -9,7 +9,7 @@
         <h1>{{ __("messages.message_login") }}</h1>
         <hr>
 
-        <form method="POST" action="/login">
+        <form method="POST" action="{{ url('login') }}">
             {{ csrf_field() }}
             <div class="form-group">
                 <label for="username">{{ __("messages.message_username") }}:</label>

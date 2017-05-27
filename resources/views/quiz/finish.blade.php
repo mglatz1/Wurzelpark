@@ -17,7 +17,7 @@
     <hr>
     <div class="container">
         <div class="form-group">
-            <form method="POST" action="/finish-quiz">
+            <form method="POST" action="{{ url('finish-quiz') }}">
                 {{ csrf_field() }}
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary">{{ __('messages.message_finish_quiz') }}</button>

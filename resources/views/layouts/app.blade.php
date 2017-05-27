@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Wurzelpark Arriach</title>
+    <title>{{ config('app.name') }}</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 {{--    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
@@ -36,10 +36,10 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     @if (Auth::guest())
-                        <li><a href="/login">{{ __("messages.message_login") }}</a></li>
-                        <li><a href="/register">{{ __("messages.message_register") }}</a></li>
+                        <li><a href="{{ url('login') }}">{{ __("messages.message_login") }}</a></li>
+                        <li><a href="{{ url('register') }}">{{ __("messages.message_register") }}</a></li>
                     @else
-                        <li><a href="/finish-quiz">{{ __("messages.message_finish_quiz") }}</a></li>
+                        <li><a href="{{ url('finish-quiz') }}">{{ __("messages.message_finish_quiz") }}</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 {{ Auth::user()->name }} <span class="caret"></span>
@@ -47,11 +47,11 @@
 
                             <ul class="dropdown-menu" role="menu">
                                 <li>
-                                    <a href="/logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <a href="{{ url('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         {{ __("messages.message_logout") }}
                                     </a>
 
-                                    <form id="logout-form" action="/logout" method="POST" style="display: none;">
+                                    <form id="logout-form" action="{{ url('logout') }}" method="POST" style="display: none;">
                                         {{ csrf_field() }}
                                     </form>
                                 </li>

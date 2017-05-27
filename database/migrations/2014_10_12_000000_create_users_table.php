@@ -21,7 +21,6 @@ class CreateUsersTable extends Migration
             $table->string('username')->unique();
             $table->string('year_of_birth', 4);
             $table->string('language');
-            $table->integer('score')->default(0);
             $table->boolean('finished')->default(false);
             $table->rememberToken();
             $table->timestamps();

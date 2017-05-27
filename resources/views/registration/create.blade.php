@@ -13,12 +13,12 @@
 
         <div class="form-group">
             <p>{{ __("messages.message_already_account") }}:</p>
-            <a class="btn btn-primary" href="login"> {{ __("messages.message_login") }}</a>
+            <a class="btn btn-primary" href="{{ url('login') }}"> {{ __("messages.message_login") }}</a>
         </div>
         <hr>
         <div class="form-group">
 
-            <form method="POST" action="/register">
+            <form method="POST" action=" {{ url('register') }}">
                 {{ csrf_field() }}
 
                 <div class="form-group">
