@@ -13,4 +13,4 @@ Eher unwichtig:
 * Live Check (AJAX), ob Benutzername schon vergeben ist
 * (erledigt am 18.05.2017 von Mathias) Seeding für Datenbank für User und Information
 * Mehrsprachigkeit der gesamten Webseite
-* Bilder auf Displaygröße anpassen
+* (erledigt am 27.05.2017 von Mathias) Bilder auf Displaygröße anpassen
