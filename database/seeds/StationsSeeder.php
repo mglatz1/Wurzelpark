@@ -17,7 +17,7 @@ class StationsSeeder extends Seeder
             'display_name' => 'Station 1'
         ]);
 
-        /*DB::table('stations')->insert([
+        DB::table('stations')->insert([
             'url' => config('app.url_prefix').'Station02',
             'name' => 'Station02',
             'display_name' => 'Station 2'
@@ -27,6 +27,6 @@ class StationsSeeder extends Seeder
             'url' => config('app.url_prefix').'Station03',
             'name' => 'Station03',
             'display_name' => 'Station 3'
-        ]);*/
+        ]);
     }
 }

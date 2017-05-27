@@ -4,10 +4,10 @@ Wichtig:
 * (erledigt am 18.05.2017 von Mathias) Einfügen eines Youtube Links bei Information (Guide) in DB
 * (erledigt am 19.05.2017 von Mathias) Login/Registrierung wird auf mobiler Ansicht nicht angezeigt
 * (erledigt am 23.05.2017 von Mathias) Quiz - bereits beantwortete Fragen anzeigen
-* Urkunde
-* Mail Versand der Urkunde
+* Urkunde als PDF
+* (erledigt am 23.05.2017 von Mathias) Mail Versand der Urkunde
 * Fotoalbum
-* (erledigt am 22.05.2017 von Mathias) Fortsetzbarkeit für Quiz
+* (erledigt am 27.05.2017 von Mathias) Fortsetzbarkeit für Quiz
 
 Eher unwichtig:
 * Live Check (AJAX), ob Benutzername schon vergeben ist

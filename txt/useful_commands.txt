@@ -9,3 +9,6 @@ composer require phpoffice/phpword
 
 Install composer, when already required by composer.lock
 composer update
+
+Listen to database to dispatch queue:
+php artisan queue:listen database

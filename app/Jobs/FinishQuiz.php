@@ -45,7 +45,7 @@ class FinishQuiz implements ShouldQueue
         //shell_exec('soffice --headless --convert-to pdf "'.$docx_filename.'"');
 
         // send email with certificate
-        Mail::to($this->user)->queue(new FinishQuizMail($doc_filename));
+        Mail::to($this->user)->send(new FinishQuizMail($doc_filename));
 
         // delete certificate
         unlink($doc_filename);
