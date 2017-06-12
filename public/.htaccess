@@ -1,3 +1,5 @@
+AddHandler php-fastcgi5.6 .php .phtml .phps
+
 <IfModule mod_rewrite.c>
     <IfModule mod_negotiation.c>
         Options -MultiViews
