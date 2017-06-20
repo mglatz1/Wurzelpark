@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use \CloudConvert\Api;
 use App\Question;
 use App\User;
 use App\UsersQuestions;
@@ -15,7 +16,7 @@ class QuizController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except('send');
+        $this->middleware('auth')->except('test');
     }
 
     public function show($station_name)
@@ -294,5 +295,30 @@ class QuizController extends Controller
         config(['app.locale' => auth()->user()->language]);
         auth()->logout();
         return redirect()->route('register')->with('success', __('messages.success_quiz_finished'));
+    }
+
+    public function test()
+    {
+        $files_path = app_path().'\..\files\\';
+        $fileName = $files_path.'Postcard.docx';
+        $template = new \PhpOffice\PhpWord\TemplateProcessor($fileName);
+        $template->setImageValue('image1.png', $files_path.'pic1.png');
+        $template->setImageValue('image2.png', $files_path.'pic2.png');
+        $template->setImageValue('image3.png', $files_path.'pic3.png');
+        $doc_filename = $files_path.'NewPostcard.docx';
+        $template->saveAs($doc_filename);
+
+        // docx to pdf conversion
+        $api = new Api(env('CLOUD_CONVERT_API_KEY'));
+
+        $api->convert([
+            'inputformat' => 'docx',
+            'outputformat' => 'png',
+            'input' => 'upload',
+            'file' => fopen($doc_filename, 'r'),
+        ])
+            ->wait()
+            ->download($files_path.'Postkarte.png');
+        unlink($doc_filename);
     }
 }

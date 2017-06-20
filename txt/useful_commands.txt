@@ -10,7 +10,8 @@ php artisan migrate:refresh --seed
 
 *********************************************************************
 
-Install new composer library (Cloudconvert):
+Install new composer library (e.g. Cloudconvert):
+
 Add line to composer.json in "required":
 
 "cloudconvert/cloudconvert-php": "2.2.*"
@@ -35,8 +36,34 @@ https://help.github.com/articles/removing-sensitive-data-from-a-repository/
 
 *********************************************************************
 
-PHP Version 5.6 am Host:
+PHP Version 5.6 at Host:
 
 /usr/local/php5.6/bin/php
+
+*********************************************************************
+
+Caution!
+
+Wurzelpark\vendor\phpoffice\phpword\src\PhpWord\TemplateProcessor.php was extended to replace images in docx-files:
+
+/**
+ * Set a new image
+ *
+ * @param string $search
+ * @param string $replace
+ */
+public function setImageValue($search, $replace)
+{
+    // Sanity check
+    if (!file_exists($replace))
+    {
+        return;
+    }
+    // Delete current image
+    $this->zipClass->deleteName('word/media/' . $search);
+
+    // Add a new one
+    $this->zipClass->addFile($replace, 'word/media/' . $search);
+}
 
 *********************************************************************

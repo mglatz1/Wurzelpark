@@ -23,3 +23,4 @@ Route::get('finish-quiz', function() {
     return view('quiz.finish');
 });
 Route::post('finish-quiz', 'QuizController@finish');
+Route::get('test', 'QuizController@test');

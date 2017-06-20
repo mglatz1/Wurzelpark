@@ -34,7 +34,7 @@ class SessionsController extends Controller
         if ($user->finished == true)
         {
             auth()->logout();
-            return redirect()->route('register')->with('success', __('messages.success_quiz_already_finished'));
+            return redirect()->route('register')->with('error', __('messages.success_quiz_already_finished'));
         }
 
         return redirect()->intended()->with('success', __("messages.success_login"));
