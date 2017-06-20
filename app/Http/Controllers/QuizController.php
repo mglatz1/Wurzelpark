@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Carbon\Carbon;
 use App\Question;
 use App\User;
 use App\UsersQuestions;
@@ -10,6 +9,7 @@ use App\UsersStations;
 use App\Station;
 use App\Answer;
 use App\Jobs\FinishQuiz;
+
 
 class QuizController extends Controller
 {

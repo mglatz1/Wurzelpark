@@ -10,10 +10,12 @@ php artisan migrate:refresh --seed
 
 *********************************************************************
 
-Install new composer library (PhpWord):
-composer require phpoffice/phpword
+Install new composer library (Cloudconvert):
+Add line to composer.json in "required":
 
-Install composer, when already required by composer.lock
+"cloudconvert/cloudconvert-php": "2.2.*"
+
+Then in command line:
 composer update
 
 *********************************************************************
