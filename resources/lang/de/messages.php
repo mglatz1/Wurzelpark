@@ -45,7 +45,7 @@ return [
     "message_finish_quiz" => "Quizweg beenden",
     "success_quiz_already_finished" => "Du hast das Quiz bereits erfolgreich beendet. Um den Quizweg erneut zu".
         " absolvieren, musst du dich neu registrieren.",
-    "success_quiz_finished" => "Du hast den Quizweg erfolgreich beendet und erhälst in Kürze deine persönliche Quiz-Urkunde ".
+    "success_quiz_finished" => "Du hast den Quizweg erfolgreich beendet und erhältst in Kürze deine persönliche Quiz-Urkunde ".
         "per E-Mail zugestellt.",
     "message_quiz_finish_info1" => "Hier kannst du den Quizweg beenden. Nach dem Beenden bekommst du eine persönliche Urkunde".
         " für das Quiz an die von dir angegebene E-Mail-Adresse zugestellt.",

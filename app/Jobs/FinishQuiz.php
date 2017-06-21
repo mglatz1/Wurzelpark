@@ -89,6 +89,6 @@ class FinishQuiz implements ShouldQueue
         unlink($doc_temp_filename);
         unlink($postcard_temp_filename);
         unlink($file_path_to_processed_certificate);
-        nlink($file_path_to_processed_postcard);
+        unlink($file_path_to_processed_postcard);
     }
 }

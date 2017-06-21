@@ -8,13 +8,6 @@
     <title>{{ config('app.name') }}</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-{{--    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    <!-- fade out and remove flash messages -->
-    <script>
-        $(document).ready(function () {
-            jQuery(".flash-message").fadeOut(4000);
-        });
-    </script>--}}
 </head>
 <body>
 <div id="app">

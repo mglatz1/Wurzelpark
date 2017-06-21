@@ -1,24 +1,3 @@
-/*
- * Design Flash messages
- */
-
-/*.flash-message {*/
-    /*opacity: 1;*/
-    /*-webkit-animation: fadeinout 3s linear forwards;*/
-    /*animation: fadeinout 3s linear forwards;*/
-/*}*/
-
-
-/*@-webkit-keyframes fadeinout {*/
-    /*100% { opacity: 0; }*/
-    /*0% { opacity: 1; }*/
-/*}*/
-
-/*@keyframes fadeinout {*/
-    /*100% { opacity: 0; }*/
-    /*0% { opacity: 1; }*/
-/*}*/
-
 .non-selectable-answer {
     color: #cccccc;
 }
