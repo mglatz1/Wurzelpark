@@ -11,16 +11,19 @@ class FinishQuizMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    protected $doc_filename;
+    protected $pdf_filename;
+    protected $postcard_filename;
 
     /**
      * Create a new message instance.
      *
-     * @param $doc_filename
+     * @param $pdf_filename
+     * @param $postcard_filename
      */
-    public function __construct($doc_filename)
+    public function __construct($pdf_filename, $postcard_filename)
     {
-        $this->doc_filename = $doc_filename;
+        $this->pdf_filename = $pdf_filename;
+        $this->postcard_filename = $postcard_filename;
     }
 
     /**
@@ -31,8 +34,10 @@ class FinishQuizMail extends Mailable
     public function build()
     {
         return $this->subject(__('messages.message_email_subject'))
-            ->attach($this->doc_filename, [
-                'mime' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'])
+            ->attach($this->pdf_filename, [
+                'mime' => 'application/pdf'])
+            ->attach($this->postcard_filename, [
+                'mime' => 'image/png'])
             ->markdown('emails.finish-quiz');
     }
 }

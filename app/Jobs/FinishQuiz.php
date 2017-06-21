@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use \PhpOffice\PhpWord\TemplateProcessor;
 use \CloudConvert\Api;
 use App\Mail\FinishQuizMail;
 use Illuminate\Bus\Queueable;
@@ -35,31 +36,59 @@ class FinishQuiz implements ShouldQueue
      */
     public function handle()
     {
-        // edit certificate
-        $certificate_username = __('messages.message_certificate_for').$this->user->name;
-        $fileName = app_path().'/../'.env('CERTIFICATE_PATH');
-        $template = new \PhpOffice\PhpWord\TemplateProcessor($fileName);
+        $files_path = app_path().'\\..\\'.env('FILES_PATH').'\\';
+
+        // certificate processing
+        $certificate_filename = __('messages.message_certificate_for').$this->user->name;
+        $certificate_template_filename = $files_path.env('CERTIFICATE_NAME');
+        $template = new TemplateProcessor($certificate_template_filename);
         $template->setValue('name', $this->user->name);
-        $doc_filename = sys_get_temp_dir().'/'.$certificate_username.'.docx';
-        $template->saveAs($doc_filename);
+        $doc_temp_filename = sys_get_temp_dir().'\\'.$certificate_filename.'.docx';
+        $template->saveAs($doc_temp_filename);
+        $file_path_to_processed_certificate = sys_get_temp_dir().'\\'.$certificate_filename.'.pdf';
 
         // docx to pdf conversion
-        $api = new Api(env('CLOUD_CONVERT_API_KEY'));
+        $api = new Api(env('CLOUD_CONVERT_API_KEY_CERTIFICATE'));
 
         $api->convert([
             'inputformat' => 'docx',
             'outputformat' => 'pdf',
             'input' => 'upload',
-            'file' => fopen($doc_filename, 'r'),
+            'file' => fopen($doc_temp_filename, 'r'),
         ])
             ->wait()
-            ->download($certificate_username.'.pdf');
+            ->download($file_path_to_processed_certificate);
+
+        // postcard processing
+        $postcard_filename = __('messages.message_postcard_for').$this->user->name;
+        $postcard_template_filename = $files_path.env('POSTCARD_NAME');
+        $template = new TemplateProcessor($postcard_template_filename);
+        $template->setImageValue('image1.png', $files_path.'pic1.png');
+        $template->setImageValue('image2.png', $files_path.'pic2.png');
+        $template->setImageValue('image3.png', $files_path.'pic3.png');
+        $postcard_temp_filename = sys_get_temp_dir().'\\'.$postcard_filename.'.docx';
+        $template->saveAs($postcard_temp_filename);
+        $file_path_to_processed_postcard = sys_get_temp_dir().'\\'.$postcard_filename.'.png';
+
+        // docx to png conversion
+        $api = new Api(env('CLOUD_CONVERT_API_KEY_POSTCARD'));
+
+        $api->convert([
+            'inputformat' => 'docx',
+            'outputformat' => 'png',
+            'input' => 'upload',
+            'file' => fopen($postcard_temp_filename, 'r'),
+        ])
+            ->wait()
+            ->download($file_path_to_processed_postcard);
 
         // send email with certificate
-        Mail::to($this->user)->send(new FinishQuizMail($certificate_username.'.pdf'));
+        Mail::to($this->user)->send(new FinishQuizMail($file_path_to_processed_certificate, $file_path_to_processed_postcard));
 
-        // delete certificates
-        unlink($doc_filename);
-        unlink($certificate_username.'.pdf');
+        // delete temporary files
+        unlink($doc_temp_filename);
+        unlink($postcard_temp_filename);
+        unlink($file_path_to_processed_certificate);
+        nlink($file_path_to_processed_postcard);
     }
 }

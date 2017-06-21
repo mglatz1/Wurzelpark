@@ -56,6 +56,7 @@ return [
     "message_email3" => "Bis bald!",
     "message_email_subject" => "Grüße vom Wurzelpark Arriach",
     "message_certificate_for" => "Urkunde ",
+    "message_postcard_for" => "Postkarte ",
     "message_station_questions" => "Diese Station enthält insgesamt %s Fragen",
     "message_of_level" => "vom Level"
 ];

@@ -26,6 +26,19 @@ php artisan queue:listen database
 
 *********************************************************************
 
+Keep session for queue listening alive:
+
+screen -S dblistener
+cd www.wurzelpark.at/Laravel/
+/usr/local/php5.6/bin/php artisan queue:listen database
+Press Strg + A, Strg + D
+exit
+
+If you want to go back to session:
+sceen -r
+
+*********************************************************************
+
 Delete .env from history:
 git filter-branch --force --index-filter "git rm --cached --ignore-unmatch .env" --prune-empty --tag-name-filter cat -- --all
 echo .env >> .gitignore
