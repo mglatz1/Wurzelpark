@@ -12,4 +12,8 @@ const { mix } = require('laravel-mix');
  */
 
 mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css');
+    .sass('resources/assets/sass/app.scss', 'public/css')
+    .copy('node_modules/photoswipe/dist/photoswipe.min.js', 'public/js')
+    .copy('node_modules/photoswipe/dist/photoswipe-ui-default.min.js', 'public/js')
+    .copy('node_modules/photoswipe/dist/photoswipe.css','public/css')
+    .copy('node_modules/photoswipe/dist/default-skin/default-skin.css','public/css');

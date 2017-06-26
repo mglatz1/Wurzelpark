@@ -51,8 +51,3 @@ if (token) {
 //     broadcaster: 'pusher',
 //     key: 'your-pusher-key'
 // });
-
-/**
- * Require Photoswipe for photo gallery
- */
-

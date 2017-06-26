@@ -20,3 +20,6 @@
 // const app = new Vue({
 //     el: '#app'
 // });
+
+
+require('./photoswipe');
