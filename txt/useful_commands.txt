@@ -55,6 +55,26 @@ PHP Version 5.6 at Host:
 
 *********************************************************************
 
+Usage of NPM (prerequisites: Installation of Node.js):
+
+npm install
+
+Adding a js-package:
+    Add Line to package.json
+    npm update
+
+*********************************************************************
+
+Working with CSS/Javascript: Make sure to use resources/assets
+
+To compile scss/js:
+    npm run dev
+
+Or start the watcher:
+    npm run watch
+
+*********************************************************************
+
 Caution!
 
 Wurzelpark\vendor\phpoffice\phpword\src\PhpWord\TemplateProcessor.php was extended to replace images in docx-files:
