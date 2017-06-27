@@ -18,7 +18,7 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         // set local according to browser settings
-        $browser_language = explode(';', $request->server('HTTP_ACCEPT_LANGUAGE'))[0];
+        $browser_language = explode(',', explode(';', $request->server('HTTP_ACCEPT_LANGUAGE'))[0])[0];
 
         if (strpos($browser_language, 'de') !== false) {
             app()->setLocale('de');
