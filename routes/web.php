@@ -20,6 +20,7 @@ Route::post('quiz/{name}/previous', 'QuizController@show_previous_finalized');
 Route::post('quiz/{name}/next', 'QuizController@show_next_finalized');
 
 Route::get('finish-quiz', function() {
+    app()->setLocale(auth()->user()->language);
     return view('quiz.finish');
 });
 Route::post('finish-quiz', 'QuizController@finish');

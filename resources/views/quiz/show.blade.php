@@ -7,7 +7,7 @@
 
     <div class="container">
         <h3>{{ $question->station->display_name }}</h3>
-        <h5>{{sprintf(__('messages.message_station_questions'), sizeof($question->station->questions)) }}.</h5>
+        <h5>{{sprintf(__('messages.message_station_questions'), sizeof($question->station->questions)) }}</h5>
         <hr>
     </div>
 

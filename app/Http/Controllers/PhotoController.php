@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Utils\Utils;
 
 class PhotoController extends Controller
 {
     public function show()
     {
+        Utils::Instance()->resetLocale(request()->server('HTTP_ACCEPT_LANGUAGE'));
         return view('photos.show');
     }
 }

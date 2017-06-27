@@ -20,7 +20,7 @@ class QuizController extends Controller
 
     public function show($station_name)
     {
-        config(['app.locale' => auth()->user()->language]);
+        app()->setLocale(auth()->user()->language);
         $station = Station::where('name', $station_name)->first();
 
         if(sizeof($station) == 0)
@@ -93,7 +93,7 @@ class QuizController extends Controller
 
     public function store()
     {
-        config(['app.locale' => auth()->user()->language]);
+        app()->setLocale(auth()->user()->language);
 
         // check correctness of answer
         $station_id = request('station');
@@ -178,7 +178,7 @@ class QuizController extends Controller
 
     public function show_next_finalized()
     {
-        config(['app.locale' => auth()->user()->language]);
+        app()->setLocale(auth()->user()->language);
         $hide_next_button = false;
         $hide_previous_button = false;
         $station_id = request('station');
@@ -206,7 +206,7 @@ class QuizController extends Controller
 
     public function show_previous_finalized()
     {
-        config(['app.locale' => auth()->user()->language]);
+        app()->setLocale(auth()->user()->language);
         $hide_next_button = false;
         $hide_previous_button = false;
         $station_id = request('station');
@@ -291,7 +291,7 @@ class QuizController extends Controller
         dispatch(new FinishQuiz($user));
 
         // logout the user
-        config(['app.locale' => auth()->user()->language]);
+        app()->setLocale(auth()->user()->language);
         auth()->logout();
         return redirect()->route('register')->with('success', __('messages.success_quiz_finished'));
     }

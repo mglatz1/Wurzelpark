@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Utils\Utils;
 
 class HomeController extends Controller
 {
@@ -13,6 +14,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        Utils::Instance()->resetLocale(request()->server('HTTP_ACCEPT_LANGUAGE'));
         return view('welcome');
     }
 }

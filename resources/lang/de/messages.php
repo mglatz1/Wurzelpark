@@ -33,7 +33,7 @@ return [
     "message_password" => "Passwort",
     "message_confirm_password" => "Passwort bestätigen",
     "message_year_of_birth" => "Geburtsjahr",
-    "message_languages" => "Sprachen",
+    "message_language" => "Sprache",
     "message_german" => "Deutsch",
     "message_english" => "Englisch",
     "message_italian" => "Italienisch",

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Validator;
+use App\Http\Utils\Utils;
 
 class RegistrationController extends Controller
 {
@@ -14,6 +15,7 @@ class RegistrationController extends Controller
 
     public function create()
     {
+        Utils::Instance()->resetLocale(request()->server('HTTP_ACCEPT_LANGUAGE'));
         return view('registration.create');
     }
 

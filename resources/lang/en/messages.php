@@ -31,7 +31,7 @@ return [
     "message_password" => "Password",
     "message_confirm_password" => "Password confirmation",
     "message_year_of_birth" => "Year of birth",
-    "message_languages" => "Languages",
+    "message_language" => "Language",
     "message_german" => "German",
     "message_english" => "English",
     "message_italian" => "Italian",
@@ -40,8 +40,8 @@ return [
     "message_info_registration2" => "You can interrupt the quiz at any time and proceed later on.",
     "message_welcome" => "Welcome to Wurzelpark Arriach!",
     "message_finish_quiz" => "Finish quiz",
-    "success_quiz_already_finished" => "You've finished the quiz successfully. If you want to re-run the quiz you ".
-        "have to register again",
+    "success_quiz_already_finished" => "You've already finished the quiz successfully. If you want to re-run the quiz you ".
+        "have to register again.",
     "success_quiz_finished" => "You've finished the quiz successfully and you'll receive your personal certificate ".
         "anytime soon via email.",
     "message_quiz_finish_info1" => "Here you can finish the quiz. After that you'll receive your personal certificate ".
