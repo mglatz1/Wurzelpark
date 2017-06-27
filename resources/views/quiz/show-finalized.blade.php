@@ -50,9 +50,9 @@
 
             <form action="{{ url('quiz/'.$question->station->name.'/previous') }}" method="POST">
                 {{ csrf_field() }}
-                <input type="hidden" name="question_number" id="question_number" value="{{ $question->number }}">
-                <input type="hidden" name="level_id" id="level_id" value="{{ $question->level->id }}">
-                <input type="hidden" name="station" id="station" value="{{ $question->station->id }}">
+                <input type="hidden" name="question_number" id="question_number_previous" value="{{ $question->number }}">
+                <input type="hidden" name="level_id" id="level_id_previous" value="{{ $question->level->id }}">
+                <input type="hidden" name="station" id="station_previous" value="{{ $question->station->id }}">
                 <div class="btn navbar-btn @if ($hide_previous_button) disabled @endif">
                     <input type="submit" value="{{ __("messages.message_previous_question") }}" @if ($hide_previous_button) disabled @endif>
                 </div>
@@ -60,9 +60,9 @@
 
             <form action="{{ url('quiz/'.$question->station->name.'/next') }}" method="POST">
                 {{ csrf_field() }}
-                <input type="hidden" name="question_number" id="question_number" value="{{ $question->number }}">
-                <input type="hidden" name="level_id" id="level_id" value="{{ $question->level->id }}">
-                <input type="hidden" name="station" id="station" value="{{ $question->station->id }}">
+                <input type="hidden" name="question_number" id="question_number_next" value="{{ $question->number }}">
+                <input type="hidden" name="level_id" id="level_id_next" value="{{ $question->level->id }}">
+                <input type="hidden" name="station" id="station_next" value="{{ $question->station->id }}">
                 <div class="btn navbar-btn @if ($hide_next_button) disabled @endif">
                     <input type="submit" value="{{ __("messages.message_next_question") }}" @if ($hide_next_button) disabled @endif>
                 </div>

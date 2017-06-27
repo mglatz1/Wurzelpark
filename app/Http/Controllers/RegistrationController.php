@@ -19,8 +19,7 @@ class RegistrationController extends Controller
 
     public function store()
     {
-        $locale = config('app.locale');
-        $constants = "constants.".$locale;
+        $constants = "constants.".app()->getLocale();
 
         // validate input
         $this->validate(request(), [
@@ -50,7 +49,7 @@ class RegistrationController extends Controller
             'username' => request('username')
         ]);
 
-        config(['app.locale' => $user->language]);
+        app()->setLocale($user->language);
 
         // login user
         auth()->login($user);
