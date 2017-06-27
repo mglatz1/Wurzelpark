@@ -6,11 +6,10 @@ Wichtig:
 * (erledigt am 23.05.2017 von Mathias) Quiz - bereits beantwortete Fragen anzeigen
 * (erledigt am 20.06.2017 von Mathias) Urkunde als PDF
 * (erledigt am 23.05.2017 von Mathias) Mail Versand der Urkunde
-* Fotoalbum
+* Fotoalbum inkl. Postkarten
 * (erledigt am 27.05.2017 von Mathias) Fortsetzbarkeit für Quiz
 
 Eher unwichtig:
-* Live Check (AJAX), ob Benutzername schon vergeben ist
 * (erledigt am 18.05.2017 von Mathias) Seeding für Datenbank für User und Information
-* Mehrsprachigkeit der gesamten Webseite
+* (erledigt am 27.06.2017 von Mathias) Mehrsprachigkeit der gesamten Webseite
 * (erledigt am 27.05.2017 von Mathias) Bilder auf Displaygröße anpassen
