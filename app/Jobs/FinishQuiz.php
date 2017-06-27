@@ -36,11 +36,12 @@ class FinishQuiz implements ShouldQueue
      */
     public function handle()
     {
+        app()->setLocale($this->user->language);
         $files_path = app_path().'\\..\\'.env('FILES_PATH').'\\';
 
         // certificate processing
         $certificate_filename = __('messages.message_certificate_for').$this->user->name;
-        $certificate_template_filename = $files_path.env('CERTIFICATE_NAME');
+        $certificate_template_filename = $files_path.$this->user->language.env('CERTIFICATE_NAME');
         $template = new TemplateProcessor($certificate_template_filename);
         $template->setValue('name', $this->user->name);
         $doc_temp_filename = sys_get_temp_dir().'\\'.$certificate_filename.'.docx';

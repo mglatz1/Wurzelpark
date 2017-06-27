@@ -17,7 +17,6 @@
         </div>
         <hr>
         <div class="form-group">
-
             <form method="POST" action=" {{ url('register') }}">
                 {{ csrf_field() }}
 
