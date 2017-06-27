@@ -56,7 +56,7 @@
                     <select id="language" class="form-control" name="language">
                         <option value="de" {{ old('language') | app()->getLocale() == "de" ? "selected": "" }}>{{ __("messages.message_german") }}</option>
                         <option value="en" {{ old('language') | app()->getLocale() == "en" ? "selected": "" }}>{{ __("messages.message_english") }}</option>
-                        <option value="it" {{ old('language') | app()->getLocale() == "it" ? "selected": "" }}>{{ __("messages.message_italian") }}</option>
+                        {{--<option value="it" {{ old('language') | app()->getLocale() == "it" ? "selected": "" }}>{{ __("messages.message_italian") }}</option>--}}
                     </select>
                 </div>
 

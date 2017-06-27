@@ -17,7 +17,7 @@ class InformationController extends Controller
     public function show($name)
     {
         Utils::Instance()->resetLocale(request()->server('HTTP_ACCEPT_LANGUAGE'));
-        $info_item = Information::getByName($name)->first();
+        $info_item = Information::getByName($name);
 
         if (count($info_item) == null) {
             return redirect()->home()->with('error', __("messages.error_no_element_found"));

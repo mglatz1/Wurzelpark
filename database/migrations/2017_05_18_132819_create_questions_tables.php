@@ -15,14 +15,23 @@ class CreateQuestionsTables extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('text');
             $table->text('url_to_image');
-            $table->text('url_to_audio');
             $table->integer('number');
             $table->integer('level_id');
-            $table->string('language');
             $table->integer('station_id');
             $table->timestamps();
+        });
+
+        Schema::create('questions_translations', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('question_id')->unsigned();
+            $table->string('locale')->index();
+
+            $table->text('text');
+            $table->text('url_to_audio');
+
+            $table->unique(['question_id','locale']);
+            $table->foreign('question_id')->references('id')->on('questions')->onDelete('cascade');
         });
     }
 
@@ -33,6 +42,7 @@ class CreateQuestionsTables extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('questions_translations');
         Schema::dropIfExists('questions');
     }
 }

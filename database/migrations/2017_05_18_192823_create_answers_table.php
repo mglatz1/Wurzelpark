@@ -16,9 +16,19 @@ class CreateAnswersTable extends Migration
         Schema::create('answers', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('question_id');
-            $table->string('text');
             $table->boolean('correct');
             $table->timestamps();
+        });
+
+        Schema::create('answers_translations', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('answer_id')->unsigned();
+            $table->string('locale')->index();
+
+            $table->string('text');
+
+            $table->unique(['answer_id','locale']);
+            $table->foreign('answer_id')->references('id')->on('answers')->onDelete('cascade');
         });
     }
 
@@ -29,6 +39,7 @@ class CreateAnswersTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('answers_translations');
         Schema::dropIfExists('answers');
     }
 }

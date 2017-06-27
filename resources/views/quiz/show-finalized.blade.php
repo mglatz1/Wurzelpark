@@ -6,21 +6,21 @@
     @include('layouts.success')
 
     <div class="container">
-        <h3>{{ $question->station->display_name }}</h3>
+        <h3>{{ $question->station->getDisplayName() }}</h3>
         <h5>{{sprintf(__('messages.message_station_questions'), sizeof($question->station->questions)) }}.</h5>
         <hr>
     </div>
 
     <div class="container">
-        <h4>{{ $question->text }}</h4>
-        <h5>({{ __("messages.message_question") }} {{ $question->number }} {{ __('messages.message_of_level') }} "{{ $question->level->description }}")</h5>
+        <h4>{{ $question->getText() }}</h4>
+        <h5>({{ __("messages.message_question") }} {{ $question->number }} {{ __('messages.message_of_level') }} "{{ $question->level->getDescription() }}")</h5>
         <hr>
     </div>
 
     <div class="container">
-        @if($question->url_to_audio != null)
+        @if($question->getAudio() != null)
             <audio controls>
-                <source src="{{$question->url_to_audio}}" type="audio/mp3">{{  __('messages.error_audio_not_supported') }}</audio>
+                <source src="{{$question->getAudio()}}" type="audio/mp3">{{  __('messages.error_audio_not_supported') }}</audio>
             <hr>
         @endif
     </div>
@@ -38,7 +38,7 @@
                 <input class="form-group" type="radio" id="{{ $answer->id }}" name="answer"
                        value="{{ $answer->id }}" @if ($answer->correct) checked @endif disabled>
                 <span class="non-selectable-answer">
-                    <label class="form-check-label" for="{{ $answer->id }}">{{ $answer->text }}</label>
+                    <label class="form-check-label" for="{{ $answer->id }}">{{ $answer->getText() }}</label>
                 </span>
                 <br/>
             @endforeach

@@ -50,7 +50,7 @@
     <div class="container">
         @if($info_item->url_to_youtube != null)
             <hr>
-            <div><a href="{{$info_item->url_to_youtube}}">Youtube</a></div>
+            <div><a href="{{$info_item->url_to_youtube}}">YouTube</a></div>
         @endif
     </div>
     <hr>
