@@ -530,7 +530,7 @@ class QuestionsSeeder extends Seeder
         DB::table('questions_translations')->insert([
             'question_id' => 23,
             'locale' => 'de',
-            'text' => 'Welchen Zweck erfüllen die Teiche am Schiegebiet Gerlitzen?',
+            'text' => 'Welchen Zweck erfüllen die Teiche am Schigebiet Gerlitzen?',
             'url_to_audio' => '',
         ]);
 
