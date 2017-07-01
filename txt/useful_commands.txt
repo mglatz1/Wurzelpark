@@ -1,7 +1,7 @@
 *********************************************************************
 
 Refresh Configuration (DB credits changed etc.):
-composer dump-autoload & php artisan config:clear & php artisan cache:clear
+composer dump-autoload & php artisan config:clear & php artisan cache:clear & php artisan view:clear
 
 *********************************************************************
 
