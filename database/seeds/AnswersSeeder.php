@@ -2243,5 +2243,653 @@ class AnswersSeeder extends Seeder
             'locale' => 'en',
             'text' => 'Stag'
         ]);
+
+        DB::table('answers')->insert([
+            'created_at' => Carbon::now(),
+            'correct' => false,
+            'question_id' => 32
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 125,
+            'locale' => 'de',
+            'text' => 'Wasser'
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 125,
+            'locale' => 'en',
+            'text' => 'Water'
+        ]);
+
+        DB::table('answers')->insert([
+            'created_at' => Carbon::now(),
+            'correct' => true,
+            'question_id' => 32
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 126,
+            'locale' => 'de',
+            'text' => 'Sauerstoff'
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 126,
+            'locale' => 'en',
+            'text' => 'Oxygen'
+        ]);
+
+        DB::table('answers')->insert([
+            'created_at' => Carbon::now(),
+            'correct' => false,
+            'question_id' => 32
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 127,
+            'locale' => 'de',
+            'text' => 'Erdöl'
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 127,
+            'locale' => 'en',
+            'text' => 'Fossil oil'
+        ]);
+
+        DB::table('answers')->insert([
+            'created_at' => Carbon::now(),
+            'correct' => false,
+            'question_id' => 32
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 128,
+            'locale' => 'de',
+            'text' => 'Wind'
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 128,
+            'locale' => 'en',
+            'text' => 'Wind'
+        ]);
+
+        DB::table('answers')->insert([
+            'created_at' => Carbon::now(),
+            'correct' => false,
+            'question_id' => 33
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 129,
+            'locale' => 'de',
+            'text' => 'Der Rothirsch'
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 129,
+            'locale' => 'en',
+            'text' => 'Red deer'
+        ]);
+
+        DB::table('answers')->insert([
+            'created_at' => Carbon::now(),
+            'correct' => true,
+            'question_id' => 33
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 130,
+            'locale' => 'de',
+            'text' => 'Der Hase'
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 130,
+            'locale' => 'en',
+            'text' => 'Bunny'
+        ]);
+
+        DB::table('answers')->insert([
+            'created_at' => Carbon::now(),
+            'correct' => false,
+            'question_id' => 33
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 131,
+            'locale' => 'de',
+            'text' => 'Der Fuchs'
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 131,
+            'locale' => 'en',
+            'text' => 'Fox'
+        ]);
+
+        DB::table('answers')->insert([
+            'created_at' => Carbon::now(),
+            'correct' => false,
+            'question_id' => 33
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 132,
+            'locale' => 'de',
+            'text' => 'Das Rind'
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 132,
+            'locale' => 'en',
+            'text' => 'Steer'
+        ]);
+
+        DB::table('answers')->insert([
+            'created_at' => Carbon::now(),
+            'correct' => false,
+            'question_id' => 34
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 133,
+            'locale' => 'de',
+            'text' => 'Grün'
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 133,
+            'locale' => 'en',
+            'text' => 'Green'
+        ]);
+
+        DB::table('answers')->insert([
+            'created_at' => Carbon::now(),
+            'correct' => false,
+            'question_id' => 34
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 134,
+            'locale' => 'de',
+            'text' => 'Gelb'
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 134,
+            'locale' => 'en',
+            'text' => 'Yellow'
+        ]);
+
+        DB::table('answers')->insert([
+            'created_at' => Carbon::now(),
+            'correct' => false,
+            'question_id' => 34
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 135,
+            'locale' => 'de',
+            'text' => 'Blau'
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 135,
+            'locale' => 'en',
+            'text' => 'Blue'
+        ]);
+
+        DB::table('answers')->insert([
+            'created_at' => Carbon::now(),
+            'correct' => true,
+            'question_id' => 34
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 136,
+            'locale' => 'de',
+            'text' => 'Rot'
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 136,
+            'locale' => 'en',
+            'text' => 'Red'
+        ]);
+
+        DB::table('answers')->insert([
+            'created_at' => Carbon::now(),
+            'correct' => false,
+            'question_id' => 35
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 137,
+            'locale' => 'de',
+            'text' => 'Das Schaf'
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 137,
+            'locale' => 'en',
+            'text' => 'Sheep'
+        ]);
+
+        DB::table('answers')->insert([
+            'created_at' => Carbon::now(),
+            'correct' => true,
+            'question_id' => 35
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 138,
+            'locale' => 'de',
+            'text' => 'Das Schwein'
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 138,
+            'locale' => 'en',
+            'text' => 'Pig'
+        ]);
+
+        DB::table('answers')->insert([
+            'created_at' => Carbon::now(),
+            'correct' => false,
+            'question_id' => 35
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 139,
+            'locale' => 'de',
+            'text' => 'Der Hund'
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 139,
+            'locale' => 'en',
+            'text' => 'Dog'
+        ]);
+
+        DB::table('answers')->insert([
+            'created_at' => Carbon::now(),
+            'correct' => false,
+            'question_id' => 35
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 140,
+            'locale' => 'de',
+            'text' => 'Der Gorilla'
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 140,
+            'locale' => 'en',
+            'text' => 'Gorilla'
+        ]);
+
+        DB::table('answers')->insert([
+            'created_at' => Carbon::now(),
+            'correct' => false,
+            'question_id' => 36
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 141,
+            'locale' => 'de',
+            'text' => 'Die Tanne'
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 141,
+            'locale' => 'en',
+            'text' => 'Fir'
+        ]);
+
+        DB::table('answers')->insert([
+            'created_at' => Carbon::now(),
+            'correct' => false,
+            'question_id' => 36
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 142,
+            'locale' => 'de',
+            'text' => 'Die Erle'
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 142,
+            'locale' => 'en',
+            'text' => 'Alder'
+        ]);
+
+        DB::table('answers')->insert([
+            'created_at' => Carbon::now(),
+            'correct' => false,
+            'question_id' => 36
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 143,
+            'locale' => 'de',
+            'text' => 'Die Esche'
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 143,
+            'locale' => 'en',
+            'text' => 'Ash'
+        ]);
+
+        DB::table('answers')->insert([
+            'created_at' => Carbon::now(),
+            'correct' => true,
+            'question_id' => 36
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 144,
+            'locale' => 'de',
+            'text' => 'Die Fichte'
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 144,
+            'locale' => 'en',
+            'text' => 'Spruce'
+        ]);
+
+        DB::table('answers')->insert([
+            'created_at' => Carbon::now(),
+            'correct' => false,
+            'question_id' => 37
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 145,
+            'locale' => 'de',
+            'text' => 'Der Fuchs'
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 145,
+            'locale' => 'en',
+            'text' => 'Foxes'
+        ]);
+
+        DB::table('answers')->insert([
+            'created_at' => Carbon::now(),
+            'correct' => false,
+            'question_id' => 37
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 146,
+            'locale' => 'de',
+            'text' => 'Der Dachs'
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 146,
+            'locale' => 'en',
+            'text' => 'Badgers'
+        ]);
+
+        DB::table('answers')->insert([
+            'created_at' => Carbon::now(),
+            'correct' => true,
+            'question_id' => 37
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 147,
+            'locale' => 'de',
+            'text' => 'Die Ameise'
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 147,
+            'locale' => 'en',
+            'text' => 'Ants'
+        ]);
+
+        DB::table('answers')->insert([
+            'created_at' => Carbon::now(),
+            'correct' => false,
+            'question_id' => 37
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 148,
+            'locale' => 'de',
+            'text' => 'Fliegen'
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 148,
+            'locale' => 'en',
+            'text' => 'Flies'
+        ]);
+
+        DB::table('answers')->insert([
+            'created_at' => Carbon::now(),
+            'correct' => true,
+            'question_id' => 38
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 149,
+            'locale' => 'de',
+            'text' => 'Kühe'
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 149,
+            'locale' => 'en',
+            'text' => 'Cows'
+        ]);
+
+        DB::table('answers')->insert([
+            'created_at' => Carbon::now(),
+            'correct' => false,
+            'question_id' => 38
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 150,
+            'locale' => 'de',
+            'text' => 'Kamele'
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 150,
+            'locale' => 'en',
+            'text' => 'Camels'
+        ]);
+
+        DB::table('answers')->insert([
+            'created_at' => Carbon::now(),
+            'correct' => false,
+            'question_id' => 38
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 151,
+            'locale' => 'de',
+            'text' => 'Esel'
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 151,
+            'locale' => 'en',
+            'text' => 'Donkeys'
+        ]);
+
+        DB::table('answers')->insert([
+            'created_at' => Carbon::now(),
+            'correct' => false,
+            'question_id' => 38
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 152,
+            'locale' => 'de',
+            'text' => 'Lamas'
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 152,
+            'locale' => 'en',
+            'text' => 'Llamas'
+        ]);
+
+        DB::table('answers')->insert([
+            'created_at' => Carbon::now(),
+            'correct' => false,
+            'question_id' => 39
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 153,
+            'locale' => 'de',
+            'text' => 'Schaffleisch'
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 153,
+            'locale' => 'en',
+            'text' => 'Mutton'
+        ]);
+
+        DB::table('answers')->insert([
+            'created_at' => Carbon::now(),
+            'correct' => true,
+            'question_id' => 39
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 154,
+            'locale' => 'de',
+            'text' => 'Schafkäse'
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 154,
+            'locale' => 'en',
+            'text' => 'Sheep milk cheese'
+        ]);
+
+        DB::table('answers')->insert([
+            'created_at' => Carbon::now(),
+            'correct' => false,
+            'question_id' => 39
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 155,
+            'locale' => 'de',
+            'text' => 'Pferdemilch'
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 155,
+            'locale' => 'en',
+            'text' => 'Horse milk'
+        ]);
+
+        DB::table('answers')->insert([
+            'created_at' => Carbon::now(),
+            'correct' => false,
+            'question_id' => 39
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 156,
+            'locale' => 'de',
+            'text' => 'Pilze'
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 156,
+            'locale' => 'en',
+            'text' => 'Mushrooms'
+        ]);
+
+        DB::table('answers')->insert([
+            'created_at' => Carbon::now(),
+            'correct' => false,
+            'question_id' => 40
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 157,
+            'locale' => 'de',
+            'text' => 'Der Wurzelbär'
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 157,
+            'locale' => 'en',
+            'text' => 'Wurzelbear'
+        ]);
+
+        DB::table('answers')->insert([
+            'created_at' => Carbon::now(),
+            'correct' => true,
+            'question_id' => 40
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 158,
+            'locale' => 'de',
+            'text' => 'Der Wurzelsepp'
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 158,
+            'locale' => 'en',
+            'text' => 'Wurzelsepp'
+        ]);
+
+        DB::table('answers')->insert([
+            'created_at' => Carbon::now(),
+            'correct' => false,
+            'question_id' => 40
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 159,
+            'locale' => 'de',
+            'text' => 'Der Wurzelfrosch'
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 159,
+            'locale' => 'en',
+            'text' => 'Wurzelfrog'
+        ]);
+
+        DB::table('answers')->insert([
+            'created_at' => Carbon::now(),
+            'correct' => false,
+            'question_id' => 40
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 160,
+            'locale' => 'de',
+            'text' => 'Der Waldalligator'
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 160,
+            'locale' => 'en',
+            'text' => 'Alligator of the forest'
+        ]);
     }
 }

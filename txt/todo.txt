@@ -8,7 +8,7 @@ Wichtig:
 * (erledigt am 23.05.2017 von Mathias) Mail Versand der Urkunde
 * Fotoalbum inkl. Postkarten
 * (erledigt am 27.05.2017 von Mathias) Fortsetzbarkeit für Quiz
-* Seeding ausbauen (alle Stationen hinzufügen)
+* (erledigt am 02.07.2017 von Mathias) Seeding ausbauen (alle Stationen hinzufügen)
 * Keine Copyright Bilder verwenden (!!)
 * Fehlerseite bei allgemeinen Fehlern einfügen
 
@@ -19,3 +19,4 @@ Eher unwichtig:
 * Italienische Übersetzung der Fragen hinzufügen
 * HTTPS verwenden und Zertifikat holen
 * Admintool
+* Station mit Fragen erstellen, die kein Level leicht/mittel haben

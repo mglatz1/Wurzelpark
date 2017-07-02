@@ -137,5 +137,113 @@ class StationsSeeder extends Seeder
             'locale' => 'en',
             'display_name' => 'Station 7'
         ]);
+
+        DB::table('stations')->insert([
+            'created_at' => Carbon::now(),
+            'url' => config('app.url_prefix').'Station08',
+            'name' => 'Station08'
+        ]);
+
+        DB::table('stations_translations')->insert([
+            'station_id' => '8',
+            'locale' => 'de',
+            'display_name' => 'Station 8'
+        ]);
+
+        DB::table('stations_translations')->insert([
+            'station_id' => '8',
+            'locale' => 'en',
+            'display_name' => 'Station 8'
+        ]);
+
+        DB::table('stations')->insert([
+            'created_at' => Carbon::now(),
+            'url' => config('app.url_prefix').'Station09',
+            'name' => 'Station09'
+        ]);
+
+        DB::table('stations_translations')->insert([
+            'station_id' => '9',
+            'locale' => 'de',
+            'display_name' => 'Station 9'
+        ]);
+
+        DB::table('stations_translations')->insert([
+            'station_id' => '9',
+            'locale' => 'en',
+            'display_name' => 'Station 9'
+        ]);
+
+        DB::table('stations')->insert([
+            'created_at' => Carbon::now(),
+            'url' => config('app.url_prefix').'Station10',
+            'name' => 'Station10'
+        ]);
+
+        DB::table('stations_translations')->insert([
+            'station_id' => '10',
+            'locale' => 'de',
+            'display_name' => 'Station 10'
+        ]);
+
+        DB::table('stations_translations')->insert([
+            'station_id' => '10',
+            'locale' => 'en',
+            'display_name' => 'Station 10'
+        ]);
+
+        DB::table('stations')->insert([
+            'created_at' => Carbon::now(),
+            'url' => config('app.url_prefix').'Station11',
+            'name' => 'Station11'
+        ]);
+
+        DB::table('stations_translations')->insert([
+            'station_id' => '11',
+            'locale' => 'de',
+            'display_name' => 'Station 11'
+        ]);
+
+        DB::table('stations_translations')->insert([
+            'station_id' => '11',
+            'locale' => 'en',
+            'display_name' => 'Station 11'
+        ]);
+
+        DB::table('stations')->insert([
+            'created_at' => Carbon::now(),
+            'url' => config('app.url_prefix').'Station12',
+            'name' => 'Station12'
+        ]);
+
+        DB::table('stations_translations')->insert([
+            'station_id' => '12',
+            'locale' => 'de',
+            'display_name' => 'Station 12'
+        ]);
+
+        DB::table('stations_translations')->insert([
+            'station_id' => '12',
+            'locale' => 'en',
+            'display_name' => 'Station 12'
+        ]);
+
+        DB::table('stations')->insert([
+            'created_at' => Carbon::now(),
+            'url' => config('app.url_prefix').'Station13',
+            'name' => 'Station13'
+        ]);
+
+        DB::table('stations_translations')->insert([
+            'station_id' => '13',
+            'locale' => 'de',
+            'display_name' => 'Station 13'
+        ]);
+
+        DB::table('stations_translations')->insert([
+            'station_id' => '13',
+            'locale' => 'en',
+            'display_name' => 'Station 13'
+        ]);
     }
 }

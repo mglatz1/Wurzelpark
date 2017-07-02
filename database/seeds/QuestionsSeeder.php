@@ -721,9 +721,217 @@ class QuestionsSeeder extends Seeder
         DB::table('questions_translations')->insert([
             'question_id' => 31,
             'locale' => 'en',
-            'text' => 'What animal is black-white striped at the head?',
+            'text' => 'Which animal is black-white striped at the head?',
+            'url_to_audio' => '',
+        ]);
+
+        // id 32
+        DB::table('questions')->insert([
+            'created_at' => Carbon::now(),
+            'url_to_image' => 'http://www.wurzelpark.at/App/Bilder/Station08/Wald.jpg',
+            'number' => 1,
+            'level_id' => 1,
+            'station_id' => 8,
+        ]);
+
+        DB::table('questions_translations')->insert([
+            'question_id' => 32,
+            'locale' => 'de',
+            'text' => 'Was produzieren Bäume bzw. der Wald, das der Mensch so dringend zum Leben braucht?',
+            'url_to_audio' => 'http://www.wurzelpark.at/App/Audio/Station07/Der Dachs.mp3',
+        ]);
+
+        DB::table('questions_translations')->insert([
+            'question_id' => 32,
+            'locale' => 'en',
+            'text' => 'What is produced by a forest and very important for human beings and animals to live?',
+            'url_to_audio' => '',
+        ]);
+
+        // id 33
+        DB::table('questions')->insert([
+            'created_at' => Carbon::now(),
+            'url_to_image' => '',
+            'number' => 1,
+            'level_id' => 1,
+            'station_id' => 9,
+        ]);
+
+        DB::table('questions_translations')->insert([
+            'question_id' => 33,
+            'locale' => 'de',
+            'text' => 'Welches Tier frisst den giftigen Fliegenpilz ohne krank zu werden?',
+            'url_to_audio' => '',
+        ]);
+
+        DB::table('questions_translations')->insert([
+            'question_id' => 33,
+            'locale' => 'en',
+            'text' => 'Which animal is able to eat a fly agaric without bad consequences?',
+            'url_to_audio' => '',
+        ]);
+
+        // id 34
+        DB::table('questions')->insert([
+            'created_at' => Carbon::now(),
+            'url_to_image' => '',
+            'number' => 2,
+            'level_id' => 1,
+            'station_id' => 9,
+        ]);
+
+        DB::table('questions_translations')->insert([
+            'question_id' => 34,
+            'locale' => 'de',
+            'text' => 'Welche Farben können Bienen nicht sehen?',
+            'url_to_audio' => '',
+        ]);
+
+        DB::table('questions_translations')->insert([
+            'question_id' => 34,
+            'locale' => 'en',
+            'text' => 'Which colors can\'t be seen by bees?',
+            'url_to_audio' => '',
+        ]);
+
+        // id 35
+        DB::table('questions')->insert([
+            'created_at' => Carbon::now(),
+            'url_to_image' => '',
+            'number' => 1,
+            'level_id' => 1,
+            'station_id' => 10,
+        ]);
+
+        DB::table('questions_translations')->insert([
+            'question_id' => 35,
+            'locale' => 'de',
+            'text' => 'Welches Tier ähnelt den Menschen genetisch zu 99%?',
+            'url_to_audio' => '',
+        ]);
+
+        DB::table('questions_translations')->insert([
+            'question_id' => 35,
+            'locale' => 'en',
+            'text' => 'Which animal is genetically 99% equivalent to a human being?',
+            'url_to_audio' => '',
+        ]);
+
+        // id 36
+        DB::table('questions')->insert([
+            'created_at' => Carbon::now(),
+            'url_to_image' => '',
+            'number' => 1,
+            'level_id' => 1,
+            'station_id' => 11,
+        ]);
+
+        DB::table('questions_translations')->insert([
+            'question_id' => 36,
+            'locale' => 'de',
+            'text' => 'Was ist die weit verbreitetste Baumart in Mitteleuropa?',
+            'url_to_audio' => '',
+        ]);
+
+        DB::table('questions_translations')->insert([
+            'question_id' => 36,
+            'locale' => 'en',
+            'text' => 'What is the most widespread type of tree in Central Europe?',
+            'url_to_audio' => '',
+        ]);
+
+        // id 37
+        DB::table('questions')->insert([
+            'created_at' => Carbon::now(),
+            'url_to_image' => '',
+            'number' => 2,
+            'level_id' => 1,
+            'station_id' => 11,
+        ]);
+
+        DB::table('questions_translations')->insert([
+            'question_id' => 37,
+            'locale' => 'de',
+            'text' => 'Wer ist die Polizei des Waldes?',
+            'url_to_audio' => '',
+        ]);
+
+        DB::table('questions_translations')->insert([
+            'question_id' => 37,
+            'locale' => 'en',
+            'text' => 'Which animal has a very important role for the environment?',
+            'url_to_audio' => '',
+        ]);
+
+        // id 38
+        DB::table('questions')->insert([
+            'created_at' => Carbon::now(),
+            'url_to_image' => '',
+            'number' => 1,
+            'level_id' => 1,
+            'station_id' => 12,
+        ]);
+
+        DB::table('questions_translations')->insert([
+            'question_id' => 38,
+            'locale' => 'de',
+            'text' => 'Der Wurzelpark befindet sich an einem Bauernhof. Welche Tiere hast du schon gesehen?',
+            'url_to_audio' => '',
+        ]);
+
+        DB::table('questions_translations')->insert([
+            'question_id' => 38,
+            'locale' => 'en',
+            'text' => 'Wurzelpark is part of a farm. Which animal have you seen already?',
+            'url_to_audio' => '',
+        ]);
+
+        // id 39
+        DB::table('questions')->insert([
+            'created_at' => Carbon::now(),
+            'url_to_image' => '',
+            'number' => 2,
+            'level_id' => 1,
+            'station_id' => 12,
+        ]);
+
+        DB::table('questions_translations')->insert([
+            'question_id' => 39,
+            'locale' => 'de',
+            'text' => 'Am Bauernhof, wo sich der Wurzelpark befindet, gibt es Schafe, Kühe, Hühner, Enten, Schweine, '.
+                'Hasen und vieles mehr. Welches Nahrungsmittel kannst du neben Käse aus Kuhmilch noch vorfinden?',
+            'url_to_audio' => '',
+        ]);
+
+        DB::table('questions_translations')->insert([
+            'question_id' => 39,
+            'locale' => 'en',
+            'text' => 'At the farm of Wurzelpark you can sheeps, cows, chickens, ducks, pigs, bunnies and many more. '.
+                'Besides cheese produced with milk from cows, which product is also available?',
+            'url_to_audio' => '',
+        ]);
+
+        // id 40
+        DB::table('questions')->insert([
+            'created_at' => Carbon::now(),
+            'url_to_image' => '',
+            'number' => 1,
+            'level_id' => 1,
+            'station_id' => 13,
+        ]);
+
+        DB::table('questions_translations')->insert([
+            'question_id' => 40,
+            'locale' => 'de',
+            'text' => 'Du startest nun die Quizrally! Du bekommst nun eine Testfrage. Welche ca. 3 Meter große Figur steht am Eingang des Wurzelparks?',
+            'url_to_audio' => '',
+        ]);
+
+        DB::table('questions_translations')->insert([
+            'question_id' => 40,
+            'locale' => 'en',
+            'text' => 'You started the quiz rally! This is an example question. Which property is besides the entrance of the Wurzelpark and about 3 meters high?',
             'url_to_audio' => '',
         ]);
     }
 }
-
