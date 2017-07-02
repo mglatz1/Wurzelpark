@@ -315,7 +315,7 @@ class AnswersSeeder extends Seeder
         DB::table('answers_translations')->insert([
             'answer_id' => 17,
             'locale' => 'en',
-            'text' => 'The woodpecker'
+            'text' => 'Woodpecker'
         ]);
 
         DB::table('answers')->insert([
@@ -327,13 +327,13 @@ class AnswersSeeder extends Seeder
         DB::table('answers_translations')->insert([
             'answer_id' => 18,
             'locale' => 'de',
-            'text' => 'Specht'
+            'text' => 'Hund'
         ]);
 
         DB::table('answers_translations')->insert([
             'answer_id' => 18,
             'locale' => 'en',
-            'text' => 'The woodpecker'
+            'text' => 'Dog'
         ]);
 
         DB::table('answers')->insert([
@@ -345,13 +345,13 @@ class AnswersSeeder extends Seeder
         DB::table('answers_translations')->insert([
             'answer_id' => 19,
             'locale' => 'de',
-            'text' => 'Baummader'
+            'text' => 'Baummarder'
         ]);
 
         DB::table('answers_translations')->insert([
             'answer_id' => 19,
             'locale' => 'en',
-            'text' => 'The tree marten'
+            'text' => 'Tree marten'
         ]);
 
         DB::table('answers')->insert([
@@ -369,7 +369,7 @@ class AnswersSeeder extends Seeder
         DB::table('answers_translations')->insert([
             'answer_id' => 20,
             'locale' => 'en',
-            'text' => 'The cat'
+            'text' => 'Cat'
         ]);
 
         DB::table('answers')->insert([

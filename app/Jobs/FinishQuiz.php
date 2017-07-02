@@ -17,7 +17,7 @@ class FinishQuiz implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    public $tries = 2;
+    public $tries = 1;
     protected $user;
 
     /**

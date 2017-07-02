@@ -692,7 +692,7 @@ class QuestionsSeeder extends Seeder
             'question_id' => 30,
             'locale' => 'de',
             'text' => 'Warum sind Bienen so nützliche Insekten?',
-            'url_to_audio' => 'http://www.wurzelpark.at/App/Audio/Station07/Kuh frisst Heu.mp3',
+            'url_to_audio' => 'http://www.wurzelpark.at/App/Audio/Station07/Warum sind Bienen nützlich.mp3',
         ]);
 
         DB::table('questions_translations')->insert([
@@ -738,7 +738,7 @@ class QuestionsSeeder extends Seeder
             'question_id' => 32,
             'locale' => 'de',
             'text' => 'Was produzieren Bäume bzw. der Wald, das der Mensch so dringend zum Leben braucht?',
-            'url_to_audio' => 'http://www.wurzelpark.at/App/Audio/Station07/Der Dachs.mp3',
+            'url_to_audio' => '',
         ]);
 
         DB::table('questions_translations')->insert([
