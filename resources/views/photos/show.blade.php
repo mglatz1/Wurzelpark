@@ -5,73 +5,20 @@
     @include('layouts.error')
     @include('layouts.success')
 
-    <h2>First gallery:</h2>
+    @foreach ($array_of_photos as $key=>$photos_of_folder)
+        <h2>{{ $key }}</h2>
 
-    <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
-
-        <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-            <a href="https://farm3.staticflickr.com/2567/5697107145_a4c2eaa0cd_o.jpg" itemprop="contentUrl" data-size="1024x1024">
-                <img src="https://farm3.staticflickr.com/2567/5697107145_3c27ff3cd1_m.jpg" itemprop="thumbnail" alt="Image description" />
-            </a>
-            <figcaption itemprop="caption description">Image caption  1</figcaption>
-
-        </figure>
-
-        <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-            <a href="https://farm2.staticflickr.com/1043/5186867718_06b2e9e551_b.jpg" itemprop="contentUrl" data-size="964x1024">
-                <img src="https://farm2.staticflickr.com/1043/5186867718_06b2e9e551_m.jpg" itemprop="thumbnail" alt="Image description" />
-            </a>
-            <figcaption itemprop="caption description">Image caption 2</figcaption>
-        </figure>
-
-        <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-            <a href="https://farm7.staticflickr.com/6175/6176698785_7dee72237e_b.jpg" itemprop="contentUrl" data-size="1024x683">
-                <img src="https://farm7.staticflickr.com/6175/6176698785_7dee72237e_m.jpg" itemprop="thumbnail" alt="Image description" />
-            </a>
-            <figcaption itemprop="caption description">Image caption 3</figcaption>
-        </figure>
-
-        <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-            <a href="https://farm6.staticflickr.com/5023/5578283926_822e5e5791_b.jpg" itemprop="contentUrl" data-size="1024x768">
-                <img src="https://farm6.staticflickr.com/5023/5578283926_822e5e5791_m.jpg" itemprop="thumbnail" alt="Image description" />
-            </a>
-            <figcaption itemprop="caption description">Image caption 4</figcaption>
-        </figure>
-
-
-    </div>
-
-    <h2>Second gallery:</h2>
-
-    <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
-
-
-
-        <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-            <a href="https://farm2.staticflickr.com/1043/5186867718_06b2e9e551_b.jpg" itemprop="contentUrl" data-size="964x1024">
-                <img src="https://farm2.staticflickr.com/1043/5186867718_06b2e9e551_m.jpg" itemprop="thumbnail" alt="Image description" />
-            </a>
-            <figcaption itemprop="caption description">Image caption 2.1</figcaption>
-        </figure>
-
-        <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-            <a href="https://farm7.staticflickr.com/6175/6176698785_7dee72237e_b.jpg" itemprop="contentUrl" data-size="1024x683">
-                <img src="https://farm7.staticflickr.com/6175/6176698785_7dee72237e_m.jpg" itemprop="thumbnail" alt="Image description" />
-            </a>
-            <figcaption itemprop="caption description">Image caption 2.2</figcaption>
-        </figure>
-
-        <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-            <a href="https://farm6.staticflickr.com/5023/5578283926_822e5e5791_b.jpg" itemprop="contentUrl" data-size="1024x768">
-                <img src="https://farm6.staticflickr.com/5023/5578283926_822e5e5791_m.jpg" itemprop="thumbnail" alt="Image description" />
-            </a>
-            <figcaption itemprop="caption description">Image caption 2.3</figcaption>
-        </figure>
-
-
-    </div>
-
-
+        <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+            @foreach ($photos_of_folder as $photo_filename=>$dimension)
+                <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                    <a href="{{ $photo_filename }}" itemprop="contentUrl" data-size="{{ $dimension }}">
+                        <img src="{{ $photo_filename }}" itemprop="thumbnail" alt="Photo" />
+                    </a>
+                    <figcaption itemprop="caption description">Image caption</figcaption>
+                </figure>
+            @endforeach
+        </div>
+    @endforeach
 
     <!-- Root element of PhotoSwipe. Must have class pswp. -->
     <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">

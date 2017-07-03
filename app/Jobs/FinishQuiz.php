@@ -38,11 +38,11 @@ class FinishQuiz implements ShouldQueue
     public function handle()
     {
         app()->setLocale($this->user->language);
-        $files_path = app_path().'\\..\\'.env('FILES_PATH').'\\';
+        $files_dir = app_path().'\\..\\'.env('FILES_DIR').'\\';
 
         // certificate processing
         $certificate_filename = __('messages.message_certificate_for').$this->user->name;
-        $certificate_template_filename = $files_path.$this->user->language.env('CERTIFICATE_NAME');
+        $certificate_template_filename = $files_dir.$this->user->language.env('CERTIFICATE_NAME');
         $template = new TemplateProcessor($certificate_template_filename);
         $template->setValue('name', $this->user->name);
         $doc_temp_filename = sys_get_temp_dir().'\\'.$certificate_filename.'.docx';
@@ -63,11 +63,11 @@ class FinishQuiz implements ShouldQueue
 
         // postcard processing
         $postcard_filename = __('messages.message_postcard_for').$this->user->name;
-        $postcard_template_filename = $files_path.env('POSTCARD_NAME');
+        $postcard_template_filename = $files_dir.env('POSTCARD_NAME');
         $template = new TemplateProcessor($postcard_template_filename);
-        $template->setImageValue('image1.png', $files_path.'pic1.png');
-        $template->setImageValue('image2.png', $files_path.'pic2.png');
-        $template->setImageValue('image3.png', $files_path.'pic3.png');
+        $template->setImageValue('image1.png', $files_dir.'pic1.png');
+        $template->setImageValue('image2.png', $files_dir.'pic2.png');
+        $template->setImageValue('image3.png', $files_dir.'pic3.png');
         $postcard_temp_filename = sys_get_temp_dir().'\\'.$postcard_filename.'.docx';
         $template->saveAs($postcard_temp_filename);
         $file_path_to_processed_postcard = sys_get_temp_dir().'\\'.$postcard_filename.'.png';
