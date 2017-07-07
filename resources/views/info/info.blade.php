@@ -2,11 +2,11 @@
 
 @section('content')
     <div class="container">
-        <h1>{{ $about_info->title }}</h1>
+        <h1>{{ $about_info->getTitle() }}</h1>
     </div>
     <hr>
 
     <div class="container">
-        <p>{!! $about_info->text !!}</p>
+        <p>{!! $about_info->getText() !!}</p>
     </div>
 @endsection

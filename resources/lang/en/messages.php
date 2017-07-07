@@ -8,7 +8,8 @@ return [
         "correctly. Now you can finish the quiz by clicking \"Finish Quiz\" in the top menu.",
     "error_wrong_answer" => "This answer is wrong. Please try again.",
     "success_correct_answer" => "This answer is correct. Here is the next question.",
-    "error_no_element_found" => "No element found.",
+    "error_no_element_found" => "No element found. Perhaps you've scanned a wrong QR-Code or".
+        " this element is not yet translated.",
     "error_registration" => "Registration failed. Username is already used.",
     "success_registration" => "Registration successful.",
     "success_logout" => "Logout successful.",

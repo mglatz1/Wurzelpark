@@ -19,10 +19,6 @@ class CreateInformationTable extends Migration
             $table->string('name');
             $table->text('url_to_image');
             $table->text('url_to_image2');
-            $table->text('url_to_audio');
-            $table->text('url_to_video');
-            $table->text('url_to_pdf');
-            $table->text('url_to_youtube');
             $table->timestamps();
         });
 
@@ -33,6 +29,10 @@ class CreateInformationTable extends Migration
 
             $table->string('title');
             $table->text('text');
+            $table->text('url_to_audio');
+            $table->text('url_to_video');
+            $table->text('url_to_pdf');
+            $table->text('url_to_youtube');
 
             $table->unique(['information_id','locale']);
             $table->foreign('information_id')->references('id')->on('information')->onDelete('cascade');

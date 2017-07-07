@@ -9,7 +9,7 @@ return [
         " auswählst.",
     "error_wrong_answer" => "Diese Antwort ist leider falsch. Versuche es noch einmal.",
     "success_correct_answer" => "Diese Antwort ist richtig. Weiter geht es mit der nächsten Frage.",
-    "error_no_element_found" => "Kein Element gefunden.",
+    "error_no_element_found" => "Kein Element gefunden. Möglicherweise hast du einen falschen QR-Code eingescannt.",
     "error_registration" => "Registrierung fehlgeschlagen. Dieser Benutzername wird bereits verwendet, bitte".
         " wähle einen anderen.",
     "success_registration" => "Du wurdest erfolgreich registriert.",
