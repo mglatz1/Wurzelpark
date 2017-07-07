@@ -9,7 +9,7 @@ class PhotoController extends Controller
     public function show()
     {
         Utils::Instance()->resetLocale(request()->server('HTTP_ACCEPT_LANGUAGE'));
-        $photos_dir = app_path().'\\..\\'.env('PHOTOS_DIR').'/';
+        $photos_dir = '../'.env('PHOTOS_DIR').'/';
         $photos_folder = array_diff(scandir($photos_dir), array('..', '.'));
 
         $array_of_photos = array();
