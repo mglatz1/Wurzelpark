@@ -5,20 +5,28 @@
     @include('layouts.error')
     @include('layouts.success')
 
-    @foreach ($array_of_photos as $key=>$photos_of_folder)
-        <h2>{{ $key }}</h2>
+    <div class="container">
+        <h1>{{ __('messages.message_photoalbum_header') }}</h1>
+    </div>
+    <hr>
 
-        <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
-            @foreach ($photos_of_folder as $photo_filename=>$dimension)
-                <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-                    <a href="{{ $photo_filename }}" itemprop="contentUrl" data-size="{{ $dimension }}">
-                        <img src="{{ $photo_filename }}" itemprop="thumbnail" alt="Photo" />
-                    </a>
-                    <figcaption itemprop="caption description">Image caption</figcaption>
-                </figure>
-            @endforeach
-        </div>
-    @endforeach
+    <div class="container">
+        @foreach ($array_of_photos as $key=>$photos_of_folder)
+            <div class="container">
+                <h2>{{ $key }}</h2>
+                <div class="my-gallery container" itemscope itemtype="http://schema.org/ImageGallery">
+                    @foreach ($photos_of_folder as $photo_filename=>$dimension)
+                        <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                            <a href="{{ $photo_filename }}" itemprop="contentUrl" data-size="{{$dimension}}">
+                                <img src="{{ $photo_filename }}" itemprop="thumbnail" alt="basename($photo_filename)" />
+                            </a>
+                            <figcaption itemprop="caption description">{{ basename($photo_filename) }}</figcaption>
+                        </figure>
+                    @endforeach
+                </div>
+            </div>
+        @endforeach
+    </div>
 
     <!-- Root element of PhotoSwipe. Must have class pswp. -->
     <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">

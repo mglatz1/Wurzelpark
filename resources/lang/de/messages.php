@@ -58,5 +58,6 @@ return [
     "message_certificate_for" => "Urkunde ",
     "message_postcard_for" => "Postkarte ",
     "message_station_questions" => "Diese Station enthält insgesamt %s Fragen",
-    "message_of_level" => "vom Level"
+    "message_of_level" => "vom Level",
+    "message_photoalbum_header" => "Fotoalben"
 ];

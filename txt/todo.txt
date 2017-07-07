@@ -11,6 +11,7 @@ Wichtig:
 * (erledigt am 02.07.2017 von Mathias) Seeding ausbauen (alle Stationen hinzufügen)
 * Keine Copyright Bilder verwenden (!!)
 * Fehlerseite bei allgemeinen Fehlern einfügen
+* Admintool
 
 Eher unwichtig:
 * (erledigt am 18.05.2017 von Mathias) Seeding für Datenbank für User und Information
@@ -18,5 +19,4 @@ Eher unwichtig:
 * (erledigt am 27.05.2017 von Mathias) Bilder auf Displaygröße anpassen
 * Italienische Übersetzung der Fragen hinzufügen
 * HTTPS verwenden und Zertifikat holen
-* Admintool
 * Station mit Fragen erstellen, die kein Level leicht/mittel haben

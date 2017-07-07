@@ -56,5 +56,6 @@ return [
     "message_certificate_for" => "Certificate ",
     "message_postcard_for" => "Postcard ",
     "message_station_questions" => "This station contains %s questions.",
-    "message_of_level" => "of level"
+    "message_of_level" => "of level",
+    "message_photoalbum_header" => "Photo albums"
 ];
