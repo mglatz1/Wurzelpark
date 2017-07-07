@@ -1,0 +1,35 @@
+*********************************************************************
+
+1) Replace .env file with .env for production
+    * Update database configuration
+    * Set APP_DEBUG=false
+    * (optional) Remove APP_KEY
+
+2) Zip project folder (remove .idea folder and .git-files)
+
+3) Upload to server and extract
+
+4) Copy all files from /public to main project folder
+
+5) Modify lines:
+
+    * "require __DIR__.'/../bootstrap/autoload.php';" to
+        "require __DIR__.'/bootstrap/autoload.php';"
+
+    * "$app = require_once __DIR__.'/../bootstrap/app.php';" to
+        "$app = require_once __DIR__.'/bootstrap/app.php';"
+
+6) (if APP_KEY was removed) On the server, in the project folder, Generate APP_KEY
+    * /usr/local/php5.6/bin/php artisan key:generate
+
+7) (optional) On the server, do a database migration if database doesn't exist
+    * /usr/local/php5.6/bin/php artisan migrate:refresh --seed
+
+8) On the server, start database listener for queue jobs and leave ssh
+    * screen -S dblistener
+    * cd www.wurzelpark.at/Laravel/
+    * /usr/local/php5.6/bin/php artisan queue:listen database
+    * Press Strg + A, Strg + D
+    * exit
+
+*********************************************************************
