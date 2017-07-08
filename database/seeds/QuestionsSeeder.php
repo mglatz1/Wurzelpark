@@ -199,7 +199,7 @@ class QuestionsSeeder extends Seeder
         // id 9
         DB::table('questions')->insert([
             'created_at' => Carbon::now(),
-            'url_to_image' => 'http://www.wurzelpark.at/App/Bilder/Station02/Bild10.jpg',
+            'url_to_image' => 'http://www.wurzelpark.at/App/Bilder/Station02/Schnecke2.jpg',
             'number' => 1,
             'level_id' => 2,
             'station_id' => 2,
@@ -222,7 +222,7 @@ class QuestionsSeeder extends Seeder
         // id 10
         DB::table('questions')->insert([
             'created_at' => Carbon::now(),
-            'url_to_image' => 'http://www.wurzelpark.at/App/Bilder/Station02/Bild10.jpg',
+            'url_to_image' => 'http://www.wurzelpark.at/App/Bilder/Station02/Schnecke.jpg',
             'number' => 2,
             'level_id' => 2,
             'station_id' => 2,
@@ -307,7 +307,7 @@ class QuestionsSeeder extends Seeder
         DB::table('questions_translations')->insert([
             'question_id' => 13,
             'locale' => 'en',
-            'text' => 'Why does the woodpeker make holes in trees?',
+            'text' => 'Why does the woodpecker make holes in trees?',
             'url_to_audio' => 'http://www.wurzelpark.at/App/Audio/Station04/Why does the woodpeker make holes.mp3',
         ]);
 
@@ -452,7 +452,7 @@ class QuestionsSeeder extends Seeder
         // id 20
         DB::table('questions')->insert([
             'created_at' => Carbon::now(),
-            'url_to_image' => 'http://www.wurzelpark.at/App/Bilder/Station05/Bild11.jpg',
+            'url_to_image' => 'http://www.wurzelpark.at/App/Bilder/Station05/Lärche.jpg',
             'number' => 2,
             'level_id' => 1,
             'station_id' => 5,
@@ -498,7 +498,7 @@ class QuestionsSeeder extends Seeder
         // id 22
         DB::table('questions')->insert([
             'created_at' => Carbon::now(),
-            'url_to_image' => 'http://www.wurzelpark.at/App/Bilder/Station05/Bild11.jpg',
+            'url_to_image' => 'http://www.wurzelpark.at/App/Bilder/Station05/LärcheWinter.jpg',
             'number' => 2,
             'level_id' => 2,
             'station_id' => 5,
