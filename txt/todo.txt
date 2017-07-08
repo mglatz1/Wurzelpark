@@ -9,7 +9,7 @@ Wichtig:
 * Fotoalbum inkl. Postkarten
 * (erledigt am 27.05.2017 von Mathias) Fortsetzbarkeit für Quiz
 * (erledigt am 02.07.2017 von Mathias) Seeding ausbauen (alle Stationen hinzufügen)
-* Keine Copyright Bilder verwenden (!!)
+* (erledigt am 08.07.2017 von Mathias) Keine Copyright Bilder verwenden (!!)
 * Fehlerseite bei allgemeinen Fehlern einfügen
 * Admintool
 
