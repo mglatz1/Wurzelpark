@@ -17,8 +17,8 @@
                 <div class="my-gallery container" itemscope itemtype="http://schema.org/ImageGallery">
                     @foreach ($photos_of_folder as $photo_filename=>$dimension)
                         <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-                            <a href="{{ $photo_filename }}" itemprop="contentUrl" data-size="{{$dimension}}">
-                                <img src="{{ $photo_filename }}" itemprop="thumbnail" alt="basename($photo_filename)" />
+                            <a href="{{ asset($photo_filename) }}" itemprop="contentUrl" data-size="{{$dimension}}">
+                                <img src="{{ asset($photo_filename) }}" itemprop="thumbnail" alt="basename($photo_filename)" />
                             </a>
                             <figcaption itemprop="caption description">{{ basename($photo_filename) }}</figcaption>
                         </figure>

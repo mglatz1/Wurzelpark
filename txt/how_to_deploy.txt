@@ -10,6 +10,7 @@
 3) Upload to server and extract
 
 4) Copy all files from /public to main project folder
+    * Make sure there is a symbolic link from storage/ to storage/app/public
 
 5) Modify lines:
 
