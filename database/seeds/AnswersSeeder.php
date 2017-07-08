@@ -1155,7 +1155,7 @@ class AnswersSeeder extends Seeder
         DB::table('answers_translations')->insert([
             'answer_id' => 64,
             'locale' => 'de',
-            'text' => 'Die Donen'
+            'text' => 'Die Drohnen'
         ]);
 
         DB::table('answers_translations')->insert([
@@ -1310,36 +1310,18 @@ class AnswersSeeder extends Seeder
 
         DB::table('answers')->insert([
             'created_at' => Carbon::now(),
-            'correct' => false,
-            'question_id' => 19
-        ]);
-
-        DB::table('answers_translations')->insert([
-            'answer_id' => 73,
-            'locale' => 'de',
-            'text' => 'Champignon'
-        ]);
-
-        DB::table('answers_translations')->insert([
-            'answer_id' => 73,
-            'locale' => 'en',
-            'text' => 'Champignon mushroom'
-        ]);
-
-        DB::table('answers')->insert([
-            'created_at' => Carbon::now(),
             'correct' => true,
             'question_id' => 19
         ]);
 
         DB::table('answers_translations')->insert([
-            'answer_id' => 74,
+            'answer_id' => 73,
             'locale' => 'de',
             'text' => 'Fliegenpilz'
         ]);
 
         DB::table('answers_translations')->insert([
-            'answer_id' => 74,
+            'answer_id' => 73,
             'locale' => 'en',
             'text' => 'Fly agaric'
         ]);
@@ -1351,15 +1333,33 @@ class AnswersSeeder extends Seeder
         ]);
 
         DB::table('answers_translations')->insert([
+            'answer_id' => 74,
+            'locale' => 'de',
+            'text' => 'Champignon'
+        ]);
+
+        DB::table('answers_translations')->insert([
+            'answer_id' => 74,
+            'locale' => 'en',
+            'text' => 'Champignon mushroom'
+        ]);
+
+        DB::table('answers')->insert([
+            'created_at' => Carbon::now(),
+            'correct' => false,
+            'question_id' => 19
+        ]);
+
+        DB::table('answers_translations')->insert([
             'answer_id' => 75,
             'locale' => 'de',
-            'text' => 'Pfifferling/Eierschwammerl'
+            'text' => 'Steinpilz'
         ]);
 
         DB::table('answers_translations')->insert([
             'answer_id' => 75,
             'locale' => 'en',
-            'text' => 'Girolle'
+            'text' => 'Porcini'
         ]);
 
         DB::table('answers')->insert([
@@ -1371,13 +1371,13 @@ class AnswersSeeder extends Seeder
         DB::table('answers_translations')->insert([
             'answer_id' => 76,
             'locale' => 'de',
-            'text' => 'Steinpilz'
+            'text' => 'Pfifferling/Eierschwammerl'
         ]);
 
         DB::table('answers_translations')->insert([
             'answer_id' => 76,
             'locale' => 'en',
-            'text' => 'Porcini'
+            'text' => 'Girolle'
         ]);
 
         DB::table('answers')->insert([
@@ -1461,13 +1461,13 @@ class AnswersSeeder extends Seeder
         DB::table('answers_translations')->insert([
             'answer_id' => 81,
             'locale' => 'de',
-            'text' => 'Essbar'
+            'text' => 'essbar'
         ]);
 
         DB::table('answers_translations')->insert([
             'answer_id' => 81,
             'locale' => 'en',
-            'text' => 'Edible'
+            'text' => 'edible'
         ]);
 
         DB::table('answers')->insert([
@@ -1479,13 +1479,13 @@ class AnswersSeeder extends Seeder
         DB::table('answers_translations')->insert([
             'answer_id' => 82,
             'locale' => 'de',
-            'text' => 'Köstlich'
+            'text' => 'köstlich'
         ]);
 
         DB::table('answers_translations')->insert([
             'answer_id' => 82,
             'locale' => 'en',
-            'text' => 'Delicious'
+            'text' => 'delicious'
         ]);
 
         DB::table('answers')->insert([
@@ -1497,13 +1497,13 @@ class AnswersSeeder extends Seeder
         DB::table('answers_translations')->insert([
             'answer_id' => 83,
             'locale' => 'de',
-            'text' => 'Tödlich giftig'
+            'text' => 'tödlich giftig'
         ]);
 
         DB::table('answers_translations')->insert([
             'answer_id' => 83,
             'locale' => 'en',
-            'text' => 'Fatally poisonous'
+            'text' => 'fatally poisonous'
         ]);
 
         DB::table('answers')->insert([
@@ -1515,13 +1515,13 @@ class AnswersSeeder extends Seeder
         DB::table('answers_translations')->insert([
             'answer_id' => 84,
             'locale' => 'de',
-            'text' => 'Krankheitserregend'
+            'text' => 'krankheitserregend'
         ]);
 
         DB::table('answers_translations')->insert([
             'answer_id' => 84,
             'locale' => 'en',
-            'text' => 'Pathogenic'
+            'text' => 'pathogenic'
         ]);
 
         DB::table('answers')->insert([
@@ -1641,7 +1641,7 @@ class AnswersSeeder extends Seeder
         DB::table('answers_translations')->insert([
             'answer_id' => 91,
             'locale' => 'de',
-            'text' => 'Zum Bescheien der Pisten'
+            'text' => 'Zum Beschneien der Pisten'
         ]);
 
         DB::table('answers_translations')->insert([
@@ -2649,7 +2649,7 @@ class AnswersSeeder extends Seeder
         DB::table('answers_translations')->insert([
             'answer_id' => 147,
             'locale' => 'de',
-            'text' => 'Die Ameise'
+            'text' => 'Die Ameisen'
         ]);
 
         DB::table('answers_translations')->insert([

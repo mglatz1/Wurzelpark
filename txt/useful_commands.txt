@@ -29,7 +29,7 @@ php artisan queue:listen database
 Keep session for queue listening alive:
 
 screen -S dblistener
-cd www.wurzelpark.at/Laravel/
+cd www.wurzelpark.at/Wurzelpark/
 /usr/local/php5.6/bin/php artisan queue:listen database
 Press Strg + A, Strg + D
 exit

@@ -139,7 +139,7 @@ class QuestionsSeeder extends Seeder
         DB::table('questions_translations')->insert([
             'question_id' => 6,
             'locale' => 'de',
-            'text' => 'Wie viele Eier legt ein Frosch?',
+            'text' => 'Wie viele Eier legt ein Froschweibchen?',
             'url_to_audio' => 'http://www.wurzelpark.at/App/Audio/Station01/Wie viele Eier legt ein Froschweibchen.mp3'
         ]);
 
@@ -521,7 +521,7 @@ class QuestionsSeeder extends Seeder
         // id 23
         DB::table('questions')->insert([
             'created_at' => Carbon::now(),
-            'url_to_image' => 'http://www.wurzelpark.at/App/Bilder/Station06/Beschneiung.jpg',
+            'url_to_image' => '',
             'number' => 1,
             'level_id' => 1,
             'station_id' => 6,
@@ -668,7 +668,7 @@ class QuestionsSeeder extends Seeder
         DB::table('questions_translations')->insert([
             'question_id' => 29,
             'locale' => 'de',
-            'text' => 'Wie viel Kilogramm Heu frisst eine Kuh am Tag wenn sie ausschließlich Heu verzehrt?',
+            'text' => 'Wie viele Kilogramm Heu frisst eine Kuh am Tag, wenn sie sich ausschließlich von Heu ernährt?',
             'url_to_audio' => 'http://www.wurzelpark.at/App/Audio/Station07/Kuh frisst Heu.mp3',
         ]);
 
@@ -751,7 +751,7 @@ class QuestionsSeeder extends Seeder
         // id 33
         DB::table('questions')->insert([
             'created_at' => Carbon::now(),
-            'url_to_image' => '',
+            'url_to_image' => 'http://www.wurzelpark.at/App/Bilder/Station09/Hase.jpg',
             'number' => 1,
             'level_id' => 1,
             'station_id' => 9,
@@ -774,7 +774,7 @@ class QuestionsSeeder extends Seeder
         // id 34
         DB::table('questions')->insert([
             'created_at' => Carbon::now(),
-            'url_to_image' => '',
+            'url_to_image' => 'http://www.wurzelpark.at/App/Bilder/Station09/Biene.jpg',
             'number' => 2,
             'level_id' => 1,
             'station_id' => 9,
@@ -797,7 +797,7 @@ class QuestionsSeeder extends Seeder
         // id 35
         DB::table('questions')->insert([
             'created_at' => Carbon::now(),
-            'url_to_image' => '',
+            'url_to_image' => 'http://www.wurzelpark.at/App/Bilder/Station10/Schwein.jpg',
             'number' => 1,
             'level_id' => 1,
             'station_id' => 10,
@@ -820,7 +820,7 @@ class QuestionsSeeder extends Seeder
         // id 36
         DB::table('questions')->insert([
             'created_at' => Carbon::now(),
-            'url_to_image' => '',
+            'url_to_image' => 'http://www.wurzelpark.at/App/Bilder/Station11/Fichte.jpg',
             'number' => 1,
             'level_id' => 1,
             'station_id' => 11,
@@ -843,7 +843,7 @@ class QuestionsSeeder extends Seeder
         // id 37
         DB::table('questions')->insert([
             'created_at' => Carbon::now(),
-            'url_to_image' => '',
+            'url_to_image' => 'http://www.wurzelpark.at/App/Bilder/Station11/Ameisen.jpg',
             'number' => 2,
             'level_id' => 1,
             'station_id' => 11,
@@ -866,7 +866,7 @@ class QuestionsSeeder extends Seeder
         // id 38
         DB::table('questions')->insert([
             'created_at' => Carbon::now(),
-            'url_to_image' => '',
+            'url_to_image' => 'http://www.wurzelpark.at/App/Bilder/Station12/Kühe.jpg',
             'number' => 1,
             'level_id' => 1,
             'station_id' => 12,
@@ -889,7 +889,7 @@ class QuestionsSeeder extends Seeder
         // id 39
         DB::table('questions')->insert([
             'created_at' => Carbon::now(),
-            'url_to_image' => '',
+            'url_to_image' => 'http://www.wurzelpark.at/App/Bilder/Station12/Schafkäse.jpg',
             'number' => 2,
             'level_id' => 1,
             'station_id' => 12,
