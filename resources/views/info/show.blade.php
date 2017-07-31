@@ -50,7 +50,7 @@
     <div class="container">
         @if($info_item->getYouTubeVideo() != null)
             <hr>
-            <div><a href="{{$info_item->getYouTubeVideo()}}">YouTube</a></div>
+            <div><a href="{{$info_item->getYouTubeVideo()}}" target="_blank">YouTube</a></div>
         @endif
     </div>
     <hr>
