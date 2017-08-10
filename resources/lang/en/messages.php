@@ -3,9 +3,11 @@
 return [
     "error_no_station" => "That station does not exist.",
     "status_all_questions_finished_but_stations_left" => "Congratulations! You've answered all questions correctly.".
-        " You've completed %s of %s stations.",
+        " You've completed %s of %s stations. Now you look through all questions again, you can close the browser and "."
+        continue with tramping, or you can finish the quiz rally by clicking \"Finish Quiz\" at the top.",
     "status_all_questions_all_stations_finished" => "Congratulations! You've answered all questions of all stations ".
-        "correctly. Now you can finish the quiz by clicking \"Finish Quiz\" in the top menu.",
+        "correctly. Now you can look through all questions again, or you can finish the quiz by clicking".
+        " \"Finish Quiz\" at the top.",
     "error_wrong_answer" => "This answer is wrong. Please try again.",
     "success_correct_answer" => "This answer is correct. Here is the next question.",
     "error_no_element_found" => "No element found. Perhaps you've scanned a wrong QR-Code or".
@@ -57,5 +59,6 @@ return [
     "message_postcard_for" => "Postcard ",
     "message_station_questions" => "This station contains %s questions.",
     "message_of_level" => "of level",
-    "message_photoalbum_header" => "Photo albums"
+    "message_photoalbum_header" => "Photo albums",
+    "message_back" => "Back"
 ];

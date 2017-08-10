@@ -20,6 +20,7 @@
             <form method="POST" action="{{ url('finish-quiz') }}">
                 {{ csrf_field() }}
                 <div class="form-group">
+                    <a href="{{ url()->previous() }}" class="btn btn-primary" role="button">{{__('messages.message_back')}}</a>
                     <button type="submit" class="btn btn-primary">{{ __('messages.message_finish_quiz') }}</button>
                 </div>
             </form>
