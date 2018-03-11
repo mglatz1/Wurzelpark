@@ -13,6 +13,10 @@ const { mix } = require('laravel-mix');
 
 mix.js('resources/assets/js/app.js', 'public/js')
     .sass('resources/assets/sass/app.scss', 'public/css')
+    .copy('node_modules/jquery/dist/jquery.min.js', 'public/js')
+    .copy('node_modules/jquery-ui-dist/jquery-ui.min.js', 'public/js')
+    .copy('node_modules/jquery-ui-dist/images/', 'public/css/images')
+    .copy('node_modules/jquery-ui-dist/jquery-ui.min.css', 'public/css')
     .copy('node_modules/photoswipe/dist/photoswipe.min.js', 'public/js')
     .copy('node_modules/photoswipe/dist/photoswipe-ui-default.min.js', 'public/js')
     .copy('node_modules/photoswipe/dist/photoswipe.css','public/css')

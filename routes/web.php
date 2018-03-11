@@ -24,4 +24,4 @@ Route::get('finish-quiz', function() {
     return view('quiz.finish');
 });
 Route::post('finish-quiz', 'QuizController@finish');
-Route::get('photos', 'PhotoController@show');
+Route::get('photos/{date?}', 'PhotoController@show');

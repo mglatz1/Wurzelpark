@@ -61,6 +61,9 @@ return [
     "message_postcard_for" => "Postkarte ",
     "message_station_questions" => "Diese Station enthält insgesamt %s Fragen",
     "message_of_level" => "vom Level",
-    "message_photoalbum_header" => "Fotoalben",
-    "message_back" => "Zurück"
+    "message_photoalbum_header" => "Fotoalbum",
+    "message_back" => "Zurück",
+    "message_photoalbum_empty_album" => "Heute wurden noch keine Fotos erstellt. Wähle ein anderes Datum aus.",
+    "message_photoalbum_select_date" => "Bitte wähle ein Datum aus: ",
+    "message_photoalbum_submit" => "Suchen"
 ];

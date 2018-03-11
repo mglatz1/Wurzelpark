@@ -58,7 +58,16 @@
         @yield('content')
     </div>
 </div>
-
 <script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('js/jquery.min.js') }}"></script>
+<script src="{{ asset('js/jquery-ui.min.js') }}"></script>
+<script>
+    $( function() {
+        $( "#datepicker" ).datepicker({
+            changeMonth: true,
+            changeYear: true
+        });
+    } );
+</script>
 </body>
 </html>
