@@ -1,6 +1,17 @@
 @extends('layouts.app')
 
 <link href="{{ asset('css/jquery-ui.min.css') }}" rel="stylesheet" />
+<script>
+    function submitDate() {
+        var url = "{{ url('photos/') }}";
+        var date = $('#datepicker').val().split('/');
+
+        if (date.length === 3)
+        {
+            window.location.replace(url + '/' + date[2] + '-' + date[0] + '-' + date[1]);
+        }
+    }
+</script>
 
 @section('content')
 
@@ -19,11 +30,11 @@
             </div>
 
             <div class="form-group">
-                <a href="{{ url('photos/') }}" class="btn btn-primary" role="button">{{ __("messages.message_photoalbum_submit") }}</a>
+                <a href="#" onClick="submitDate(); return false;"
+                   class="btn btn-primary" role="button">{{ __("messages.message_photoalbum_submit") }}</a>
             </div>
         </form>
     </div>
-
 
     <div class="container">
         @forelse ($array_of_photos as $key=>$photos_of_folder)

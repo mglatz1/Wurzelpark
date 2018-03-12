@@ -61,7 +61,7 @@ return [
     "message_of_level" => "of level",
     "message_photoalbum_header" => "Photo album",
     "message_back" => "Back",
-    "message_photoalbum_empty_album" => "Today no photos were created. Please select another date.",
+    "message_photoalbum_empty_album" => "No photos were found for selected date. Please select another date.",
     "message_photoalbum_select_date" => "Please choose a date:",
     "message_photoalbum_submit" => "Search"
 ];
