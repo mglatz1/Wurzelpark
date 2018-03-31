@@ -26,7 +26,8 @@
         <form method="POST" action=" {{ url('photos/') }}">
             <div class="form-group">
                 <label for="datepicker">{{ __("messages.message_photoalbum_select_date") }}</label>
-                <input type="text" class="form-control" id="datepicker" name="date" value="" required>
+                <input type="text" class="form-control" id="datepicker" name="date"
+                       value="<?php $dateTmp = explode('-', $date); echo $dateTmp[1].'/'.$dateTmp[2].'/'.$dateTmp[0]; ?>" required>
             </div>
 
             <div class="form-group">

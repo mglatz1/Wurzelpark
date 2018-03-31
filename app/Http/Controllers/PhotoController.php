@@ -35,6 +35,6 @@ class PhotoController extends Controller
             break;
         }
 
-        return view('photos.show', compact('array_of_photos'));
+        return view('photos.show', compact('array_of_photos', 'date'));
     }
 }
