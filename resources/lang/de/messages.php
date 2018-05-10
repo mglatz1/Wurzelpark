@@ -70,5 +70,6 @@ return [
     "message_back" => "Zurück",
     "message_photoalbum_empty_album" => "Keine Fotos für das ausgewählte Datum gefunden. Wähle ein anderes Datum aus.",
     "message_photoalbum_select_date" => "Bitte wähle ein Datum aus: ",
-    "message_photoalbum_submit" => "Suchen"
+    "message_photoalbum_submit" => "Suchen",
+    "message_agree" => "Datenschutzbestimmungen zustimmen"
 ];

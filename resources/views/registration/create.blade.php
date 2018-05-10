@@ -1,5 +1,16 @@
 @extends('layouts.app')
 
+<script>
+    function agreeClick() {
+        if($('#agreement').is(':checked')) {
+            $('#register').attr("disabled", false);
+        }
+        else {
+            $('#register').attr("disabled", true);
+        }
+    }
+</script>
+
 @section('content')
 
     @include('layouts.success')
@@ -62,9 +73,10 @@
                 <div class="form-group">
                     <p>{{ __("messages.message_info_registration1") }}</p>
                     <p>{{ __("messages.message_info_registration2") }}</p>
+                    <input type="checkbox" id="agreement" value="agreed" onClick="agreeClick()"> {{ __("messages.message_agree") }}<br>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary">{{ __("messages.message_register") }}</button>
+                    <button type="submit" class="btn btn-primary" id="register" disabled>{{ __("messages.message_register") }}</button>
                 </div>
             </form>
         </div>

@@ -68,5 +68,6 @@ return [
     "message_back" => "Back",
     "message_photoalbum_empty_album" => "No photos were found for selected date. Please select another date.",
     "message_photoalbum_select_date" => "Please choose a date:",
-    "message_photoalbum_submit" => "Search"
+    "message_photoalbum_submit" => "Search",
+    "message_agree" => "Agree with terms of data usage"
 ];
