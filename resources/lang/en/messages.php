@@ -42,6 +42,11 @@ return [
         "published to third-parties.",
     "message_info_registration2" => "You can interrupt the quiz at any time and proceed later on.",
     "message_welcome" => "Welcome to Wurzelpark Arriach!",
+    "message_welcome_registered" => "To start the quiz rally, go to a station and scan the code using a QR-Code-App. ".
+        "Then open the link and a question of the quiz rally appears.",
+    "message_welcome_not_registered" => "To participate at the quiz rally, you must be registered! For info points you ".
+        "do not need any registration. There, you can scan the code using a QR-Code-App. Then open the link and you get ".
+        "some information about the object.",
     "message_finish_quiz" => "Finish quiz",
     "success_quiz_already_finished" => "You've already finished the quiz successfully. If you want to re-run the quiz you ".
         "have to register again.",

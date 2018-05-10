@@ -3,7 +3,7 @@
 @section('content')
     <div class="title">{{ __("messages.message_welcome") }}</div>
     <br/>
-    <div class="title">{{ __("messages.message_welcome_not_registered") }}</div>
+    <div class="title">{{ __("messages.message_welcome_registered") }}</div>
     <hr>
 
     @include('layouts.errors')

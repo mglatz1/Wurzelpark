@@ -44,6 +44,11 @@ return [
     "message_info_registration2" => "Nach der Registrierung kannst das Quiz jederzeit unterbrechen und zu einem".
         " späteren Zeitpunkt fortsetzen.",
     "message_welcome" => "Willkommen beim Wurzelpark Arriach!",
+    "message_welcome_registered" => "Um das Quiz zu starten, begib dich zu einer Station und scanne dort mit einer ".
+        "QR-Code-Scanner App den Code ein. Öffne dann den entsprechenden Link und du kommst zur Quiz-Frage.",
+    "message_welcome_not_registered" => "Um am Quiz teilzunehmen, musst du dich registrieren! Für die Info-Points ".
+        "benötigst du keine Registrierung. Dort kannst du mit einer QR-Code-Scanner App den Code scannen und den ".
+        "entsprechenden Link öffnen, um Informationen zu erhalten.",
     "message_finish_quiz" => "Quizweg beenden",
     "success_quiz_already_finished" => "Du hast das Quiz bereits erfolgreich beendet. Um den Quizweg erneut zu".
         " absolvieren, musst du dich neu registrieren.",

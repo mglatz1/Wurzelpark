@@ -15,6 +15,12 @@ class HomeController extends Controller
     public function index()
     {
         Utils::Instance()->resetLocale(request()->server('HTTP_ACCEPT_LANGUAGE'));
-        return view('welcome');
+
+        if (auth()->user()) {
+            return view('welcome-registered');
+        }
+        else {
+            return view('welcome');
+        }
     }
 }
