@@ -1,6 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);@charset "UTF-8";
 
 
+#table{
+  display: inline-block;
+}
 
 .non-selectable-answer {
   color: #cccccc;
