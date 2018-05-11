@@ -73,7 +73,9 @@
                 <div class="form-group">
                     <p>{{ __("messages.message_info_registration1") }}</p>
                     <p>{{ __("messages.message_info_registration2") }}</p>
-                    <input type="checkbox" id="agreement" value="agreed" onClick="agreeClick()"> {{ __("messages.message_agree") }}<br>
+                    <span><label class="form-check-label"><input class="form-group" type="checkbox" id="agreement" value="agreed" onClick="agreeClick()">
+                    {{ __("messages.message_agree") }}</label></span>
+
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary" id="register" disabled>{{ __("messages.message_register") }}</button>
