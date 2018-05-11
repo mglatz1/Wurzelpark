@@ -7,6 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name') }}</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/image-picker.css') }}" rel="stylesheet">
 </head>
 <body>
 <div id="app">
@@ -61,6 +62,8 @@
 <script src="{{ asset('js/app.js') }}"></script>
 <script src="{{ asset('js/jquery.min.js') }}"></script>
 <script src="{{ asset('js/jquery-ui.min.js') }}"></script>
+<script src="{{ asset('js/image-picker.js') }}"></script>
+<script src="{{ asset('js/image-picker.min.js') }}"></script>
 <script>
     $( function() {
         $( "#datepicker" ).datepicker({

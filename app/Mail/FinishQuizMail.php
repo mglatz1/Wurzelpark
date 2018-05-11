@@ -36,8 +36,8 @@ class FinishQuizMail extends Mailable
         return $this->subject(__('messages.message_email_subject'))
             ->attach($this->pdf_filename, [
                 'mime' => 'application/pdf'])
-/*            ->attach($this->postcard_filename, [
-                'mime' => 'image/png'])*/
+            ->attach($this->postcard_filename, [
+                'mime' => 'image/png'])
             ->markdown('emails.finish-quiz');
     }
 }
