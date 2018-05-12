@@ -50,7 +50,7 @@ class FinishQuiz implements ShouldQueue
         $file_path_to_processed_certificate = sys_get_temp_dir().'/'.$certificate_filename.'.pdf';
 
         // docx to pdf conversion
-        $api = new Api(env('CLOUD_CONVERT_API_KEY_CERTIFICATE'));
+        $api = new Api(env('CLOUD_CONVERT_API_KEY_POSTCARD'));
 
         $api->convert([
             'inputformat' => 'docx',
@@ -62,7 +62,7 @@ class FinishQuiz implements ShouldQueue
             ->download($file_path_to_processed_certificate);
 
         // postcard processing
-        $postcard_filename = __('messages.message_postcard_for').$this->user->name;
+        /*$postcard_filename = __('messages.message_postcard_for').$this->user->name;
         $postcard_template_filename = $files_dir.env('POSTCARD_NAME');
         $template = new TemplateProcessor($postcard_template_filename);
         $template->setImageValue('image1.png', $files_dir.'pic1.png');
@@ -83,15 +83,16 @@ class FinishQuiz implements ShouldQueue
         ])
             ->wait()
             ->download($file_path_to_processed_postcard);
+        */
 
         // send email with certificate
-        //$file_path_to_processed_postcard = 0;
+        $file_path_to_processed_postcard = 0; // todo: remove if postcard is used
         Mail::to($this->user)->send(new FinishQuizMail($file_path_to_processed_certificate, $file_path_to_processed_postcard));
 
         // delete temporary files
         unlink($doc_temp_filename);
-        unlink($postcard_temp_filename);
+        //unlink($postcard_temp_filename);
         unlink($file_path_to_processed_certificate);
-        unlink($file_path_to_processed_postcard);
+        //unlink($file_path_to_processed_postcard);
     }
 }

@@ -15,6 +15,15 @@
             window.location.replace(url + '/' + date[2] + '-' + date[0] + '-' + date[1]);
         }
     }
+
+    function submitGeneration() {
+        if ($('#selectedimages option:selected').length === 0) {
+            alert('{{ __('messages.error_choose_one_image') }}');
+            return;
+        }
+
+        $('#generate-form').submit();
+    }
 </script>
 
 @section('content')
@@ -44,14 +53,13 @@
 
     <div class="container">
         @forelse ($array_of_photos as $key=>$photos_of_folder)
-            <form method="POST" action="{{ url('postcard') }}">
+            <form id="generate-form" method="POST" action="{{ url('postcard') }}">
                 {{ csrf_field() }}
 
-                <h2>{{ $key }}</h2>
-                <div class="container picker">
+                <div class="picker">
                     <p>{{ __('messages.message_choose_postcard_images') }}</p>
                     <label>
-                        <select name="selectedimages[]" class="image-picker limit_callback" data-limit="2" multiple="multiple">
+                        <select id="selectedimages" name="selectedimages[]" class="image-picker limit_callback" data-limit="2" multiple="multiple">
                             @foreach ($photos_of_folder as $photo_filename=>$dimension)
                                 <option data-img-src="{{ $photo_filename }}" value="{{ $photo_filename }}"></option>
                             @endforeach
@@ -73,7 +81,7 @@
                 </div>
 
                 @if ($email)
-                    <div class="container">
+                    <div>
                         <p>{{ __("messages.message_send_postcard_info1") }} ({{ $email }}). {{ __("messages.message_send_postcard_info2") }}</p>
                         <div class="form-group">
                             <input type="email" class="form-control" id="email2" name="email2" value="">
@@ -81,7 +89,7 @@
                         <input type="hidden" name="email" id="email" value="{{ $email }}">
                     </div>
                 @else
-                    <div class="container">
+                    <div>
                         <p>{{ __("messages.message_send_postcard_info3") }}</p>
                         <div class="form-group">
                             <input type="email" class="form-control" id="email" name="email" value="" required>
@@ -89,8 +97,9 @@
                     </div>
                 @endif
 
-                <div class="btn navbar-btn">
-                    <input type="submit" value="{{ __("messages.message_generate_and_send_postcard") }}">
+                <div class="form-group">
+                    <a href="#" onClick="submitGeneration(); return false;"
+                       class="btn btn-primary" role="button">{{ __("messages.message_generate_and_send_postcard") }}</a>
                 </div>
             </form>
         @empty

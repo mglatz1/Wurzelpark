@@ -56,11 +56,13 @@ class GenerateSendPostcard implements ShouldQueue
         $template = new TemplateProcessor($files_dir.$this->postcard_template_filename.'.docx');
         $template->setImageValue('image1.png', $storage_dir.$this->image_filename);
 
+        // no second image selected
         if ($this->image_filename2 === "") {
-            $this->image_filename2 = $files_dir.'postcard_missing_pic.png';
+            $template->setImageValue('image2.png', $files_dir.'postcard_missing_pic.png');
         }
-
-        $template->setImageValue('image2.png', $storage_dir.$this->image_filename2);
+        else {
+            $template->setImageValue('image2.png', $storage_dir.$this->image_filename2);
+        }
 
         $postcard_temp_filename = sys_get_temp_dir().'/'.$postcard_filename.'.docx';
         $template->saveAs($postcard_temp_filename);
@@ -68,7 +70,7 @@ class GenerateSendPostcard implements ShouldQueue
         $file_path_to_processed_postcard = sys_get_temp_dir().'/'.$postcard_filename.'.png';
 
         // docx to png conversion
-        $api = new Api(env('CLOUD_CONVERT_API_KEY_POSTCARD'));
+        $api = new Api(env('CLOUD_CONVERT_API_KEY_POSTCARD_GENERATION'));
 
         $api->convert([
             'inputformat' => 'docx',
@@ -80,7 +82,6 @@ class GenerateSendPostcard implements ShouldQueue
             ->download($file_path_to_processed_postcard);
 
         // send email with postcard
-
         if ($this->email_address2 != null) {
             Mail::to($this->email_address)->cc($this->email_address2)
                 ->send(new PostcardMail($file_path_to_processed_postcard));
