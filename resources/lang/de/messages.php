@@ -71,5 +71,9 @@ return [
     "message_photoalbum_empty_album" => "Keine Fotos für das ausgewählte Datum gefunden. Wähle ein anderes Datum aus.",
     "message_photoalbum_select_date" => "Bitte wähle ein Datum aus: ",
     "message_photoalbum_submit" => "Suchen",
-    "message_agree" => "Datenschutzbestimmungen zustimmen"
+    "message_agree" => "Datenschutzbestimmungen zustimmen",
+    "message_generate_postcard" => "Postkarte generieren",
+    "message_generate_and_send_postcard" => "Postkarte generieren und senden",
+    "message_choose_postcard_images" => "Wähle zwei Bilder für deine Postkarte aus",
+    "message_choose_postcard_template" => "Wähle eine Postkarten-Vorlage aus"
 ];

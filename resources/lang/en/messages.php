@@ -69,5 +69,9 @@ return [
     "message_photoalbum_empty_album" => "No photos were found for selected date. Please select another date.",
     "message_photoalbum_select_date" => "Please choose a date:",
     "message_photoalbum_submit" => "Search",
-    "message_agree" => "Agree with terms of data usage"
+    "message_agree" => "Agree with terms of data usage",
+    "message_generate_postcard" => "Generate postcard",
+    "message_generate_and_send_postcard" => "Generate and send postcard",
+    "message_choose_postcard_images" => "Please choose two image for your postcard",
+    "message_choose_postcard_template" => "Please choose a template for the postcard"
 ];
