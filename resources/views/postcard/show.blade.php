@@ -46,45 +46,62 @@
 
     <div class="container">
         @forelse ($array_of_photos as $key=>$photos_of_folder)
-            <h2>{{ $key }}</h2>
-            <div class="container picker">
-                <h4>{{ __('messages.message_choose_postcard_images') }}:</h4>
-                <label>
-                    <select class="image-picker limit_callback" data-limit="2" multiple="multiple">
-                        @foreach ($photos_of_folder as $photo_filename=>$dimension)
-                            <option data-img-src="{{ $photo_filename }}" value="{{ $photo_filename }}">Photo</option>
-                        @endforeach
-                    </select>
-                </label>
-                <script>$("select").imagepicker();</script>
+            <form method="POST" action="{{ url('postcard') }}">
+                {{ csrf_field() }}
 
-                <h4>{{ __('messages.message_choose_postcard_template') }}:</h4>
-                <div class="picker">
-                    <label>
-                        <select class="image-picker">
-                            @foreach ($postcards as $postcard)
-                                <option data-img-src="{{ $postcard }}" value="{{ $postcard }}">Cute Kitten 2</option>
-                            @endforeach
-                        </select>
-                    </label>
+                <h2>{{ $key }}</h2>
+                <div class="container picker">
+                    <h4>{{ __('messages.message_choose_postcard_images') }}:</h4>
+
+
+                        <label>
+                            <select name="selectedimages" class="image-picker limit_callback" data-limit="2" multiple="multiple">
+                                @foreach ($photos_of_folder as $photo_filename=>$dimension)
+                                    <option data-img-src="{{ $photo_filename }}" value="{{ $photo_filename }}"></option>
+                                @endforeach
+                            </select>
+                        </label>
+                        <script>$("select").imagepicker()</script>
+
+                        <h4>{{ __('messages.message_choose_postcard_template') }}:</h4>
+                        <div class="picker">
+                            <label>
+                                <select name="selectedtemplate" class="image-picker">
+                                    @foreach ($postcards as $postcard)
+                                        <option data-img-src="{{ $postcard }}" value="{{ $postcard }}">Cute Kitten 2</option>
+                                    @endforeach
+                                </select>
+                            </label>
+                        </div>
+                        <script>$("select").imagepicker({limit_reached: function(){alert('{{ __("messages.error_two_images_maximum") }}')}})</script>
                 </div>
-                <script>$("select").imagepicker();</script>
-            </div>
 
-            <div class="container">
-                <p>Die Postkarte wird an dich gesendet.</p>
-            </div>
+                @if ($email)
+                    <div class="container">
+                        <input type="hidden" name="email" id="email" value="{{ $email }}">
+                        <p>Die Postkarte wird an dich ({{ $email }}) versendet. Du kannst auch optional eine weitere
+                            E-Mail Adresse eingeben:</p>
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="email2" value="">
+                        </div>
+                        <input type="hidden" name="email" id="email" value="{{ $email }}">
+                    </div>
+                @else
+                    <div class="container">
+                        <p>Gib eine E-Mail Adresse ein. An diese wird die Postkarte versendet:</p>
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="email" value="" required>
+                        </div>
+                    </div>
+                @endif
 
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary" id="generate-postcard">{{ __("messages.message_generate_and_send_postcard") }}</button>
-            </div>
+
+                <div class="btn navbar-btn">
+                    <input type="submit" value="{{ __("messages.message_generate_and_send_postcard") }}">
+                </div>
+            </form>
         @empty
             <p>{{ __('messages.message_photoalbum_empty_album') }}</p>
         @endforelse
     </div>
-
-
-
-    @include('layouts.photoswipe')
-
 @endsection

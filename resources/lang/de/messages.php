@@ -59,7 +59,9 @@ return [
     "message_quiz_finish_info2" => "Beachte, dass es nach dem Beenden NICHT mehr möglich ist, weitere Fragen zu ".
         "beantworten. Du kannst dich aber neu registrieren und dann den Quizweg von vorne starten.",
     "message_email1" => "Liebe Urlaubsgrüße vom Wurzelpark Arriach-Gerlitze!",
+    "message_email_postcard1" => "Postkarte vom Wurzelpark Arriach-Gerlitze!",
     "message_email2" => "Wir waren dort und haben ein paar schöne Stunden verbracht.",
+    "message_email_postcard2" => "Wir waren dort und haben ein paar schöne Stunden verbracht. Im Anhang findest du eine Postkarte!",
     "message_email3" => "Bis bald!",
     "message_email_subject" => "Grüße vom Wurzelpark Arriach",
     "message_certificate_for" => "Urkunde ",
@@ -75,5 +77,10 @@ return [
     "message_generate_postcard" => "Postkarte generieren",
     "message_generate_and_send_postcard" => "Postkarte generieren und senden",
     "message_choose_postcard_images" => "Wähle zwei Bilder für deine Postkarte aus",
-    "message_choose_postcard_template" => "Wähle eine Postkarten-Vorlage aus"
+    "message_choose_postcard_template" => "Wähle eine Postkarten-Vorlage aus",
+    "error_two_images_maximum" => "Du darfst maximal zwei Bilder auswählen!",
+    "message_to_photoalbum" => "Zum Fotoalbum",
+    "message_to_postcard_generator" => "Zum Postkarten-Generator",
+    "message_postcard" => "Postkarte",
+    "success_postcard_generation" => "Deine Postkarte wird nun generiert und versendet. In Kürze erhältst du eine E-Mail."
 ];

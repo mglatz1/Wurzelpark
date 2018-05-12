@@ -25,4 +25,6 @@ Route::get('finish-quiz', function() {
 });
 Route::post('finish-quiz', 'QuizController@finish');
 Route::get('photos/{date?}', 'PhotoController@show');
-Route::get('postcard/{date?}', 'PostcardController@show');
+
+Route::get('postcard/{date?}', 'PostcardController@show')->name('postcard');
+Route::post('postcard', 'PostcardController@store');

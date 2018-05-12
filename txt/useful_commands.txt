@@ -22,7 +22,7 @@ composer update
 *********************************************************************
 
 Listen to database to dispatch queue:
-php artisan queue:listen database
+php artisan queue:listen database --timeout=300
 
 *********************************************************************
 
