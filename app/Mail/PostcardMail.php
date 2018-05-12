@@ -30,7 +30,7 @@ class PostcardMail extends Mailable
      */
     public function build()
     {
-        return $this->subject(__('messages.message_email_subject'))
+        return $this->subject(__('messages.message_email_postcard_subject'))
             ->attach($this->postcard_filename, [
                 'mime' => 'image/png'])
             ->markdown('emails.postcard');

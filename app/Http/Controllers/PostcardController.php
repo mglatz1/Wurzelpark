@@ -59,10 +59,17 @@ class PostcardController extends Controller
         $template_filename_with_extension = basename(request('selectedtemplate'));
         $template_filename = preg_replace('/\\.[^.\\s]{3,4}$/', '', $template_filename_with_extension);
 
-        //dd(request('selectedimages'));
-        dispatch(new GenerateSendPostcard($template_filename, request('email'), request('email2'),
-            request('selectedimages'), request('selectedimages')));
+        $first_image = request('selectedimages')[0];
+        $second_image = "";
 
+        if (count(request('selectedimages')) > 1) {
+            $second_image = request('selectedimages')[1];
+        }
+
+        dispatch(new GenerateSendPostcard($template_filename, request('email'), request('email2'),
+            $first_image, $second_image));
+
+        // reload page
         $date = date('Y-m-d');
 
         $directories = Storage::allDirectories(env("PHOTOS_DIR"));

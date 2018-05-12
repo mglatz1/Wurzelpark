@@ -59,11 +59,11 @@ return [
     "message_quiz_finish_info2" => "Beachte, dass es nach dem Beenden NICHT mehr möglich ist, weitere Fragen zu ".
         "beantworten. Du kannst dich aber neu registrieren und dann den Quizweg von vorne starten.",
     "message_email1" => "Liebe Urlaubsgrüße vom Wurzelpark Arriach-Gerlitze!",
-    "message_email_postcard1" => "Postkarte vom Wurzelpark Arriach-Gerlitze!",
     "message_email2" => "Wir waren dort und haben ein paar schöne Stunden verbracht.",
     "message_email_postcard2" => "Wir waren dort und haben ein paar schöne Stunden verbracht. Im Anhang findest du eine Postkarte!",
     "message_email3" => "Bis bald!",
     "message_email_subject" => "Grüße vom Wurzelpark Arriach",
+    "message_email_postcard_subject" => "Postkarte vom Wurzelpark Arriach-Gerlitze",
     "message_certificate_for" => "Urkunde ",
     "message_postcard_for" => "Postkarte ",
     "message_station_questions" => "Diese Station enthält insgesamt %s Fragen",
@@ -76,11 +76,19 @@ return [
     "message_agree" => "Datenschutzbestimmungen zustimmen",
     "message_generate_postcard" => "Postkarte generieren",
     "message_generate_and_send_postcard" => "Postkarte generieren und senden",
-    "message_choose_postcard_images" => "Wähle zwei Bilder für deine Postkarte aus",
-    "message_choose_postcard_template" => "Wähle eine Postkarten-Vorlage aus",
+    "message_choose_postcard_images" => "Wähle zwei Bilder für deine Postkarte aus. Wählst du nur ein Bild".
+        " aus, wird ein vorgegebenes Bild eingefügt.",
+    "message_choose_postcard_template" => "Wähle eine Postkarten-Vorlage aus.",
     "error_two_images_maximum" => "Du darfst maximal zwei Bilder auswählen!",
     "message_to_photoalbum" => "Zum Fotoalbum",
     "message_to_postcard_generator" => "Zum Postkarten-Generator",
     "message_postcard" => "Postkarte",
-    "success_postcard_generation" => "Deine Postkarte wird nun generiert und versendet. In Kürze erhältst du eine E-Mail."
+    "success_postcard_generation" => "Deine Postkarte wird nun generiert und versendet. In Kürze erhältst du eine E-Mail.",
+    "message_generate_postcard_info" => "Hier kannst du eine individuelle Postkarte generieren und zuschicken lassen.".
+        " Wähle ein Datum, zwei Fotos und eine Vorlage für die Postkarte aus. Nachdem du den Button ".
+        "\"Postkarte generieren\" gedrückt hast, wird die Postkarte generiert und dir per Mail zugestellt.",
+    "message_send_postcard_info1" => "Die Postkarte wird an dich versendet",
+    "message_send_postcard_info2" => "Optional kannst du auch eine weitere E-Mail Adresse eingeben:",
+    "message_send_postcard_info3" => "Gib eine E-Mail Adresse ein. An diese wird die Postkarte versendet:"
+
 ];

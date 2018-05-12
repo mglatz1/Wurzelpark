@@ -24,10 +24,8 @@
 
     <div class="container">
         <h1>{{ __('messages.message_generate_postcard') }}</h1>
-        <p>Hier kannst du eine individuelle Postkarte generieren. Wähle ein Datum, zwei Fotos und eine Vorlage für die
-            Postkarte aus. Nachdem du den Button "Postkarte generieren" gedrückt hast, wird die Postkarte generiert und dir per Mail zugestellt.</p>
+        <p>{{ __('messages.message_generate_postcard_info') }}</p>
     </div>
-
 
     <div class="container">
         <form method="POST" action="{{ url('postcard/') }}">
@@ -51,50 +49,45 @@
 
                 <h2>{{ $key }}</h2>
                 <div class="container picker">
-                    <h4>{{ __('messages.message_choose_postcard_images') }}:</h4>
+                    <p>{{ __('messages.message_choose_postcard_images') }}</p>
+                    <label>
+                        <select name="selectedimages[]" class="image-picker limit_callback" data-limit="2" multiple="multiple">
+                            @foreach ($photos_of_folder as $photo_filename=>$dimension)
+                                <option data-img-src="{{ $photo_filename }}" value="{{ $photo_filename }}"></option>
+                            @endforeach
+                        </select>
+                    </label>
+                    <script>$("select").imagepicker()</script>
 
-
+                    <p>{{ __('messages.message_choose_postcard_template') }}</p>
+                    <div class="picker">
                         <label>
-                            <select name="selectedimages" class="image-picker limit_callback" data-limit="2" multiple="multiple">
-                                @foreach ($photos_of_folder as $photo_filename=>$dimension)
-                                    <option data-img-src="{{ $photo_filename }}" value="{{ $photo_filename }}"></option>
+                            <select name="selectedtemplate" class="image-picker">
+                                @foreach ($postcards as $postcard)
+                                    <option data-img-src="{{ $postcard }}" value="{{ $postcard }}"></option>
                                 @endforeach
                             </select>
                         </label>
-                        <script>$("select").imagepicker()</script>
-
-                        <h4>{{ __('messages.message_choose_postcard_template') }}:</h4>
-                        <div class="picker">
-                            <label>
-                                <select name="selectedtemplate" class="image-picker">
-                                    @foreach ($postcards as $postcard)
-                                        <option data-img-src="{{ $postcard }}" value="{{ $postcard }}">Cute Kitten 2</option>
-                                    @endforeach
-                                </select>
-                            </label>
-                        </div>
-                        <script>$("select").imagepicker({limit_reached: function(){alert('{{ __("messages.error_two_images_maximum") }}')}})</script>
+                    </div>
+                    <script>$("select").imagepicker({limit_reached: function(){alert('{{ __("messages.error_two_images_maximum") }}')}})</script>
                 </div>
 
                 @if ($email)
                     <div class="container">
-                        <input type="hidden" name="email" id="email" value="{{ $email }}">
-                        <p>Die Postkarte wird an dich ({{ $email }}) versendet. Du kannst auch optional eine weitere
-                            E-Mail Adresse eingeben:</p>
+                        <p>{{ __("messages.message_send_postcard_info1") }} ({{ $email }}). {{ __("messages.message_send_postcard_info2") }}</p>
                         <div class="form-group">
-                            <input type="email" class="form-control" id="email2" value="">
+                            <input type="email" class="form-control" id="email2" name="email2" value="">
                         </div>
                         <input type="hidden" name="email" id="email" value="{{ $email }}">
                     </div>
                 @else
                     <div class="container">
-                        <p>Gib eine E-Mail Adresse ein. An diese wird die Postkarte versendet:</p>
+                        <p>{{ __("messages.message_send_postcard_info3") }}</p>
                         <div class="form-group">
-                            <input type="email" class="form-control" id="email" value="" required>
+                            <input type="email" class="form-control" id="email" name="email" value="" required>
                         </div>
                     </div>
                 @endif
-
 
                 <div class="btn navbar-btn">
                     <input type="submit" value="{{ __("messages.message_generate_and_send_postcard") }}">

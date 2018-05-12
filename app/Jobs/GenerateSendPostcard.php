@@ -48,14 +48,18 @@ class GenerateSendPostcard implements ShouldQueue
      */
     public function handle()
     {
-        //app()->setLocale($this->user->language);
         $files_dir = app_path().'/../'.env('FILES_DIR').'/';
         $storage_dir = app_path().'/../public/';
 
         // postcard processing
-        $postcard_filename = __('messages.message_postcard');
+        $postcard_filename = __('messages.message_postcard').'-'.date("d-m-Y-H-i-s");
         $template = new TemplateProcessor($files_dir.$this->postcard_template_filename.'.docx');
         $template->setImageValue('image1.png', $storage_dir.$this->image_filename);
+
+        if ($this->image_filename2 === "") {
+            $this->image_filename2 = $files_dir.'postcard_missing_pic.png';
+        }
+
         $template->setImageValue('image2.png', $storage_dir.$this->image_filename2);
 
         $postcard_temp_filename = sys_get_temp_dir().'/'.$postcard_filename.'.docx';
@@ -76,8 +80,15 @@ class GenerateSendPostcard implements ShouldQueue
             ->download($file_path_to_processed_postcard);
 
         // send email with postcard
-        Mail::to($this->email_address)->send(new PostcardMail($file_path_to_processed_postcard));
 
-        unlink($file_path_to_processed_postcard);
+        if ($this->email_address2 != null) {
+            Mail::to($this->email_address)->cc($this->email_address2)
+                ->send(new PostcardMail($file_path_to_processed_postcard));
+        }
+        else {
+            Mail::to($this->email_address)->send(new PostcardMail($file_path_to_processed_postcard));
+        }
+
+        //unlink($file_path_to_processed_postcard);
     }
 }

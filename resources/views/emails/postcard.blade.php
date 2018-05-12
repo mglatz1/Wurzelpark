@@ -1,6 +1,6 @@
 @component('mail::message')
 
-{{ __('messages.message_email_postcard1') }}
+{{ __('messages.message_email1') }}
 
 {{ __('messages.message_email_postcard2') }}
 

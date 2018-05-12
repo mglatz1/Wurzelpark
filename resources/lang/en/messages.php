@@ -57,11 +57,11 @@ return [
     "message_quiz_finish_info2" => "Please note that it's not possible to answer questions after you've finished the ".
         "quiz. Anyway, you can re-register and start from scratch.",
     "message_email1" => "Greetings from Wurzelpark Arriach-Gerlitze!",
-    "message_email_postcard1" => "Postcard from Wurzelpark Arriach-Gerlitze!",
     "message_email2" => "We were there and had a great time.",
     "message_email_postcard2" => "We were there and had a great time. Attached you can find a postcard!",
     "message_email3" => "See you!",
     "message_email_subject" => "Greetings from Wurzelpark Arriach",
+    "message_email_postcard_subject" => "Postcard from Wurzelpark Arriach-Gerlitze",
     "message_certificate_for" => "Certificate ",
     "message_postcard_for" => "Postcard ",
     "message_station_questions" => "This station contains %s questions.",
@@ -74,11 +74,17 @@ return [
     "message_agree" => "Agree with terms of data usage",
     "message_generate_postcard" => "Generate postcard",
     "message_generate_and_send_postcard" => "Generate and send postcard",
-    "message_choose_postcard_images" => "Please choose two image for your postcard",
-    "message_choose_postcard_template" => "Please choose a template for the postcard",
+    "message_choose_postcard_images" => "Please choose two image for your postcard. If you choose one image a default".
+        " image will be used.",
+    "message_choose_postcard_template" => "Please choose a template for the postcard.",
     "error_two_images_maximum" => "You are allowed to pick two images at most!",
     "message_to_photoalbum" => "Photo album",
     "message_to_postcard_generator" => "Postcard generator",
     "message_postcard" => "Postcard",
-    "success_postcard_generation" => "Your postcard will be generated and sent. Shortly, you will receive an email."
+    "success_postcard_generation" => "Your postcard will be generated and sent. Shortly, you will receive an email.",
+    "message_generate_postcard_info" => "Here you can generate an individual postcard. Choose a date, two pictures and".
+     "a template. After pressing \"Generate postcard\", the postcard will be generated and sent by mail.",
+    "message_send_postcard_info1" => "The postcard will be sent to you",
+    "message_send_postcard_info2" => "Optionally, you can enter another email address:",
+    "message_send_postcard_info3" => "Enter an email address to which the postcard will be sent."
 ];
