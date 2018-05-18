@@ -33,3 +33,8 @@ ul.thumbnails.image_picker_selector {
   max-width: 150px;
   max-height: 150px;
 }
+
+.postcard-template{
+  max-width: 250px;
+  max-height: 250px;
+}

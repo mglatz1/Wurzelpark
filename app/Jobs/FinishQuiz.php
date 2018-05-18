@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use Mockery\Exception;
 use \PhpOffice\PhpWord\TemplateProcessor;
 use \CloudConvert\Api;
 use App\Mail\FinishQuizMail;
@@ -89,10 +90,12 @@ class FinishQuiz implements ShouldQueue
         $file_path_to_processed_postcard = 0; // todo: remove if postcard is used
         Mail::to($this->user)->send(new FinishQuizMail($file_path_to_processed_certificate, $file_path_to_processed_postcard));
 
-        // delete temporary files
-        unlink($doc_temp_filename);
-        //unlink($postcard_temp_filename);
-        unlink($file_path_to_processed_certificate);
-        //unlink($file_path_to_processed_postcard);
+        try {
+            // delete temporary files
+            unlink($doc_temp_filename);
+            //unlink($postcard_temp_filename);
+            unlink($file_path_to_processed_certificate);
+            //unlink($file_path_to_processed_postcard);
+        } catch (Exception $e) {}
     }
 }

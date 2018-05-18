@@ -58,6 +58,11 @@
             <p>{{ __('messages.message_photoalbum_empty_album') }}</p>
         @endforelse
     </div>
-    @include('layouts.photoswipe')
 
+    <div class="container">
+        <hr>
+        <a href="{{ url('postcard') }}" class="btn btn-primary" role="button">{{ __("messages.message_to_postcard_generator") }}</a>
+        <hr>
+    </div>
+    @include('layouts.photoswipe')
 @endsection

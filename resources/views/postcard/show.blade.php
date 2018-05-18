@@ -22,6 +22,11 @@
             return;
         }
 
+        if ($('#email').val().length === 0) {
+            alert('{{ __('messages.error_enter_email') }}');
+            return;
+        }
+
         $('#generate-form').submit();
     }
 </script>
@@ -61,24 +66,24 @@
                     <label>
                         <select id="selectedimages" name="selectedimages[]" class="image-picker limit_callback" data-limit="2" multiple="multiple">
                             @foreach ($photos_of_folder as $photo_filename=>$dimension)
-                                <option data-img-src="{{ $photo_filename }}" value="{{ $photo_filename }}"></option>
+                                <option data-img-src="{{ asset($photo_filename) }}" value="{{ asset($photo_filename) }}"></option>
                             @endforeach
                         </select>
                     </label>
-                    <script>$("select").imagepicker()</script>
-
-                    <p>{{ __('messages.message_choose_postcard_template') }}</p>
-                    <div class="picker">
-                        <label>
-                            <select name="selectedtemplate" class="image-picker">
-                                @foreach ($postcards as $postcard)
-                                    <option data-img-src="{{ $postcard }}" value="{{ $postcard }}"></option>
-                                @endforeach
-                            </select>
-                        </label>
-                    </div>
-                    <script>$("select").imagepicker({limit_reached: function(){alert('{{ __("messages.error_two_images_maximum") }}')}})</script>
                 </div>
+                <script>$("select").imagepicker()</script>
+
+                <p>{{ __('messages.message_choose_postcard_template') }}</p>
+                <div class="picker">
+                    <label>
+                        <select name="selectedtemplate" class="image-picker">
+                            @foreach ($postcards as $postcard)
+                                <option data-img-src="{{ asset($postcard) }}" value="{{ asset($postcard) }}"></option>
+                            @endforeach
+                        </select>
+                    </label>
+                </div>
+                <script>$("select").imagepicker({limit_reached: function(){alert('{{ __("messages.error_two_images_maximum") }}')}})</script>
 
                 @if ($email)
                     <div>
@@ -92,7 +97,7 @@
                     <div>
                         <p>{{ __("messages.message_send_postcard_info3") }}</p>
                         <div class="form-group">
-                            <input type="email" class="form-control" id="email" name="email" value="" required>
+                            <input type="email" class="form-control" id="email" name="email" required>
                         </div>
                     </div>
                 @endif
@@ -105,5 +110,11 @@
         @empty
             <p>{{ __('messages.message_photoalbum_empty_album') }}</p>
         @endforelse
+    </div>
+
+    <div class="container">
+        <hr>
+        <a href="{{ url('photos') }}" class="btn btn-primary" role="button">{{ __("messages.message_to_photoalbum") }}</a>
+        <hr>
     </div>
 @endsection
