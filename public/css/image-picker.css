@@ -34,7 +34,7 @@ ul.thumbnails.image_picker_selector {
   max-height: 150px;
 }
 
-.postcard-template{
-  max-width: 250px;
-  max-height: 250px;
+.postcard-template .thumbnails li img{
+  max-width: 300px;
+  max-height: 300px;
 }

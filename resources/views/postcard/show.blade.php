@@ -74,7 +74,7 @@
                 <script>$("select").imagepicker()</script>
 
                 <p>{{ __('messages.message_choose_postcard_template') }}</p>
-                <div class="picker">
+                <div class="picker postcard-template">
                     <label>
                         <select name="selectedtemplate" class="image-picker">
                             @foreach ($postcards as $postcard)
