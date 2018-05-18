@@ -29,6 +29,17 @@
 
         $('#generate-form').submit();
     }
+
+    function loadImages(url, date, page) {
+        $.ajax({
+            type: "POST",
+            url: '/loadImages',
+            data: {date: date, page: page},
+            success: function( data ) {
+                alert(data.success);
+            }
+        });
+    }
 </script>
 
 @section('content')
@@ -72,6 +83,15 @@
                     </label>
                 </div>
                 <script>$("select").imagepicker()</script>
+
+
+
+                <div class="form-group">
+                    <a href="#" onClick="loadImages('{{ url('loadImages') }}', '{{$date}}', '{{ $page }}'); return false;"
+                       class="btn btn-primary" role="button">Lade weitere Bilder</a>
+                </div>
+
+
 
                 <p>{{ __('messages.message_choose_postcard_template') }}</p>
                 <div class="picker postcard-template">

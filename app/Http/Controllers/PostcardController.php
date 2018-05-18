@@ -8,8 +8,11 @@ use Illuminate\Support\Facades\Storage;
 
 class PostcardController extends Controller
 {
+
     public function show($date = null)
     {
+        $max_photos_to_load = 5;
+
         Utils::Instance()->resetLocale(request()->server('HTTP_ACCEPT_LANGUAGE'));
         $directories = Storage::allDirectories(env("PHOTOS_DIR"));
         $array_of_photos = array();
@@ -28,10 +31,15 @@ class PostcardController extends Controller
             }
 
             $photo = array();
+            $count = 1;
             foreach (Storage::allFiles($directory) as $file)
             {
                 $dimension = getimagesizefromstring(Storage::get($file));
                 $photo[Storage::url($file)] = $dimension[0].'x'.$dimension[1];
+
+                if ($count++ == $max_photos_to_load) {
+                    break;
+                }
             }
             $array_of_photos[basename($directory)] = $photo;
             break;
@@ -49,7 +57,58 @@ class PostcardController extends Controller
             $email = auth()->user()->email;
         }
 
-        return view('postcard.show', compact('array_of_photos', 'date', 'postcards', 'email'));
+        $page = 0;
+        return view('postcard.show', compact('array_of_photos', 'date', 'postcards', 'email', 'page'));
+    }
+
+    public function loadImages()
+    {
+        return view('loadImages');
+    }
+
+    public function loadImagesPost()
+    {
+        dd("hier");
+        return response()->json(['success'=>'Got Simple Ajax Request.']);
+
+        /*$input = request()->all();
+
+        dd($input);
+
+        return response()->json([
+            'name' => 'Abigail'
+        ]);
+
+        $directories = Storage::allDirectories(env("PHOTOS_DIR"));
+        $max_photos_to_load = 5;
+
+        $array_of_photos = array();
+
+        foreach ($directories as $directory)
+        {
+            if (strcmp(basename($directory), $date) != 0)
+            {
+                continue;
+            }
+
+            $photo = array();
+            $count = 1;
+            foreach (Storage::allFiles($directory) as $file)
+            {
+                if ($page * $max_photos_to_load < $count++) {
+                    continue;
+                }
+
+                $dimension = getimagesizefromstring(Storage::get($file));
+                $photo[Storage::url($file)] = $dimension[0].'x'.$dimension[1];
+
+                if ($count == $max_photos_to_load * ($page + 1)) {
+                    break;
+                }
+            }
+            $array_of_photos[basename($directory)] = $photo;
+            break;
+        }*/
     }
 
     public function store()

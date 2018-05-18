@@ -30,8 +30,8 @@ ul.thumbnails.image_picker_selector {
       background: #0088cc; }
 
 .thumbnails li img{
-  max-width: 150px;
-  max-height: 150px;
+  max-width: 250px;
+  max-height: 250px;
 }
 
 .postcard-template .thumbnails li img{
