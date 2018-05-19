@@ -91,5 +91,6 @@ return [
     "message_send_postcard_info2" => "Optional kannst du auch eine weitere E-Mail Adresse eingeben:",
     "message_send_postcard_info3" => "Gib eine E-Mail Adresse ein. An diese wird die Postkarte versendet:",
     "error_choose_one_image" => "Wähle mindestens ein Bild aus!",
-    "error_enter_email" => "Bitte gib eine E-Mail-Adresse ein!"
+    "error_enter_email" => "Bitte gib eine E-Mail-Adresse ein!",
+    "message_load_more_images" => "Weitere Bilder nachladen"
 ];

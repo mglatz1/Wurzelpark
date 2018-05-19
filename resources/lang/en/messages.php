@@ -88,5 +88,6 @@ return [
     "message_send_postcard_info2" => "Optionally, you can enter another email address:",
     "message_send_postcard_info3" => "Enter an email address to which the postcard will be sent.",
     "error_choose_one_image" => "Please choose at least one image!",
-    "error_enter_email" => "Please enter an email address!"
+    "error_enter_email" => "Please enter an email address!",
+    "message_load_more_images" => "Load more images"
 ];

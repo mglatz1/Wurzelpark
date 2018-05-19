@@ -5,17 +5,19 @@ namespace App\Http\Controllers;
 use App\Http\Utils\Utils;
 use App\Jobs\GenerateSendPostcard;
 use Illuminate\Support\Facades\Storage;
+use function Symfony\Component\VarDumper\Tests\Caster\reflectionParameterFixture;
 
 class PostcardController extends Controller
 {
 
     public function show($date = null)
     {
-        $max_photos_to_load = 5;
+        $max_photos_to_load = 7;
 
         Utils::Instance()->resetLocale(request()->server('HTTP_ACCEPT_LANGUAGE'));
         $directories = Storage::allDirectories(env("PHOTOS_DIR"));
         $array_of_photos = array();
+        $finished = 1;
 
         if ($date == NULL || $date == '')
         {
@@ -34,12 +36,13 @@ class PostcardController extends Controller
             $count = 1;
             foreach (Storage::allFiles($directory) as $file)
             {
-                $dimension = getimagesizefromstring(Storage::get($file));
-                $photo[Storage::url($file)] = $dimension[0].'x'.$dimension[1];
-
-                if ($count++ == $max_photos_to_load) {
+                if ($count++ == $max_photos_to_load + 1) {
+                    $finished = 0;
                     break;
                 }
+
+                $dimension = getimagesizefromstring(Storage::get($file));
+                $photo[Storage::url($file)] = $dimension[0].'x'.$dimension[1];
             }
             $array_of_photos[basename($directory)] = $photo;
             break;
@@ -57,32 +60,20 @@ class PostcardController extends Controller
             $email = auth()->user()->email;
         }
 
-        $page = 0;
-        return view('postcard.show', compact('array_of_photos', 'date', 'postcards', 'email', 'page'));
+        $page = 1;
+        return view('postcard.show', compact('array_of_photos', 'date', 'postcards', 'email', 'page', 'finished'));
     }
 
-    public function loadImages()
+    public function load()
     {
-        return view('loadImages');
-    }
-
-    public function loadImagesPost()
-    {
-        dd("hier");
-        return response()->json(['success'=>'Got Simple Ajax Request.']);
-
-        /*$input = request()->all();
-
-        dd($input);
-
-        return response()->json([
-            'name' => 'Abigail'
-        ]);
+        $page = request('page');
+        $date = request('date');
 
         $directories = Storage::allDirectories(env("PHOTOS_DIR"));
-        $max_photos_to_load = 5;
+        $max_photos_to_load = 7;
 
         $array_of_photos = array();
+        $finished = 1;
 
         foreach ($directories as $directory)
         {
@@ -92,27 +83,38 @@ class PostcardController extends Controller
             }
 
             $photo = array();
-            $count = 1;
+            $count = 0;
+
             foreach (Storage::allFiles($directory) as $file)
             {
-                if ($page * $max_photos_to_load < $count++) {
+                $count++;
+
+                if ($count <= $page * $max_photos_to_load) {
                     continue;
+                }
+
+                // there are more files which were not sent already
+                if ($count == $max_photos_to_load * ($page + 1) + 1) {
+                    $finished = 0;
+                    break;
                 }
 
                 $dimension = getimagesizefromstring(Storage::get($file));
                 $photo[Storage::url($file)] = $dimension[0].'x'.$dimension[1];
-
-                if ($count == $max_photos_to_load * ($page + 1)) {
-                    break;
-                }
             }
             $array_of_photos[basename($directory)] = $photo;
             break;
-        }*/
+        }
+
+        $page++;
+        return response()->json(['photos' => $array_of_photos, 'page' => $page, 'finished' => $finished]);
     }
 
     public function store()
     {
+        $max_photos_to_load = 7;
+        $finished = 1;
+
         Utils::Instance()->resetLocale(request()->server('HTTP_ACCEPT_LANGUAGE'));
 
         $template_filename_with_extension = basename(request('selectedtemplate'));
@@ -143,8 +145,15 @@ class PostcardController extends Controller
             }
 
             $photo = array();
+            $count = 1;
+
             foreach (Storage::allFiles($directory) as $file)
             {
+                if ($count++ == $max_photos_to_load + 1) {
+                    $finished = 0;
+                    break;
+                }
+
                 $dimension = getimagesizefromstring(Storage::get($file));
                 $photo[Storage::url($file)] = $dimension[0].'x'.$dimension[1];
             }
@@ -163,7 +172,9 @@ class PostcardController extends Controller
             $email = auth()->user()->email;
         }
 
-        return view('postcard.show', compact('array_of_photos', 'date', 'postcards', 'email'))
+        $page = 1;
+
+        return view('postcard.show', compact('array_of_photos', 'date', 'postcards', 'email', 'page', 'finished'))
             ->with('success', __("messages.success_postcard_generation"));
     }
 }

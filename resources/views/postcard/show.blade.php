@@ -30,16 +30,32 @@
         $('#generate-form').submit();
     }
 
-    function loadImages(url, date, page) {
+    function loadImages() {
         $.ajax({
-            type: "POST",
-            url: '/loadImages',
-            data: {date: date, page: page},
-            success: function( data ) {
-                alert(data.success);
+            method: 'post',
+            url: '{{ url('load') }}',
+            data: { _token: '{{ csrf_token() }}', date: '{{ $date }}', page: $('#page').val()},
+            dataType: 'json',
+            success: function(response){
+                $('#page').val(response.page);
+                jQuery.each(response.photos['{{ $date }}'], function(key) {
+                    // todo: change to www.wurzelpark.at/Wurzelpark in production
+                    var url_prefix = "http://localhost:9999";
+                    $('#selectedimages').append('<option data-img-src="' + url_prefix + key + '" value="' + url_prefix + key + '"></option>')
+                });
+
+                if (response.finished === 1) {
+                    $('#loadmore').hide();
+                }
+
+                $("select").imagepicker({limit_reached: function(){alert('{{ __("messages.error_two_images_maximum") }}')}})
             }
         });
     }
+
+    $(document).ready(function() {
+        $("select").imagepicker({limit_reached: function(){alert('{{ __("messages.error_two_images_maximum") }}')}})
+    });
 </script>
 
 @section('content')
@@ -81,18 +97,13 @@
                             @endforeach
                         </select>
                     </label>
+                    @if ($finished == 0)
+                        <a href="#" id="loadmore" onClick="loadImages(); return false;"
+                           class="btn btn-lg btn-primary" role="button">{{ __("messages.message_load_more_images") }}</a>
+                        <input type="hidden" name="page" id="page" value="{{ $page }}">
+                    @endif
                 </div>
-                <script>$("select").imagepicker()</script>
-
-
-
-                <div class="form-group">
-                    <a href="#" onClick="loadImages('{{ url('loadImages') }}', '{{$date}}', '{{ $page }}'); return false;"
-                       class="btn btn-primary" role="button">Lade weitere Bilder</a>
-                </div>
-
-
-
+                <br/>
                 <p>{{ __('messages.message_choose_postcard_template') }}</p>
                 <div class="picker postcard-template">
                     <label>
@@ -103,7 +114,6 @@
                         </select>
                     </label>
                 </div>
-                <script>$("select").imagepicker({limit_reached: function(){alert('{{ __("messages.error_two_images_maximum") }}')}})</script>
 
                 @if ($email)
                     <div>
