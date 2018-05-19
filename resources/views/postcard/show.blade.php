@@ -99,7 +99,7 @@
                     </label>
                     @if ($finished == 0)
                         <a href="#" id="loadmore" onClick="loadImages(); return false;"
-                           class="btn btn-lg btn-primary" role="button">{{ __("messages.message_load_more_images") }}</a>
+                           class="btn btn-default" role="button">{{ __("messages.message_load_more_images") }}</a>
                         <input type="hidden" name="page" id="page" value="{{ $page }}">
                     @endif
                 </div>

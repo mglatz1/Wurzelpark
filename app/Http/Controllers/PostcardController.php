@@ -12,7 +12,7 @@ class PostcardController extends Controller
 
     public function show($date = null)
     {
-        $max_photos_to_load = 7;
+        $max_photos_to_load = env("PHOTOS_TO_RELOAD_INITIAL_VALUE");
 
         Utils::Instance()->resetLocale(request()->server('HTTP_ACCEPT_LANGUAGE'));
         $directories = Storage::allDirectories(env("PHOTOS_DIR"));
@@ -70,7 +70,7 @@ class PostcardController extends Controller
         $date = request('date');
 
         $directories = Storage::allDirectories(env("PHOTOS_DIR"));
-        $max_photos_to_load = 7;
+        $max_photos_to_load = env("PHOTOS_TO_RELOAD_INITIAL_VALUE");
 
         $array_of_photos = array();
         $finished = 1;
@@ -112,7 +112,7 @@ class PostcardController extends Controller
 
     public function store()
     {
-        $max_photos_to_load = 7;
+        $max_photos_to_load = env("PHOTOS_TO_RELOAD_INITIAL_VALUE");
         $finished = 1;
 
         Utils::Instance()->resetLocale(request()->server('HTTP_ACCEPT_LANGUAGE'));
