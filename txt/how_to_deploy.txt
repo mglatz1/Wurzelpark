@@ -46,4 +46,5 @@
 
     alternatively: start dblistener refresh script on local computer
 
+13) Remove zip file and old folder
 *********************************************************************
