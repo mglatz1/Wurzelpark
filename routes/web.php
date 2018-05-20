@@ -29,4 +29,4 @@ Route::get('photos/{date?}', 'PhotoController@show');
 Route::get('postcard/{date?}', 'PostcardController@show')->name('postcard');
 Route::post('postcard', 'PostcardController@store');
 
-Route::post('load', 'PostcardController@load')->name('load');
+Route::post('load_images', 'PostcardController@load')->name('load_images');

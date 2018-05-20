@@ -88,6 +88,9 @@
             <form id="generate-form" method="POST" action="{{ url('postcard') }}">
                 {{ csrf_field() }}
 
+                <input type="hidden" class="form-control" id="selecteddate" name="selecteddate"
+                       value="<?php $dateTmp = explode('-', $date); echo $dateTmp[1].'/'.$dateTmp[2].'/'.$dateTmp[0]; ?>" required>
+
                 <div class="picker">
                     <p>{{ __('messages.message_choose_postcard_images') }}</p>
                     <label>

@@ -9,62 +9,62 @@ use function Symfony\Component\VarDumper\Tests\Caster\reflectionParameterFixture
 
 class PostcardController extends Controller
 {
-
     public function show($date = null)
     {
         $max_photos_to_load = env("PHOTOS_TO_RELOAD_INITIAL_VALUE");
 
         Utils::Instance()->resetLocale(request()->server('HTTP_ACCEPT_LANGUAGE'));
         $directories = Storage::allDirectories(env("PHOTOS_DIR"));
-        $array_of_photos = array();
         $finished = 1;
+        $page = 1;
 
         if ($date == NULL || $date == '')
         {
             $date = date('Y-m-d');
         }
 
-        // photos
-        foreach ($directories as $directory)
-        {
-            if (strcmp(basename($directory), $date) != 0)
-            {
-                continue;
-            }
+        $array_of_photos = $this->retrieve_photos($directories, $date, $max_photos_to_load, $finished);
+        $postcards = $this->retrieve_postcards(env("POSTCARD_TEMPLATES_FOLDER"));
+        $email = $this->retrieve_email();
 
-            $photo = array();
-            $count = 1;
-            foreach (Storage::allFiles($directory) as $file)
-            {
-                if ($count++ == $max_photos_to_load + 1) {
-                    $finished = 0;
-                    break;
-                }
-
-                $dimension = getimagesizefromstring(Storage::get($file));
-                $photo[Storage::url($file)] = $dimension[0].'x'.$dimension[1];
-            }
-            $array_of_photos[basename($directory)] = $photo;
-            break;
-        }
-
-        // postcard templates
-        $postcards = array();
-
-        foreach (Storage::allFiles(env("POSTCARD_TEMPLATES_FOLDER")) as $file) {
-            array_push($postcards, Storage::url($file));
-        }
-
-        $email = "";
-        if (auth()->id()) {
-            $email = auth()->user()->email;
-        }
-
-        $page = 1;
         return view('postcard.show', compact('array_of_photos', 'date', 'postcards', 'email', 'page', 'finished'));
     }
 
-    public function load()
+    public function store()
+    {
+        $max_photos_to_load = env("PHOTOS_TO_RELOAD_INITIAL_VALUE");
+        $finished = 1;
+        $page = 1;
+
+        Utils::Instance()->resetLocale(request()->server('HTTP_ACCEPT_LANGUAGE'));
+
+        $template_filename_with_extension = basename(request('selectedtemplate'));
+        $template_filename = preg_replace('/\\.[^.\\s]{3,4}$/', '', $template_filename_with_extension);
+
+        $first_image = request('selectedimages')[0];
+        $second_image = "";
+
+        if (count(request('selectedimages')) > 1) {
+            $second_image = request('selectedimages')[1];
+        }
+
+        dispatch(new GenerateSendPostcard($template_filename, request('email'), request('email2'),
+            $first_image, $second_image));
+
+        // reload page
+        $date = request('selecteddate');
+        $directories = Storage::allDirectories(env("PHOTOS_DIR"));
+
+        $array_of_photos = $this->retrieve_photos($directories, $date, $max_photos_to_load, $finished);
+        $postcards = $this->retrieve_postcards(env("POSTCARD_TEMPLATES_FOLDER"));
+
+        $email = $this->retrieve_email();
+
+        return view('postcard.show', compact('array_of_photos', 'date', 'postcards', 'email', 'page', 'finished'))
+            ->with('success', __("messages.success_postcard_generation"));
+    }
+
+    public function load_images()
     {
         $page = request('page');
         $date = request('date');
@@ -110,33 +110,32 @@ class PostcardController extends Controller
         return response()->json(['photos' => $array_of_photos, 'page' => $page, 'finished' => $finished]);
     }
 
-    public function store()
+    private function retrieve_email()
     {
-        $max_photos_to_load = env("PHOTOS_TO_RELOAD_INITIAL_VALUE");
-        $finished = 1;
+        $email = "";
 
-        Utils::Instance()->resetLocale(request()->server('HTTP_ACCEPT_LANGUAGE'));
-
-        $template_filename_with_extension = basename(request('selectedtemplate'));
-        $template_filename = preg_replace('/\\.[^.\\s]{3,4}$/', '', $template_filename_with_extension);
-
-        $first_image = request('selectedimages')[0];
-        $second_image = "";
-
-        if (count(request('selectedimages')) > 1) {
-            $second_image = request('selectedimages')[1];
+        if (auth()->id()) {
+            $email = auth()->user()->email;
         }
 
-        dispatch(new GenerateSendPostcard($template_filename, request('email'), request('email2'),
-            $first_image, $second_image));
+        return $email;
+    }
 
-        // reload page
-        $date = date('Y-m-d');
+    private function retrieve_postcards($postcard_directory)
+    {
+        $postcards = array();
 
-        $directories = Storage::allDirectories(env("PHOTOS_DIR"));
+        foreach (Storage::allFiles($postcard_directory) as $file) {
+            array_push($postcards, Storage::url($file));
+        }
+
+        return $postcards;
+    }
+
+    private function retrieve_photos($directories, $date, $max_photos_to_load, &$finished)
+    {
         $array_of_photos = array();
 
-        // photos
         foreach ($directories as $directory)
         {
             if (strcmp(basename($directory), $date) != 0)
@@ -146,7 +145,6 @@ class PostcardController extends Controller
 
             $photo = array();
             $count = 1;
-
             foreach (Storage::allFiles($directory) as $file)
             {
                 if ($count++ == $max_photos_to_load + 1) {
@@ -161,20 +159,6 @@ class PostcardController extends Controller
             break;
         }
 
-        $postcards = array();
-
-        foreach (Storage::allFiles(env("POSTCARD_TEMPLATES_FOLDER")) as $file) {
-            array_push($postcards, Storage::url($file));
-        }
-
-        $email = "";
-        if (auth()->id()) {
-            $email = auth()->user()->email;
-        }
-
-        $page = 1;
-
-        return view('postcard.show', compact('array_of_photos', 'date', 'postcards', 'email', 'page', 'finished'))
-            ->with('success', __("messages.success_postcard_generation"));
+        return $array_of_photos;
     }
 }
