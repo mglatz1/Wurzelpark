@@ -1,24 +1,27 @@
 *********************************************************************
+1) create temporary zip file of current version on server
 
-1) Replace .env file with .env for production
+2) rename current version on server to Wurzelpark.old
+
+3) Replace .env file with .env for production
     * Update database configuration
     * Set APP_DEBUG=false
     * (optional) Remove APP_KEY
 
-2) change url_prefix to "www.wurzelpark.at/Wurzelpark" in production in resources/views/photos/show.blade.php
+4) change url_prefix to "www.wurzelpark.at/Wurzelpark" in production in resources/views/photos/show.blade.php
     and resources/views/postcard/show.blade.php
 
-2) Zip project folder (remove .idea folder and .git-files)
+5) Zip project folder (remove .idea folder and .git-files)
 
-3) Upload to server and extract
+6) Upload to server and extract
 
-4) Copy all files from /public to main project folder
+7) Copy all files from /public to main project folder
     * Make sure there is a symbolic link from storage/ to storage/app/public (copy from older project)
     * In folder /www.wurzelpark.at/Wurzelpark/storage perform:
         ln -s app/public/postcard_templates postcard_templates
         ln -s app/public/photoalbum photoalbum
 
-5) Modify lines in index.php:
+8) Modify lines in index.php:
 
     * "require __DIR__.'/../bootstrap/autoload.php';" to
         "require __DIR__.'/bootstrap/autoload.php';"
@@ -26,17 +29,21 @@
     * "$app = require_once __DIR__.'/../bootstrap/app.php';" to
         "$app = require_once __DIR__.'/bootstrap/app.php';"
 
-6) (if APP_KEY was removed) On the server, in the project folder, Generate APP_KEY
+9) (if APP_KEY was removed) On the server, in the project folder, Generate APP_KEY
     * /usr/local/php5.6/bin/php artisan key:generate
 
-7) (optional) On the server, do a database migration if database doesn't exist
+10) copy old photos in photo album folder "storage/app/public/photoalbum
+
+11) (optional) On the server, do a database migration if database doesn't exist
     * /usr/local/php5.6/bin/php artisan migrate:refresh --seed
 
-8) On the server, start database listener for queue jobs and leave ssh
+12) (optional) On the server, start database listener for queue jobs and leave ssh
     * screen -S dblistener
     * cd www.wurzelpark.at/Laravel/
     * /usr/local/php5.6/bin/php artisan queue:listen database
     * Press Strg + A, Strg + D
     * exit
+
+    alternatively: start dblistener refresh script on local computer
 
 *********************************************************************
