@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Utils\Utils;
 use App\Jobs\GenerateSendPostcard;
 use Illuminate\Support\Facades\Storage;
-use function Symfony\Component\VarDumper\Tests\Caster\reflectionParameterFixture;
 
 class PostcardController extends Controller
 {
@@ -64,7 +63,7 @@ class PostcardController extends Controller
             ->with('success', __("messages.success_postcard_generation"));
     }
 
-    public function load_images()
+    public function load()
     {
         $page = request('page');
         $date = request('date');
@@ -132,7 +131,7 @@ class PostcardController extends Controller
         return $postcards;
     }
 
-    private function retrieve_photos($directories, $date, $max_photos_to_load, &$finished)
+    public function retrieve_photos($directories, $date, $max_photos_to_load, &$finished)
     {
         $array_of_photos = array();
 

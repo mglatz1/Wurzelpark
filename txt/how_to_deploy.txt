@@ -5,6 +5,9 @@
     * Set APP_DEBUG=false
     * (optional) Remove APP_KEY
 
+2) change url_prefix to "www.wurzelpark.at/Wurzelpark" in production in resources/views/photos/show.blade.php
+    and resources/views/postcard/show.blade.php
+
 2) Zip project folder (remove .idea folder and .git-files)
 
 3) Upload to server and extract

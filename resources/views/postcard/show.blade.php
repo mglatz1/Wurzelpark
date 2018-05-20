@@ -27,7 +27,13 @@
             return;
         }
 
-        $('#generate-form').submit();
+        // Check if valid using HTML5 checkValidity() builtin function
+        if ($('#generate-form')[0].checkValidity()) {
+            $('#generate-form')[0].submit();
+        } else {
+            alert('{{ __('messages.error_enter_valid_email') }}');
+        }
+        return false;
     }
 
     function loadImages() {
@@ -89,7 +95,7 @@
                 {{ csrf_field() }}
 
                 <input type="hidden" class="form-control" id="selecteddate" name="selecteddate"
-                       value="<?php $dateTmp = explode('-', $date); echo $dateTmp[1].'/'.$dateTmp[2].'/'.$dateTmp[0]; ?>" required>
+                       value="{{ $date }}">
 
                 <div class="picker">
                     <p>{{ __('messages.message_choose_postcard_images') }}</p>

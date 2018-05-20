@@ -15,6 +15,30 @@
             window.location.replace(url + '/' + date[2] + '-' + date[0] + '-' + date[1]);
         }
     }
+
+    function loadImages() {
+        $.ajax({
+            method: 'post',
+            url: '{{ url('load') }}',
+            data: { _token: '{{ csrf_token() }}', date: '{{ $date }}', page: $('#page').val()},
+            dataType: 'json',
+            success: function(response){
+                $('#page').val(response.page);
+                jQuery.each(response.photos['{{ $date }}'], function(key) {
+                    // todo: change to www.wurzelpark.at/Wurzelpark in production
+                    var url_prefix = "http://localhost:9999";
+                    $('#photodiv').append('<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">' +
+                        '<a href="' + url_prefix + key + '" itemprop="contentUrl" data-size="' + response.photos['{{ $date }}'][key]+ '">' +
+                        '<img src="' + url_prefix + key + '" itemprop="thumbnail" alt="basename($photo_filename)" /> </a>' +
+                        '<figcaption itemprop="caption description">' + url_prefix + key + '</figcaption></figure>');
+                });
+
+                if (response.finished === 1) {
+                    $('#loadmore').hide();
+                }
+            }
+        });
+    }
 </script>
 
 @section('content')
@@ -44,15 +68,25 @@
     <div class="container">
         @forelse ($array_of_photos as $key=>$photos_of_folder)
             <h2>{{ $key }}</h2>
-            <div class="my-gallery container photos" itemscope itemtype="http://schema.org/ImageGallery">
-                @foreach ($photos_of_folder as $photo_filename=>$dimension)
-                    <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-                        <a href="{{ asset($photo_filename) }}" itemprop="contentUrl" data-size="{{$dimension}}">
-                            <img src="{{ asset($photo_filename) }}" itemprop="thumbnail" alt="basename($photo_filename)" />
-                        </a>
-                        <figcaption itemprop="caption description">{{ basename($photo_filename) }}</figcaption>
-                    </figure>
-                @endforeach
+            <div class="row">
+                <div id="photodiv" class="my-gallery container photos" itemscope itemtype="http://schema.org/ImageGallery">
+                    @foreach ($photos_of_folder as $photo_filename=>$dimension)
+                        <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                            <a href="{{ asset($photo_filename) }}" itemprop="contentUrl" data-size="{{$dimension}}">
+                                <img src="{{ asset($photo_filename) }}" itemprop="thumbnail" alt="{{ basename($photo_filename) }}" />
+                            </a>
+                            <figcaption itemprop="caption description">{{ basename($photo_filename) }}</figcaption>
+                        </figure>
+                    @endforeach
+                </div>
+                @if ($finished == 0)
+                    <br/>
+                    <div class="container">
+                        <a href="#" id="loadmore" onClick="loadImages(); return false;"
+                            class="btn btn-default" role="button">{{ __("messages.message_load_more_images") }}</a>
+                        <input type="hidden" name="page" id="page" value="{{ $page }}">
+                    </div>
+                @endif
             </div>
         @empty
             <p>{{ __('messages.message_photoalbum_empty_album') }}</p>

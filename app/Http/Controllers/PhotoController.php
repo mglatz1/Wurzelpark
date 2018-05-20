@@ -11,30 +11,17 @@ class PhotoController extends Controller
     {
         Utils::Instance()->resetLocale(request()->server('HTTP_ACCEPT_LANGUAGE'));
         $directories = Storage::allDirectories(env("PHOTOS_DIR"));
-        $array_of_photos = array();
+        $finished = 0;
+        $page = 1;
+        $max_photos_to_load = env("PHOTOS_TO_RELOAD_INITIAL_VALUE_PHOTO_ALBUM");
 
         if ($date == NULL || $date == '')
         {
             $date = date('Y-m-d');
         }
 
-        foreach ($directories as $directory)
-        {
-            if (strcmp(basename($directory), $date) != 0)
-            {
-                continue;
-            }
+        $array_of_photos = app('App\Http\Controllers\PostcardController')->retrieve_photos($directories, $date, $max_photos_to_load, $finished);
 
-            $photo = array();
-            foreach (Storage::allFiles($directory) as $file)
-            {
-                $dimension = getimagesizefromstring(Storage::get($file));
-                $photo[Storage::url($file)] = $dimension[0].'x'.$dimension[1];
-            }
-            $array_of_photos[basename($directory)] = $photo;
-            break;
-        }
-
-        return view('photos.show', compact('array_of_photos', 'date'));
+        return view('photos.show', compact('array_of_photos', 'date', 'finished', 'page'));
     }
 }
