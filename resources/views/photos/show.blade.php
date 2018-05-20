@@ -25,11 +25,11 @@
             success: function(response){
                 $('#page').val(response.page);
                 jQuery.each(response.photos['{{ $date }}'], function(key) {
-                    // todo: change to www.wurzelpark.at/Wurzelpark in production
+                    // todo: change to http://www.wurzelpark.at/Wurzelpark in production
                     var url_prefix = "http://localhost:9999";
                     $('#photodiv').append('<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">' +
                         '<a href="' + url_prefix + key + '" itemprop="contentUrl" data-size="' + response.photos['{{ $date }}'][key]+ '">' +
-                        '<img src="' + url_prefix + key + '" itemprop="thumbnail" alt="basename($photo_filename)" /> </a>' +
+                        '<img src="' + url_prefix + key + '" itemprop="thumbnail" alt="' + url_prefix + key + '" /> </a>' +
                         '<figcaption itemprop="caption description">' + url_prefix + key + '</figcaption></figure>');
                 });
 

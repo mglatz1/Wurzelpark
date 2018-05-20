@@ -45,7 +45,7 @@
             success: function(response){
                 $('#page').val(response.page);
                 jQuery.each(response.photos['{{ $date }}'], function(key) {
-                    // todo: change to www.wurzelpark.at/Wurzelpark in production
+                    // todo: change to http://www.wurzelpark.at/Wurzelpark in production
                     var url_prefix = "http://localhost:9999";
                     $('#selectedimages').append('<option data-img-src="' + url_prefix + key + '" value="' + url_prefix + key + '"></option>')
                 });
