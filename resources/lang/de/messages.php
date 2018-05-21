@@ -93,5 +93,5 @@ return [
     "error_choose_one_image" => "Wähle mindestens ein Bild aus!",
     "error_enter_email" => "Bitte gib eine E-Mail-Adresse ein!",
     "error_enter_valid_email" => "Bitte gib eine gültige E-Mail-Adresse ein!",
-    "message_load_more_images" => "Weitere Bilder nachladen"
+    "message_load_more_images" => "Weitere Bilder anzeigen"
 ];
