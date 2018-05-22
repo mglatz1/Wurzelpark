@@ -42,16 +42,15 @@ class GenerateSendPostcard implements ShouldQueue
         // adapt file paths on wurzelpark.at and localhost differently
         $this->image_filename = str_replace_first('http://www.wurzelpark.at/Wurzelpark/', '', $image_filename);
         $this->image_filename = str_replace_first('http://wurzelpark.at/Wurzelpark/', '', $this->image_filename);
+        $this->image_filename2 = str_replace_first('http://www.wurzelpark.at/Wurzelpark/', '', $image_filename2);
+        $this->image_filename2 = str_replace_first('http://wurzelpark.at/Wurzelpark/', '', $this->image_filename2);
 
         if (strpos($this->image_filename, 'localhost') != 0) {
-            $this->image_filename = str_replace_first('storage/photoalbum', 'storage/app/public/photoalbum', $this->image_filename);
             $this->image_filename = str_replace_first('storage/photoalbum', 'storage/app/public/photoalbum', $this->image_filename);
             $this->image_filename2 = str_replace_first('storage/photoalbum', 'storage/app/public/photoalbum', $this->image_filename2);
         }
 
         $this->image_filename = str_replace_first('http://localhost:9999', '', $this->image_filename);
-        $this->image_filename2 = str_replace_first('http://www.wurzelpark.at/Wurzelpark/', '', $image_filename2);
-        $this->image_filename2 = str_replace_first('http://wurzelpark.at/Wurzelpark/', '', $this->image_filename2);
         $this->image_filename2 = str_replace_first('http://localhost:9999', '', $this->image_filename2);
     }
 
