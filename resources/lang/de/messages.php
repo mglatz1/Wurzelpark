@@ -40,7 +40,8 @@ return [
     "message_english" => "Englisch",
     "message_italian" => "Italienisch",
     "message_info_registration1" => "Alle von dir eingegebenen Daten werden ausschließlich für die interne Verarbeitung ".
-        "des Quizweges verwendet. Die Daten werden nicht an Dritte weiter gegeben.",
+        "des Quizweges verwendet. Die Daten werden keinesfalls an Dritte weiter gegeben. Details über die Speicherung von ".
+        "Daten findest du in den",
     "message_info_registration2" => "Nach der Registrierung kannst das Quiz jederzeit unterbrechen und zu einem".
         " späteren Zeitpunkt fortsetzen.",
     "message_welcome" => "Willkommen beim Wurzelpark Arriach!",
@@ -73,7 +74,7 @@ return [
     "message_photoalbum_empty_album" => "Keine Fotos für das ausgewählte Datum gefunden. Wähle ein anderes Datum aus.",
     "message_photoalbum_select_date" => "Bitte wähle ein Datum aus: ",
     "message_photoalbum_submit" => "Suchen",
-    "message_agree" => "Datenschutzbestimmungen zustimmen",
+    "message_agree" => "Datenschutzerklärung zustimmen",
     "message_generate_postcard" => "Postkarte generieren",
     "message_generate_and_send_postcard" => "Postkarte generieren und senden",
     "message_choose_postcard_images" => "Wähle zwei Bilder für deine Postkarte aus. Wählst du nur ein Bild".
@@ -93,5 +94,6 @@ return [
     "error_choose_one_image" => "Wähle mindestens ein Bild aus!",
     "error_enter_email" => "Bitte gib eine E-Mail-Adresse ein!",
     "error_enter_valid_email" => "Bitte gib eine gültige E-Mail-Adresse ein!",
-    "message_load_more_images" => "Weitere Bilder anzeigen"
+    "message_load_more_images" => "Weitere Bilder anzeigen",
+    "message_privacy" => "Datenschutzerklärung"
 ];

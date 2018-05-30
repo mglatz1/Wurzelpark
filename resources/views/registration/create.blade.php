@@ -71,7 +71,9 @@
                 </div>
 
                 <div class="form-group">
-                    <p>{{ __("messages.message_info_registration1") }}</p>
+                    <p>{{ __("messages.message_info_registration1") }}
+                        <a href="{{ url('privacy') }}" target="_blank"> {{ __("messages.message_privacy") }}</a>.
+                    </p>
                     <p>{{ __("messages.message_info_registration2") }}</p>
                     <span><label class="form-check-label"><input class="form-group" type="checkbox" id="agreement" value="agreed" onClick="agreeClick()">
                     {{ __("messages.message_agree") }}</label></span>

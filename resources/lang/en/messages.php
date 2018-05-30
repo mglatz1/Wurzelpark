@@ -39,7 +39,7 @@ return [
     "message_english" => "English",
     "message_italian" => "Italian",
     "message_info_registration1" => "All entered data is only used for internal processing. Data will not be ".
-        "published to third-parties.",
+        "shared with third-parties. More about privacy can be found in ",
     "message_info_registration2" => "You can interrupt the quiz at any time and proceed later on.",
     "message_welcome" => "Welcome to Wurzelpark Arriach!",
     "message_welcome_registered" => "To start the quiz rally, go to a station and scan the code using a QR-Code-App. ".
@@ -90,5 +90,6 @@ return [
     "error_choose_one_image" => "Please choose at least one image!",
     "error_enter_email" => "Please enter an email address!",
     "error_enter_valid_email" => "Please enter a valid email address!",
-    "message_load_more_images" => "Show more images"
+    "message_load_more_images" => "Show more images",
+    "message_privacy" => "Data Privacy"
 ];

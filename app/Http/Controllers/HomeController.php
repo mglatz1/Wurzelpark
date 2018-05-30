@@ -23,4 +23,11 @@ class HomeController extends Controller
             return view('welcome');
         }
     }
+
+    public function show()
+    {
+        Utils::Instance()->resetLocale(request()->server('HTTP_ACCEPT_LANGUAGE'));
+        return view('privacy');
+    }
+
 }

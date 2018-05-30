@@ -59,6 +59,17 @@
         @yield('content')
     </div>
 </div>
+
+<footer class="page-footer font-small blue pt-4 mt-4">
+    <div class="footer-copyright text-center py-3">© Wurzelpark Arriach 2018
+
+    </div>
+    <div class="footer-copyright text-center py-3">
+        <a href="{{ url('privacy') }}" target="_blank">{{ __("messages.message_privacy") }}</a>
+    </div>
+    <hr>
+</footer>
+
 <script src="{{ asset('js/app.js') }}"></script>
 <script src="{{ asset('js/jquery.min.js') }}"></script>
 <script src="{{ asset('js/jquery-ui.min.js') }}"></script>

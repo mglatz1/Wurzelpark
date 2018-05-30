@@ -100,3 +100,4 @@
     </div>
     @include('layouts.photoswipe')
 @endsection
+
