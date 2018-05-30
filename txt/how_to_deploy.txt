@@ -1,5 +1,6 @@
 *********************************************************************
 1) create temporary zip file of current version on server
+	* zip -r Wurzelpark.zip Wurzelpark
 
 2) rename current version on server to Wurzelpark.old
 
@@ -14,6 +15,7 @@
 5) Zip project folder (remove .idea folder and .git-files)
 
 6) Upload to server and extract
+    * unzip Wurzelpark.zip
 
 7) Copy all files from /public to main project folder
     * Make sure there is a symbolic link from storage/ to storage/app/public (copy from older project)
@@ -32,12 +34,18 @@
 9) (if APP_KEY was removed) On the server, in the project folder, Generate APP_KEY
     * /usr/local/php5.6/bin/php artisan key:generate
 
-10) copy old photos in photo album folder "storage/app/public/photoalbum
+10) (if .env was changed) Perform config cache reload:
+	* /usr/local/php5.6/bin/php artisan config:clear
 
-11) (optional) On the server, do a database migration if database doesn't exist
+11) copy old photos in photo album folder "storage/app/public/photoalbum
+
+12) Create zip archive of current deployment, download and delete it on server!
+    * zip -r Wurzelpark.zip Wurzelpark
+
+13) (optional) On the server, do a database migration if database doesn't exist
     * /usr/local/php5.6/bin/php artisan migrate:refresh --seed
 
-12) (optional) On the server, start database listener for queue jobs and leave ssh
+14) (optional) On the server, start database listener for queue jobs and leave ssh
     * screen -S dblistener
     * cd www.wurzelpark.at/Laravel/
     * /usr/local/php5.6/bin/php artisan queue:listen database
@@ -46,5 +54,5 @@
 
     alternatively: start dblistener refresh script on local computer
 
-13) Remove zip file and old folder
+15) Remove zip file and old folder
 *********************************************************************
