@@ -95,5 +95,8 @@ return [
     "error_enter_email" => "Bitte gib eine E-Mail-Adresse ein!",
     "error_enter_valid_email" => "Bitte gib eine gültige E-Mail-Adresse ein!",
     "message_load_more_images" => "Weitere Bilder anzeigen",
-    "message_privacy" => "Datenschutzerklärung"
+    "message_privacy" => "Datenschutzerklärung",
+    "message_cookie_info" => "Diese Webseite verwendet Cookies. Mit der Nutzung der Webseite erklären Sie sich damit ".
+        "einverstanden.",
+    "message_imprint" => "Impressum"
 ];

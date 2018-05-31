@@ -91,5 +91,7 @@ return [
     "error_enter_email" => "Please enter an email address!",
     "error_enter_valid_email" => "Please enter a valid email address!",
     "message_load_more_images" => "Show more images",
-    "message_privacy" => "Data Privacy"
+    "message_privacy" => "Data Privacy",
+    "message_cookie_info" => "This website uses cookies. By using the website, you agree to the usage of cookies.",
+    "message_imprint" => "Imprint"
 ];

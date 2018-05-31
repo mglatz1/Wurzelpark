@@ -67,5 +67,4 @@
         erteilte Einwilligungen widerrufen möchten, wenden Sie sich bitte an folgende E-Mail-Adresse:
         wurzelpark@gmail.com.
     </p>
-    <hr>
 @endsection

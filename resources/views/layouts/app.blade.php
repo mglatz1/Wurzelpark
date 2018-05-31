@@ -61,11 +61,13 @@
 </div>
 
 <footer class="page-footer font-small blue pt-4 mt-4">
-    <div class="footer-copyright text-center py-3">© Wurzelpark Arriach 2018
-
+    <hr>
+    <div class="footer-copyright text-center py-3">© Wurzelpark Arriach 2018.
+        <a href="{{ url('info') }}" target="_blank">{{ __("messages.message_imprint") }}</a>.
+        <a href="{{ url('privacy') }}" target="_blank">{{ __("messages.message_privacy") }}.</a>
     </div>
-    <div class="footer-copyright text-center py-3">
-        <a href="{{ url('privacy') }}" target="_blank">{{ __("messages.message_privacy") }}</a>
+    <br/>
+    <div class="footer-copyright text-center py- small">{{ __("messages.message_cookie_info") }}
     </div>
     <hr>
 </footer>
