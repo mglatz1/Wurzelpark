@@ -37,7 +37,7 @@
         wird dabei verschlüsselt und nicht als Klartext gespeichert. Wir behalten uns vor, statistische Auswertungen
         über das Alter der TeilnehmerInnen des Quizweges vorzunehmen, dazu wird das Geburtsjahr des Quizteilnehmers
         benötigt. Die Eingabe der Sprache ist notwendig, um die Inhalte des Quizes, des Fotoalbums sowie der Postkarten-
-        Generierung in der entsprechende Sprache anzubieten. 
+        Generierung in der entsprechende Sprache anzubieten.
     </p>
 
     <h4>Rechte des Nutzers</h4>
@@ -51,10 +51,11 @@
     <h4>Löschung von Daten</h4>
     <p>Sofern Ihr Wunsch nicht mit einer gesetzlichen Pflicht zur Aufbewahrung von Daten
         (z. B. Vorratsdatenspeicherung) kollidiert, haben Sie ein Anrecht auf Löschung Ihrer Daten. Von uns
-        gespeicherte Daten werden, sollten sie für ihre Zweckbestimmung nicht mehr vonnöten sein und es keine
-        gesetzlichen Aufbewahrungsfristen geben, gelöscht. Falls eine Löschung nicht durchgeführt werden kann, da
-        die Daten für zulässige gesetzliche Zwecke erforderlich sind, erfolgt eine Einschränkung der
-        Datenverarbeitung. In diesem Fall werden die Daten gesperrt und nicht für andere Zwecke verarbeitet.
+        gespeicherte Daten werden, sollten sie für ihre Zweckbestimmung nicht mehr vonnöten sein (dies ist maximal ein
+        Jahr nach Registierung der Fall) und es keine gesetzlichen Aufbewahrungsfristen geben, gelöscht.
+        Falls eine Löschung nicht durchgeführt werden kann, da die Daten für zulässige gesetzliche Zwecke erforderlich
+        sind, erfolgt eine Einschränkung der Datenverarbeitung. In diesem Fall werden die Daten gesperrt und nicht
+        für andere Zwecke verarbeitet.
     </p>
 
     <h4>Widerspruchsrecht</h4>
