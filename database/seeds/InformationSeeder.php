@@ -23,8 +23,8 @@ class InformationSeeder extends Seeder
         DB::table('information_translations')->insert([
             'information_id' => '1',
             'locale' => 'de',
-            'title' => 'Kontakt',
-            'text' => 'Fam. Gerda und Erich Jankl<br/>Innerteuchen 2<br/>A-9543 Arriach<br/><br/>Mobil: 0043 (0) 650 21 22 880<br/><a href="http://www.wurzelpark.at" target="_blank">wwww.wurzelpark.at</a><br/><a href="http://www.steinacher-hofladen.at" target="_blank">www.steinacher-hofladen.at</a><br/>E-Mail: <a href="mailto:steinacher.hofladen@aon.at" target="_top">steinacher.hofladen@aon.at</a><br/>',
+            'title' => 'Impressum',
+            'text' => 'Für den Inhalt verantwortlich:<br/><br/>Fam. Gerda und Erich Jankl<br/>Innerteuchen 2<br/>A-9543 Arriach<br/><br/>Mobil: 0043 (0) 650 21 22 880<br/><a href="http://www.wurzelpark.at" target="_blank">wwww.wurzelpark.at</a><br/><a href="http://www.steinacher-hofladen.at" target="_blank">www.steinacher-hofladen.at</a><br/>E-Mail: <a href="mailto:steinacher.hofladen@aon.at" target="_top">steinacher.hofladen@aon.at</a><br/>',
             'url_to_audio' => 'http://www.wurzelpark.at/App/Guide/Audio/HauptinfoWP.mp3',
             'url_to_video' => '',
             'url_to_pdf' => '',
@@ -34,8 +34,8 @@ class InformationSeeder extends Seeder
         DB::table('information_translations')->insert([
             'information_id' => '1',
             'locale' => 'en',
-            'title' => 'Contakt',
-            'text' => 'Gerda and Erich Jankl<br/>Innerteuchen 2<br/>A-9543 Arriach<br/><br/>mobile number: 0043 (0) 650 21 22 880<br/><a href="http://www.wurzelpark.at" target="_blank">wwww.wurzelpark.at</a><br/><a href="http://www.steinacher-hofladen.at" target="_blank">www.steinacher-hofladen.at</a><br/>email: <a href="mailto:steinacher.hofladen@aon.at" target="_top">steinacher.hofladen@aon.at</a><br/>',
+            'title' => 'Imprint',
+            'text' => 'Responsible for the content:<br/><br/>Gerda and Erich Jankl<br/>Innerteuchen 2<br/>A-9543 Arriach<br/><br/>mobile number: 0043 (0) 650 21 22 880<br/><a href="http://www.wurzelpark.at" target="_blank">wwww.wurzelpark.at</a><br/><a href="http://www.steinacher-hofladen.at" target="_blank">www.steinacher-hofladen.at</a><br/>email: <a href="mailto:steinacher.hofladen@aon.at" target="_top">steinacher.hofladen@aon.at</a><br/>',
             'url_to_audio' => '',
             'url_to_video' => '',
             'url_to_pdf' => '',
