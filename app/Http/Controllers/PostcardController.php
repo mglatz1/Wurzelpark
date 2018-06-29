@@ -150,10 +150,12 @@ class PostcardController extends Controller
                     $finished = 0;
                     break;
                 }
-
-                $dimension = getimagesizefromstring(Storage::get($file));
-                $photo[Storage::url($file)] = $dimension[0].'x'.$dimension[1];
-            }
+				
+				if (substr($haystack, -strlen(".jpg"))===".jpg") {
+					$dimension = getimagesizefromstring(Storage::get($file));
+					$photo[Storage::url($file)] = $dimension[0].'x'.$dimension[1];
+				}
+			}
             $array_of_photos[basename($directory)] = $photo;
             break;
         }
