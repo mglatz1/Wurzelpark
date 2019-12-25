@@ -151,7 +151,7 @@ class PostcardController extends Controller
                     break;
                 }
 				
-				if (substr($haystack, -strlen(".jpg"))===".jpg") {
+				if (substr($file, -strlen(".jpg"))===".jpg") {
 					$dimension = getimagesizefromstring(Storage::get($file));
 					$photo[Storage::url($file)] = $dimension[0].'x'.$dimension[1];
 				}
