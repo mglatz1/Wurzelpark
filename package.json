@@ -16,7 +16,7 @@
     "jquery": "^3.3.1",
     "jquery-ui-dist": "^1.12.1",
     "laravel-mix": "0.*",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.13",
     "photoswipe": "^4.1.2",
     "vue": "^2.1.10"
   }
